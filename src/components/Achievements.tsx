@@ -2,68 +2,98 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Briefcase, Clock, Coffee } from "lucide-react";
+import { Award, ExternalLink, ShieldCheck, Cpu, Database, Cloud } from "lucide-react";
 
-const achievements = [
+const stats = [
+  { label: "Projects Completed", value: "15+", icon: <Cpu /> },
+  { label: "Infrastructure Managed", value: "50+ Nodes", icon: <Database /> },
+  { label: "System Uptime", value: "99.9%", icon: <ShieldCheck /> },
+];
+
+const certifications = [
   {
-    icon: <Code2 className="w-8 h-8" />,
-    title: "15+ Projects",
-    description: "Successfully delivered high-quality web and mobile applications using modern stacks.",
-    delay: 0.1,
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "Jan 2026",
+    link: "#",
+    icon: <Cloud className="w-10 h-10 text-primary" />,
   },
   {
-    icon: <Briefcase className="w-8 h-8" />,
-    title: "3+ Years Exp.",
-    description: "Professional experience in software development and UI/UX design.",
-    delay: 0.2,
+    title: "CKAD: Certified Kubernetes Application Developer",
+    issuer: "CNCF",
+    date: "Dec 2025",
+    link: "#",
+    icon: <ShieldCheck className="w-10 h-10 text-accent" />,
   },
   {
-    icon: <Clock className="w-8 h-8" />,
-    title: "2000+ Coding Hours",
-    description: "Dedicated to mastering complex architectures and performance optimization.",
-    delay: 0.3,
-  },
-  {
-    icon: <Coffee className="w-8 h-8" />,
-    title: "Infinite Coffee",
-    description: "The primary fuel for turning complex problems into elegant solutions.",
-    delay: 0.4,
+    title: "HashiCorp Certified: Terraform Associate",
+    issuer: "HashiCorp",
+    date: "Oct 2025",
+    link: "#",
+    icon: <Database className="w-10 h-10 text-indigo-400" />,
   },
 ];
 
 export default function Achievements() {
   return (
     <section id="achievements" className="py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
+        {stats.map((stat, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="glass p-10 rounded-[3rem] text-center relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="mb-6 inline-flex p-4 rounded-2xl bg-white/5 text-primary group-hover:scale-110 transition-transform">
+              {stat.icon}
+            </div>
+            <div className="text-5xl font-black text-gradient mb-2">{stat.value}</div>
+            <div className="text-foreground/40 font-mono text-xs uppercase tracking-widest">{stat.label}</div>
+          </motion.div>
+        ))}
+      </div>
+
       <div className="text-center mb-16">
-        <motion.h2 
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 20 }}
-          className="text-3xl md:text-5xl font-bold mb-4"
-        >
-          My <span className="text-gradient">Achievements</span>
-        </motion.h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          Professional <span className="text-gradient">Certifications</span>
+        </h2>
         <p className="text-foreground/60 max-w-2xl mx-auto">
-          A summary of my journey and the milestones I've hit along the way.
+          Validated expertise through world-class certification programs.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {achievements.map((item, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {certifications.map((cert, idx) => (
           <motion.div
-            key={index}
+            key={idx}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 30 }}
-            transition={{ delay: item.delay, duration: 0.5 }}
-            whileHover={{ y: -10 }}
-            className="glass glass-hover p-8 rounded-2xl text-center group"
+            transition={{ delay: idx * 0.1 }}
+            className="glass p-8 rounded-[2.5rem] border border-white/5 relative group hover:border-primary/50 transition-all"
           >
-            <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background transition-colors duration-300">
-              {item.icon}
+            <div className="flex items-start justify-between mb-8">
+              <div className="p-4 rounded-2xl bg-white/5">
+                {cert.icon}
+              </div>
+              <a href={cert.link} className="p-3 rounded-full bg-white/5 hover:bg-primary hover:text-background transition-all">
+                <ExternalLink className="w-5 h-5" />
+              </a>
             </div>
-            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-            <p className="text-sm text-foreground/60 leading-relaxed">
-              {item.description}
-            </p>
+            
+            <h3 className="text-xl font-bold mb-3 leading-tight">{cert.title}</h3>
+            <div className="flex flex-col gap-1 text-sm font-medium">
+              <span className="text-primary">{cert.issuer}</span>
+              <span className="text-foreground/40">{cert.date}</span>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/5">
+              <div className="flex items-center gap-2 text-xs font-mono text-foreground/30">
+                <Award className="w-4 h-4" />
+                VERIFIED CREDENTIAL
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
