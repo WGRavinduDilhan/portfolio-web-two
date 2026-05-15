@@ -9,13 +9,13 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="portfolio-section min-h-screen flex items-center relative overflow-hidden pt-20"
+      className="portfolio-section min-h-screen flex items-center relative overflow-hidden pt-24"
     >
       <div className="site-container w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-16 py-20">
+        <div className="flex flex-col lg:flex-row items-center gap-20 py-28">
 
           {/* ── Text Content ── */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -26,7 +26,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-10"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -35,21 +35,24 @@ export default function Hero() {
               Available for new opportunities
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.08] tracking-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
               I build{" "}
               <span className="text-gradient">exceptional</span>
               <br />
               digital experiences.
             </h1>
+            <br />
 
-            <p className="text-foreground/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+            <p className="text-foreground/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-12 leading-8">
               Full Stack Developer &amp; DevOps Engineer crafting modern, scalable
               infrastructure and high-performance web applications with a deep
               focus on{" "}
               <span className="text-foreground/90 font-medium">SRE practices</span>.
             </p>
+            <br />
+            <br />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
               <a href="#contact" className="btn-primary">
                 Work Together <ArrowRight className="w-4 h-4" />
               </a>
@@ -57,22 +60,24 @@ export default function Hero() {
                 Download CV <Download className="w-4 h-4" />
               </button>
             </div>
+            <br />
+            <br />
 
             {/* Stats row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex items-center gap-10 mt-14 justify-center lg:justify-start"
+              className="flex items-center gap-30 mt-30 justify-center lg:justify-start"
             >
               {[
-                { value: "15+", label: "Projects" },
+                { value: "10+", label: "Projects" },
                 { value: "99.9%", label: "Uptime SLA" },
-                { value: "50+", label: "Nodes Managed" },
+                { value: "5+", label: "CI/CD Pipelines" },
               ].map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-black text-gradient">{s.value}</div>
-                  <div className="text-xs uppercase tracking-widest text-foreground/40 font-bold mt-0.5">{s.label}</div>
+                <div key={s.label} className="text-left">
+                  <div className="text-2xl md:text-3xl font-black text-gradient">{s.value}</div>
+                  <div className="text-xs md:text-sm uppercase tracking-widest text-foreground/40 font-bold mt-1">{s.label}</div>
                 </div>
               ))}
             </motion.div>

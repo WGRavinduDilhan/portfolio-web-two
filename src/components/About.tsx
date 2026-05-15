@@ -16,12 +16,12 @@ const competencies = [
 
 export default function About() {
   return (
-    <section id="about" className="portfolio-section relative overflow-hidden">
+    <section id="about" className="portfolio-section relative overflow-hidden py-24 lg:py-32">
       {/* Background Decorative Blob */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="site-container relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-32">
+        <div className="flex flex-col lg:flex-row items-center gap-40">
 
           {/* ── Text ── */}
           <motion.div
@@ -39,9 +39,9 @@ export default function About() {
               <br />at Scale.
             </h2>
 
-            <div className="space-y-8 text-foreground/65 text-xl leading-relaxed mb-16">
+            <div className="space-y-10 text-foreground/65 text-xl leading-relaxed mb-20">
               <p>
-                Hi, I&apos;m <span className="text-foreground font-semibold">Ravindu</span> — a Full Stack Developer
+                Hi, I&apos;m <span className="text-foreground font-semibold">Ravindu</span> — a Developer who
                 specialising in <span className="text-white font-semibold">SRE and DevOps engineering</span>. 
                 I build systems that don&apos;t just work, but thrive under pressure.
               </p>
@@ -52,13 +52,16 @@ export default function About() {
               </p>
             </div>
 
-            <div className="pt-12 border-t border-white/5">
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-foreground/40 mb-8">Expertise Domains</p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
+            <br />
+
+            <div className="pt-16 border-t border-white/5">
+            <br />
+              <p className="text-lg font-black uppercase tracking-[0.3em] text-foreground/40 mb-8">Expertise Domains</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-16">
                 {competencies.map((skill) => (
                   <li
                     key={skill}
-                    className="flex items-center gap-4 text-base font-bold text-foreground/70 group"
+                    className="flex items-center gap-5 text-base md:text-lg font-bold text-foreground/70 group"
                   >
                     <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
