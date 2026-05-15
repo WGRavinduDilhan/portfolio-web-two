@@ -37,8 +37,8 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 w-full z-50 transition-all duration-500",
           scrolled
-            ? "py-3 bg-background/85 backdrop-blur-xl border-b border-white/[0.06]"
-            : "py-6 bg-transparent"
+            ? "py-5 bg-background/85 backdrop-blur-xl border-b border-white/[0.06]"
+            : "py-8 bg-transparent"
         )}
       >
         <div className="site-container flex items-center justify-between">
@@ -46,21 +46,21 @@ export default function Navbar() {
           <Link
             href="#home"
             onClick={() => setActive("Home")}
-            className="text-xl font-black tracking-tight group shrink-0"
+            className="text-2xl md:text-3xl font-black tracking-tight group shrink-0"
           >
             RAVINDU
             <span className="text-primary transition-opacity group-hover:opacity-70">.</span>
           </Link>
 
-          {/* Desktop nav — absolutely centered in the header */}
-          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {/* Desktop nav — centered with constrained max width to avoid overlap */}
+          <nav className="hidden md:flex items-center gap-8 mx-auto max-w-[900px] justify-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setActive(link.name)}
                 className={cn(
-                  "relative text-[11px] font-black uppercase tracking-[0.2em] py-1 transition-colors duration-200",
+                  "relative text-sm md:text-base font-black uppercase tracking-[0.18em] py-2 transition-colors duration-200",
                   active === link.name
                     ? "text-primary"
                     : "text-foreground/55 hover:text-foreground/90"
@@ -81,11 +81,11 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <div className="flex md:hidden items-center gap-4">
             <button
-              className="p-2 rounded-lg text-foreground/70 hover:text-primary transition-colors"
+              className="p-3 rounded-lg text-foreground/70 hover:text-primary transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => { setActive(link.name); setMobileOpen(false); }}
                     className={cn(
-                      "text-sm font-bold uppercase tracking-widest py-2 px-4 rounded-lg transition-all duration-200",
+                      "text-base font-bold uppercase tracking-widest py-3 px-4 rounded-lg transition-all duration-200",
                       active === link.name
                         ? "text-primary bg-primary/10"
                         : "text-foreground/60 hover:text-foreground hover:bg-white/5"

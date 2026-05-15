@@ -6,22 +6,24 @@ import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
 
 const education = [
   {
-    degree: "BSc (Hons) in Information Technology",
-    institution: "University of Moratuwa",
-    location: "Moratuwa, Sri Lanka",
-    duration: "2021 – Present",
+    degree: "BICT Hons Degree",
+    institution: "University of Kelaniya",
+    location: "Kelaniya, Sri Lanka",
+    duration: "2023 – Present",
     details:
       "Specialising in Cloud Computing and DevOps. Active member of the SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
-    badge: "GPA: 3.8 / 4.0",
+    badge: "GPA: 3.5 / 4.0",
+    accent: "primary",
   },
   {
     degree: "G.C.E. Advanced Level",
     institution: "Bandaranayake College",
     location: "Gampaha, Sri Lanka",
-    duration: "2018 – 2020",
+    duration: "2019 – 2021",
     details:
       "Physical Science Stream. Ranked in the top 1% island-wide with 3 As. Received the College Merit Award for Academic Excellence.",
-    badge: "3 As · Z-Score 2.1",
+    badge: "2 As and 1 B · Z-Score 1.9228",
+    accent: "accent",
   },
 ];
 
@@ -33,7 +35,7 @@ export default function Education() {
 
       <div className="site-container relative z-10">
 
-        <div className="flex flex-col lg:flex-row gap-32 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(320px,380px)_minmax(0,1fr)] gap-16 xl:gap-24 items-start">
 
           {/* Sticky sidebar */}
           <motion.div
@@ -41,7 +43,7 @@ export default function Education() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-[400px] lg:sticky lg:top-40 shrink-0"
+            className="xl:sticky xl:top-32 space-y-10"
           >
             <span className="section-label">Academic Background</span>
             <h2 className="section-title">
@@ -54,58 +56,68 @@ export default function Education() {
               and continuous learning in IT and DevOps.
             </p>
 
-            <div className="inline-flex items-center gap-6 px-8 py-5 rounded-[2.5rem] bg-white/5 border border-white/10 shadow-2xl">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <div className="inline-flex items-center gap-6 px-8 py-5 rounded-[2.5rem] bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                 <GraduationCap className="w-8 h-8 text-primary" />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Institution</span>
-                <span className="text-lg font-black tracking-tight">Moratuwa Uni</span>
+                <span className="text-lg font-black tracking-tight">Kelaniya University</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Timeline */}
-          <div className="flex-1 relative pt-10">
-            <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/40 via-accent/20 to-transparent hidden md:block" />
-
-            <div className="space-y-16">
+          {/* Education Cards */}
+          <div className="w-full max-w-4xl xl:ml-auto relative">
+            <div className="absolute -left-4 top-0 h-full w-1 bg-white/5 rounded-full" />
+            <div className="space-y-16 relative z-10">
               {education.map((edu, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: idx * 0.2 }}
-                  className="relative md:pl-20"
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.7, delay: idx * 0.2, ease: "easeOut" }}
+                  className="relative pl-12"
                 >
-                  <div className="absolute left-[20px] top-10 w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(99,102,241,0.8)] hidden md:block" />
+                  <div className="absolute -left-6 top-2 w-5 h-5 rounded-full bg-background border-2 border-primary" />
+                  <div
+                    className={`group relative overflow-hidden rounded border border-white/10 p-8 sm:p-10 shadow-[0_25px_80px_-30px_rgba(0,0,0,0.75)] transition-all duration-500 ${edu.accent === "primary" ? "bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-900 hover:border-primary/40 hover:shadow-[0_0_60px_rgba(99,102,241,0.22)]" : "bg-gradient-to-br from-slate-950 via-cyan-950/35 to-slate-900 hover:border-accent/40 hover:shadow-[0_0_60px_rgba(6,182,212,0.22)]"}`}
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${edu.accent === "primary" ? "from-primary/10 via-transparent to-accent/5" : "from-accent/10 via-transparent to-primary/5"} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+                    <div className={`absolute inset-x-0 top-0 h-1 ${edu.accent === "primary" ? "bg-gradient-to-r from-primary via-indigo-400 to-cyan-400" : "bg-gradient-to-r from-accent via-cyan-400 to-primary"}`} />
+                    <div className={`absolute -right-12 -top-12 w-56 h-56 rounded-full blur-3xl opacity-30 transition-all duration-700 ${edu.accent === "primary" ? "bg-primary/20 group-hover:translate-x-2 group-hover:-translate-y-2" : "bg-accent/20 group-hover:translate-x-2 group-hover:-translate-y-2"}`} />
 
-                  <div className="glass rounded-[3.5rem] p-12 glass-hover border border-white/[0.08] group relative overflow-hidden shadow-2xl">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-x-8 -translate-y-8" />
-                    
-                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-10 relative z-10">
-                      <div>
-                        <h3 className="text-3xl font-black group-hover:text-primary transition-colors mb-3 leading-tight">
-                          {edu.degree}
-                        </h3>
-                        <p className="text-primary/90 font-black text-xl">{edu.institution}</p>
+                    <div className="relative z-10 flex flex-col gap-8">
+                      <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-6">
+                        <div className="max-w-2xl">
+                          <h3 className="text-[clamp(1.5rem,3vw,2.2rem)] font-black leading-tight tracking-tight text-foreground group-hover:text-white transition-colors duration-500">
+                            {edu.degree}
+                          </h3>
+                          <p className={`mt-2 text-lg font-bold ${edu.accent === "primary" ? "text-primary" : "text-accent"} transition-colors duration-500`}>
+                            {edu.institution}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-col gap-3 shrink-0 self-start xl:self-auto">
+                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
+                            <Calendar className="w-4 h-4 text-primary" /> {edu.duration}
+                          </span>
+                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
+                            <MapPin className="w-4 h-4 text-accent" /> {edu.location}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex flex-col gap-3 shrink-0">
-                        <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/50 font-mono bg-white/5 px-5 py-2 rounded-full border border-white/10 uppercase tracking-widest">
-                          <Calendar className="w-4 h-4 text-primary" /> {edu.duration}
-                        </span>
-                        <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/50 font-mono bg-white/5 px-5 py-2 rounded-full border border-white/10 uppercase tracking-widest">
-                          <MapPin className="w-4 h-4 text-accent" /> {edu.location}
-                        </span>
+
+                      <p className="max-w-3xl text-base leading-7 text-foreground/65 group-hover:text-foreground/80 transition-colors duration-500">
+                        {edu.details}
+                      </p>
+
+                      <div className={`self-start inline-flex items-center gap-4 px-5 py-2 rounded-xl text-xs font-black uppercase tracking-widest border backdrop-blur-md transition-all duration-500 ${edu.accent === "primary" ? "bg-primary/15 text-primary border-primary/25 group-hover:bg-primary/25 group-hover:border-primary/45" : "bg-accent/15 text-accent border-accent/25 group-hover:bg-accent/25 group-hover:border-accent/45"}`}>
+                        <Award className="w-4 h-4" />
+                        {edu.badge}
                       </div>
-                    </div>
-
-                    <p className="text-foreground/60 text-lg leading-relaxed mb-10 max-w-3xl relative z-10">{edu.details}</p>
-
-                    <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-2xl bg-primary/10 text-primary text-xs font-black uppercase tracking-[0.25em] border border-primary/20 relative z-10">
-                      <Award className="w-5 h-5" />
-                      {edu.badge}
                     </div>
                   </div>
                 </motion.div>
