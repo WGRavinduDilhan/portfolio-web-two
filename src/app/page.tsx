@@ -16,7 +16,7 @@ export default function Home() {
       <GlobalParticleNetwork />
 
       <Navbar />
-      <div className="flex-1 relative z-10">
+      <div className="portfolio-stack flex-1 relative z-10">
         <Hero />
         <About />
         <Education />
@@ -27,7 +27,9 @@ export default function Home() {
         <Contact />
       </div>
       <footer className="border-t border-white/8 bg-background/50 backdrop-blur-sm text-center text-foreground/45 text-xs font-medium tracking-wider py-8 relative z-10">
+        <br /><br />
         <p>© 2026 Ravindu Dilhan. All rights reserved.</p>
+        <br /><br />
       </footer>
     </main>
   );

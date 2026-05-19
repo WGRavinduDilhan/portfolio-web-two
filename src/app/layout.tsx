@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ravindu | Devops and Cloud enthusiast Portfolio",
-  description: "A professional portfolio showcasing web development projects, skills, and experience.",
+  title: "Ravindu | DevOps and Cloud Enthusiast Portfolio",
+  description:
+    "A professional portfolio showcasing DevOps, cloud engineering, automation, and full-stack projects.",
 };
 
 export default function RootLayout({

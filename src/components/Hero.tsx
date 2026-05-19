@@ -9,8 +9,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="portfolio-section min-h-screen flex items-center relative overflow-hidden pt-24"
+      className="portfolio-section relative overflow-hidden pt-24"
     >
+      <br /><br /><br /><br />
       <div className="site-container w-full">
         <div className="flex flex-col lg:flex-row items-center gap-20 py-28">
 

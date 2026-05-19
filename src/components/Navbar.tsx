@@ -22,6 +22,36 @@ export default function Navbar() {
   const [active, setActive] = useState("Home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleNavClick = (
+    e: React.MouseEvent,
+    href: string,
+    name: string,
+    closeMobile = false
+  ) => {
+    e.preventDefault();
+    setActive(name);
+    if (closeMobile) setMobileOpen(false);
+
+    const el = document.querySelector(href) as HTMLElement | null;
+    if (!el) {
+      // fallback: update hash
+      history.replaceState(null, "", href);
+      return;
+    }
+
+    const header = document.querySelector("header");
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Give Achievements an extra upward offset so its content is fully visible
+    const extraOffset = href === "#achievements" ? 64 : 0;
+
+    const top = window.scrollY + el.getBoundingClientRect().top - headerHeight - extraOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+
+    // update URL hash without jump
+    history.replaceState(null, "", href);
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
@@ -89,7 +119,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setActive(link.name)}
+                onClick={(e) => handleNavClick(e, link.href, link.name)}
                 className={cn(
                   "relative text-sm md:text-base font-black uppercase tracking-[0.18em] py-2 transition-colors duration-200",
                   active === link.name
@@ -138,7 +168,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    onClick={() => { setActive(link.name); setMobileOpen(false); }}
+                    onClick={(e) => handleNavClick(e, link.href, link.name, true)}
                     className={cn(
                       "text-base font-bold uppercase tracking-widest py-3 px-4 rounded-lg transition-all duration-200",
                       active === link.name

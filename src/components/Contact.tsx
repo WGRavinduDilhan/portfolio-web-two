@@ -131,7 +131,7 @@ export default function Contact() {
                   </div>
                   <div className="pt-1">
                     <p className="text-[10px] font-bold text-foreground/50 uppercase tracking-widest mb-1">Direct Channel</p>
-                    <p className="text-lg font-bold group-hover:text-primary transition-colors">hello@ravindu.dev</p>
+                    <p className="text-lg font-bold group-hover:text-primary transition-colors">dilhanwgr2002@gmail.com</p>
                   </div>
                 </motion.a>
 

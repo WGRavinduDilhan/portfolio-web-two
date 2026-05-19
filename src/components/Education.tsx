@@ -31,6 +31,7 @@ export default function Education() {
   return (
     <section id="education" className="portfolio-section relative overflow-hidden">
       {/* Background Decorative Blob */}
+      <br /><br />
       <div className="absolute top-1/2 -right-48 w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="site-container relative z-10">

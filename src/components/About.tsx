@@ -11,7 +11,7 @@ const competencies = [
   "Infrastructure as Code",
   "CI/CD Automation",
   "System Observability",
-  "Full Stack Development",
+  "Full Stack Dev",
 ];
 
 export default function About() {
@@ -53,22 +53,23 @@ export default function About() {
             </div>
 
             <div className="pt-6 border-t border-white/5">
+            <br />
               <p className="text-lg font-black uppercase tracking-[0.3em] text-foreground/40 mb-3">Expertise Domains</p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-12">
                 {competencies.map((skill) => (
                   <li
                     key={skill}
-                    className="flex items-center gap-4 text-base md:text-lg font-bold text-foreground/70 group"
+                    className="flex items-start gap-4 text-base md:text-lg font-bold text-foreground/70 group"
                   >
-                    <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors mt-0.5 md:mt-1">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                     </div>
-                    {skill}
+                    <span className="leading-tight pt-0.5">{skill}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </motion.div> <br />
 
           {/* ── Image ── */}
           <motion.div
