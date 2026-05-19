@@ -13,7 +13,7 @@
   --selection-bg: rgba(99, 102, 241, 0.3);
   --container-max: 1280px;
   --container-px: 1.5rem;
-  --section-y: clamp(5.5rem, 8vw, 8.5rem);
+  --section-y: clamp(7.5rem, 10vw, 11rem);
 }
 
 @media (min-width: 768px) {
@@ -118,11 +118,21 @@ body::after {
 
 /* ─── Glassmorphism ──────────────────────────────────────────────────── */
 .glass {
+  position: relative;
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .glass-hover {
@@ -164,7 +174,7 @@ body::after {
 .section-title {
   font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
 }
@@ -225,3 +235,28 @@ body::after {
   border: 2px solid var(--background);
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ─── Horizontal Scrollbar ───────────────────────────────────────────── */
+.horizontal-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  border: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
