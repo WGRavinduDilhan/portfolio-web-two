@@ -25,7 +25,38 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // Dynamic Intersection Observer to highlight active navbar links automatically on scroll
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -50% 0px", // Triggers active highlight when section occupies viewport center
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          const matchingLink = navLinks.find((link) => link.href === `#${id}`);
+          if (matchingLink) {
+            setActive(matchingLink.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach((sec) => {
+      if (sec) observer.observe(sec);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      sections.forEach((sec) => {
+        if (sec) observer.unobserve(sec);
+      });
+    };
   }, []);
 
   return (

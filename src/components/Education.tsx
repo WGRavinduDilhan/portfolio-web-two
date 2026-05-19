@@ -49,7 +49,7 @@ export default function Education() {
             <h2 className="section-title">
               Academic
               <br />
-              <span className="text-gradient">Pathway</span>
+              <span className="text-gradient">Achievements</span>
             </h2>
             <p className="section-subtitle text-xl mb-12">
               My educational journey has been defined by a passion for technical excellence

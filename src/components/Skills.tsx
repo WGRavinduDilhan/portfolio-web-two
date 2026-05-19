@@ -6,13 +6,6 @@ import Image from "next/image";
 import { Server, Cloud } from "lucide-react";
 
 const tools = [
-  { name: "AWS",        icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
-  { name: "Docker",     icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
-  { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
-  { name: "Terraform",  icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
-  { name: "Ansible",    icon: "https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" },
-  { name: "Prometheus", icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" },
-  { name: "Grafana",    icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
   { name: "Jenkins",    icon: "https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" },
   { name: "Git",        icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
   { name: "Linux",      icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
@@ -20,7 +13,19 @@ const tools = [
   { name: "Python",     icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
   { name: "Go",         icon: "https://www.vectorlogo.zone/logos/golang/golang-official.svg" },
   { name: "Node.js",    icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
+  { name: "AWS",        icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
+  { name: "Docker",     icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
+  { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
+  { name: "Terraform",  icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
+  { name: "Prometheus", icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" },
+  { name: "Grafana",    icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
+  { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
+  { name: "MySQL",      icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
+  { name: "Jenkins",    icon: "https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" },
+  { name: "ArgoCD",     icon: "https://www.vectorlogo.zone/logos/argoproj/argoproj-icon.svg"},
+  { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg"}
 ];
+<br />
 
 const specialisms = [
   {
@@ -38,12 +43,15 @@ const specialisms = [
 ];
 
 export default function Skills() {
-  return (
-    <section id="skills" className="portfolio-section overflow-hidden relative">
-      {/* Background Decorative Blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+  // Duplicate the list of tools to create a seamless infinite horizontal auto-scrolling marquee
+  const marqueeTools = [...tools, ...tools];
 
-      <div className="site-container mb-24 relative z-10">
+  return (
+    <section id="skills" className="portfolio-section overflow-hidden relative min-h-screen">
+      {/* Decorative Blur Ambient Blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[140px] pointer-events-none z-0" />
+
+      <div className="site-container mb-16 relative z-10">
         <div className="text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
@@ -52,71 +60,88 @@ export default function Skills() {
             transition={{ duration: 0.8 }}
           >
             <span className="section-label">Toolchain</span>
-            <h2 className="section-title mx-auto">
-              DevOps <span className="text-gradient">Arsenal</span>
+            <h2 className="section-title mx-auto text-4xl md:text-5xl lg:text-6xl font-black">
+              DevOps <span className="text-gradient">Toolset</span>
             </h2>
-            <p className="section-subtitle mx-auto text-center text-lg">
+            <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed">
               A comprehensive stack of industry-standard tools and technologies I leverage daily 
               to build, deploy, and manage large-scale distributed systems.
             </p>
           </motion.div>
         </div>
       </div>
+      <br /> 
 
-      {/* Marquee — Colored Logos */}
-      <div className="relative flex overflow-x-hidden group mb-24 py-10 z-10">
-        <div className="animate-marquee flex whitespace-nowrap gap-20 items-center group-hover:[animation-play-state:paused]">
-          {[...tools, ...tools, ...tools].map((tool, idx) => (
-            <motion.div
+      {/* Centered Technologies Title (Matches Screenshot) */}
+      <div className="text-center mt-20 mb-10 relative z-10">
+        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/40">
+          Technologies I work with
+        </span>
+      </div>
+      <br />
+
+      {/* Infinite Horizontal Auto-scrolling Tools Marquee */}
+      <div className="relative w-full overflow-hidden py-10 select-none z-10 mb-36 h-36 flex items-center">
+        {/* Subtle horizontal band background border as in the screenshot */}
+        <div className="absolute inset-y-0 left-0 right-0 bg-white/[0.01] border-y border-white/[0.04] pointer-events-none" />
+
+        {/* Ambient fade shadows on left and right edges */}
+        <div className="absolute top-0 bottom-0 left-0 w-24 md:w-44 bg-gradient-to-r from-background via-background/90 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-24 md:w-44 bg-gradient-to-l from-background via-background/90 to-transparent z-20 pointer-events-none" />
+
+        {/* Marquee Track - Pauses on Hover */}
+        <div className="flex w-max gap-12 animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] py-2">
+          {marqueeTools.map((tool, idx) => (
+            <div
               key={idx}
-              whileHover={{ scale: 1.2, y: -10 }}
-              className="flex flex-col items-center gap-6 cursor-default transition-all duration-300"
+              className="flex items-center gap-4 px-7 py-4 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:bg-white/[0.05] hover:border-primary/40 hover:scale-[1.03] transition-all duration-300 shadow-lg group cursor-pointer"
             >
-              <div className="w-28 h-28 p-7 rounded-[2rem] bg-white/[0.04] border border-white/[0.1] flex items-center justify-center hover:border-primary/50 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all duration-500 shadow-2xl">
+              <div className="w-10 h-10 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Image 
                   src={tool.icon} 
                   alt={tool.name} 
-                  width={72}
-                  height={72}
+                  width={40}
+                  height={40}
                   className="w-full h-full object-contain" 
                 />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/40 group-hover:text-primary transition-colors">
+              <span className="text-sm sm:text-base font-black tracking-wide text-foreground/85 group-hover:text-primary transition-colors">
                 {tool.name}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
-        
-        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       </div>
+      <br /><br />
 
-      <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+      {/* Specialism Cards with Premium Vertical and Horizontal Gap Spacings */}
+      <div className="site-container relative z-10 mt-36 md:mt-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
           {specialisms.map((s, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 0.7 }}
-              className="glass rounded-[3rem] p-14 border border-white/[0.08] group relative overflow-hidden shadow-2xl h-full"
+              transition={{ delay: i * 0.15, duration: 0.7 }}
+              className="glass rounded-[3rem] p-10 md:p-14 border border-white/[0.08] group relative overflow-hidden shadow-2xl h-full flex flex-col justify-between"
             >
-              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] -translate-x-12 -translate-y-12 group-hover:bg-primary/10 transition-colors" />
+              {/* Hover glow background */}
+              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] -translate-x-12 -translate-y-12 group-hover:bg-primary/10 transition-colors pointer-events-none" />
               
-              <div className="inline-flex p-6 rounded-2xl bg-white/5 mb-10 group-hover:bg-primary/8 transition-all duration-500 border border-white/5 shadow-inner">
-                {s.icon}
+              <div>
+                <div className="inline-flex p-5 rounded-2xl bg-white/5 mb-8 group-hover:bg-primary/8 transition-all duration-500 border border-white/5 shadow-inner">
+                  {s.icon}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black mb-6 group-hover:text-primary transition-colors">
+                  {s.title}
+                </h3>
+                <p className="text-foreground/75 text-base md:text-lg leading-relaxed relative z-10">{s.body}</p>
               </div>
-              <h3 className="text-3xl font-black mb-6 group-hover:text-primary transition-colors">
-                {s.title}
-              </h3>
-              <p className="text-foreground/60 text-lg leading-relaxed relative z-10">{s.body}</p>
             </motion.div>
           ))}
         </div>
       </div>
-
     </section>
   );
 }
