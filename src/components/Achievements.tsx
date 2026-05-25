@@ -58,6 +58,8 @@ export default function Achievements() {
       <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none animate-pulse duration-[8s]" />
       <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none animate-pulse duration-[6s]" />
 
+      <br />
+
       <div className="site-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -70,7 +72,7 @@ export default function Achievements() {
               Validated expertise through industry-recognized certification programs and real-world infrastructure engineering.
             </p>
           </div>
-          <br /><br />
+          <br />
         </div>
       </div>
 
@@ -134,7 +136,6 @@ export default function Achievements() {
 
       {/* Elegant Auto-scroll Indicator */}
       <div className="flex justify-center items-center gap-2 mt-4 text-[10px] font-black uppercase tracking-[0.25em] text-foreground/35 select-none pointer-events-none">
-        <span>Hover cards to pause auto-scrolling</span>
         <span className="w-2.5 h-1 rounded-full bg-primary opacity-60 animate-pulse" />
       </div>
     </section>

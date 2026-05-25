@@ -22,10 +22,71 @@ export default function Navbar() {
   const [active, setActive] = useState("Home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleNavClick = (
+    e: React.MouseEvent,
+    href: string,
+    name: string,
+    closeMobile = false
+  ) => {
+    e.preventDefault();
+    setActive(name);
+    if (closeMobile) setMobileOpen(false);
+
+    const el = document.querySelector(href) as HTMLElement | null;
+    if (!el) {
+      // fallback: update hash
+      history.replaceState(null, "", href);
+      return;
+    }
+
+    const header = document.querySelector("header");
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    // Give Achievements an extra upward offset so its content is fully visible
+    const extraOffset = href === "#achievements" ? 64 : 0;
+
+    const top = window.scrollY + el.getBoundingClientRect().top - headerHeight - extraOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+
+    // update URL hash without jump
+    history.replaceState(null, "", href);
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // Dynamic Intersection Observer to highlight active navbar links automatically on scroll
+    const sections = navLinks.map((link) => document.querySelector(link.href));
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -50% 0px", // Triggers active highlight when section occupies viewport center
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          const matchingLink = navLinks.find((link) => link.href === `#${id}`);
+          if (matchingLink) {
+            setActive(matchingLink.name);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach((sec) => {
+      if (sec) observer.observe(sec);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      sections.forEach((sec) => {
+        if (sec) observer.unobserve(sec);
+      });
+    };
   }, []);
 
   return (
@@ -58,7 +119,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setActive(link.name)}
+                onClick={(e) => handleNavClick(e, link.href, link.name)}
                 className={cn(
                   "relative text-sm md:text-base font-black uppercase tracking-[0.18em] py-2 transition-colors duration-200",
                   active === link.name
@@ -107,7 +168,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    onClick={() => { setActive(link.name); setMobileOpen(false); }}
+                    onClick={(e) => handleNavClick(e, link.href, link.name, true)}
                     className={cn(
                       "text-base font-bold uppercase tracking-widest py-3 px-4 rounded-lg transition-all duration-200",
                       active === link.name

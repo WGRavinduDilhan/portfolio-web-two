@@ -13,7 +13,9 @@
   --selection-bg: rgba(99, 102, 241, 0.3);
   --container-max: 1280px;
   --container-px: 1.5rem;
-  --section-y: clamp(7.5rem, 10vw, 11rem);
+  --section-y: clamp(4.75rem, 7vh, 6.75rem);
+  --section-gap: clamp(1.5rem, 3vh, 2.5rem);
+  --nav-offset: clamp(5rem, 7vh, 6rem);
 }
 
 @media (min-width: 768px) {
@@ -51,11 +53,26 @@
   flex-direction: column;
 }
 
+.portfolio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
 .portfolio-section {
   position: relative;
   padding-top: var(--section-y);
   padding-bottom: var(--section-y);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: calc(var(--nav-offset) - 0.25rem); /* Clear navbar on scroll navigation */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+#contact {
+  margin-bottom: 0;
 }
 
 .portfolio-section .site-container {
@@ -77,6 +94,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset); /* Account for navbar and proper section spacing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -184,6 +202,9 @@ body::after {
   color: rgba(249, 250, 251, 0.6);
   line-height: 1.75;
   max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* ─── Buttons ────────────────────────────────────────────────────────── */
