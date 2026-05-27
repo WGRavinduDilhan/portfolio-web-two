@@ -8,6 +8,8 @@ import Skills from "@/components/Skills";
 import Blogs from "@/components/Blogs";
 import Contact from "@/components/Contact";
 import GlobalParticleNetwork from "@/components/GlobalParticleNetwork";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Mail } from "lucide-react";
 
 export default function Home() {
   return (
@@ -16,7 +18,7 @@ export default function Home() {
       <GlobalParticleNetwork />
 
       <Navbar />
-      <div className="portfolio-stack flex-1 relative z-10">
+      <div className="portfolio-stack flex-1 relative z-10 space-y-24">
         <Hero />
         <About />
         <Education />
@@ -26,10 +28,24 @@ export default function Home() {
         <Blogs />
         <Contact />
       </div>
-      <footer className="border-t border-white/8 bg-background/50 backdrop-blur-sm text-center text-foreground/45 text-xs font-medium tracking-wider py-8 relative z-10">
-        <br /><br />
-        <p>© 2026 Ravindu Dilhan. All rights reserved.</p>
-        <br /><br />
+      <footer className="border-t border-white/8 bg-background/50 backdrop-blur-sm text-foreground/45 text-xs font-medium tracking-wider py-16 relative z-10">
+        <br />
+        <div className="site-container flex justify-between items-center">
+          <p className="font-mono text-sm text-foreground/60">[W.G. Ravindu Dilhan – SRE & DevOps]</p>
+          <p className="text-sm text-foreground/40">© 2026 · Ravindu Dilhan. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/WgRavinduDilhan" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
+              <FaGithub size={20} />
+            </a>
+            <a href="https://linkedin.com/in/ravindu-dilhan" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
+              <FaLinkedin size={20} />
+            </a>
+            <a href="mailto:dilhanwgr2002@gmail.com" className="text-foreground/60 hover:text-primary transition-colors">
+              <Mail size={20} />
+            </a>
+          </div>
+        </div>
+        <br />
       </footer>
     </main>
   );

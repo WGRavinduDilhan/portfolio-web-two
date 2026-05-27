@@ -27,20 +27,20 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-10"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-white/5 border border-white/10 text-white text-sm font-semibold mb-10"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
               Available for new opportunities
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
               I build{" "}
-              <span className="text-gradient">exceptional</span>
+              <span className="text-gradient">resilient, scalable</span>
               <br />
-              digital experiences.
+              infrastructure.
             </h1>
             <br />
 
@@ -94,7 +94,7 @@ export default function Hero() {
             {/* Glow halo */}
             <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-accent/20 rounded-[3.5rem] blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-1000 animate-pulse" />
 
-            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-[3rem] overflow-hidden border border-white/8 shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-700">
+            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-lg overflow-hidden border border-white/8 shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-700">
               <Image
                 src="/profile.png"
                 alt="Ravindu"

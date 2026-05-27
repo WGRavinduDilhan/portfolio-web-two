@@ -87,30 +87,30 @@ export default function Achievements() {
           {marqueeItems.map((cert, idx) => (
             <div
               key={idx}
-              className="shrink-0 w-[300px] sm:w-[360px] glass rounded-3xl p-8 flex flex-col justify-between border border-white/15 hover:border-primary/50 hover:bg-white/[0.04] transition-all duration-400 hover:-translate-y-3 hover:scale-[1.015] relative overflow-hidden shadow-2xl min-h-[360px] group cursor-pointer"
+              className="shrink-0 w-[300px] sm:w-[360px] glass rounded-lg p-8 flex flex-col justify-between border border-white/15 hover:border-white/30 hover:bg-white/[0.04] transition-all duration-400 hover:-translate-y-2 hover:scale-[1.01] relative overflow-hidden shadow-2xl min-h-[360px] group cursor-pointer"
             >
               {/* Card background ambient glow */}
-              <div className="absolute -top-16 -right-16 w-44 h-44 bg-primary/8 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute -top-16 -right-16 w-44 h-44 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div>
                 {/* Header: Icon & Verified Badge */}
                 <div className="flex items-center justify-between mb-8">
-                  <div className="p-4 rounded-lg bg-white/5 text-primary border border-white/10 shadow-inner group-hover:scale-110 group-hover:border-primary/40 transition-all duration-400">
+                  <div className="p-4 rounded-md bg-white/5 text-white border border-white/10 shadow-inner group-hover:scale-110 group-hover:border-white/20 transition-all duration-400">
                     {cert.icon}
                   </div>
-                  <span className="text-[10px] font-black text-primary bg-primary/10 uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-full border border-primary/20">
+                  <span className="text-[10px] font-black text-white bg-white/10 uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-md border border-white/20">
                     Verified
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-black mb-4 leading-tight group-hover:text-primary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-black mb-4 leading-tight group-hover:text-white transition-colors">
                   {cert.title}
                 </h3>
 
                 {/* Issuer */}
                 <p className="text-foreground/80 text-sm sm:text-base mb-6 flex items-center gap-3 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="w-2 h-2 rounded-full bg-white" />
                   {cert.issuer}
                 </p>
               </div>
@@ -122,7 +122,7 @@ export default function Achievements() {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs font-black text-primary hover:text-primary-light transition-colors group/link"
+                  className="flex items-center gap-2 text-xs font-black text-white hover:text-white/80 transition-colors group/link"
                 >
                   Verify Link 
                   <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ravindu | DevOps and Cloud Enthusiast Portfolio",
+  title: "Ravindu Dilhan",
   description:
     "A professional portfolio showcasing DevOps, cloud engineering, automation, and full-stack projects.",
 };

@@ -121,17 +121,17 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.name)}
                 className={cn(
-                  "relative text-sm md:text-base font-black uppercase tracking-[0.18em] py-2 transition-colors duration-200",
+                  "relative text-xs font-bold uppercase tracking-wider py-2 transition-colors duration-200",
                   active === link.name
-                    ? "text-primary"
-                    : "text-foreground/55 hover:text-foreground/90"
+                    ? "text-white"
+                    : "text-foreground/60 hover:text-foreground/90"
                 )}
               >
                 {link.name}
                 {active === link.name && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute -bottom-0.5 left-0 w-full h-[2px] rounded-full bg-primary"
+                    className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full bg-white"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
