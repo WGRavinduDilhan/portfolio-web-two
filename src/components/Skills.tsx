@@ -94,18 +94,18 @@ export default function Skills() {
           {marqueeTools.map((tool, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 px-7 py-4 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:bg-white/[0.05] hover:border-primary/40 hover:scale-[1.03] transition-all duration-300 shadow-lg group cursor-pointer"
+              className="flex items-center gap-4 px-6 py-3 bg-white/[0.02] border border-white/[0.06] rounded-lg hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02] transition-all duration-300 shadow-lg group cursor-pointer"
             >
-              <div className="w-10 h-10 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-8 h-8 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Image 
                   src={tool.icon} 
                   alt={tool.name} 
-                  width={40}
-                  height={40}
+                  width={32}
+                  height={32}
                   className="w-full h-full object-contain" 
                 />
               </div>
-              <span className="text-sm sm:text-base font-black tracking-wide text-foreground/85 group-hover:text-primary transition-colors">
+              <span className="text-sm font-bold tracking-wide text-foreground/80 group-hover:text-white transition-colors">
                 {tool.name}
               </span>
             </div>
@@ -124,19 +124,19 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.7 }}
-              className="glass rounded-[3rem] p-10 md:p-14 border border-white/[0.08] group relative overflow-hidden shadow-2xl h-full flex flex-col justify-between"
+              className="glass rounded-lg p-10 md:p-12 border border-white/[0.08] group relative overflow-hidden shadow-2xl h-full flex flex-col justify-between"
             >
               {/* Hover glow background */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] -translate-x-12 -translate-y-12 group-hover:bg-primary/10 transition-colors pointer-events-none" />
+              <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[100px] -translate-x-12 -translate-y-12 group-hover:bg-white/10 transition-colors pointer-events-none" />
               
               <div>
-                <div className="inline-flex p-5 rounded-2xl bg-white/5 mb-8 group-hover:bg-primary/8 transition-all duration-500 border border-white/5 shadow-inner">
+                <div className="inline-flex p-4 rounded-lg bg-white/5 mb-8 group-hover:bg-white/10 transition-all duration-500 border border-white/5 shadow-inner">
                   {s.icon}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-black mb-6 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-black mb-6 group-hover:text-white transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-foreground/75 text-base md:text-lg leading-relaxed relative z-10">{s.body}</p>
+                <p className="text-foreground/75 text-base leading-relaxed relative z-10">{s.body}</p>
               </div>
             </motion.div>
           ))}

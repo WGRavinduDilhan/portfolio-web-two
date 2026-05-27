@@ -57,9 +57,9 @@ export default function Education() {
               and continuous learning in IT and DevOps.
             </p>
 
-            <div className="inline-flex items-center gap-6 px-8 py-5 rounded-[2.5rem] bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                <GraduationCap className="w-8 h-8 text-primary" />
+            <div className="inline-flex items-center gap-6 px-8 py-5 rounded-lg bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
+              <div className="w-16 h-16 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-8 h-8 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Institution</span>
@@ -82,13 +82,13 @@ export default function Education() {
                   transition={{ duration: 0.7, delay: idx * 0.2, ease: "easeOut" }}
                   className="relative pl-12"
                 >
-                  <div className="absolute -left-6 top-2 w-5 h-5 rounded-full bg-background border-2 border-primary" />
+                  <div className="absolute -left-6 top-2 w-5 h-5 rounded-full bg-background border-2 border-white" />
                   <div
-                    className={`group relative overflow-hidden rounded border border-white/10 p-8 sm:p-10 shadow-[0_25px_80px_-30px_rgba(0,0,0,0.75)] transition-all duration-500 ${edu.accent === "primary" ? "bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-900 hover:border-primary/40 hover:shadow-[0_0_60px_rgba(99,102,241,0.22)]" : "bg-gradient-to-br from-slate-950 via-cyan-950/35 to-slate-900 hover:border-accent/40 hover:shadow-[0_0_60px_rgba(6,182,212,0.22)]"}`}
+                    className={`group relative overflow-hidden rounded-lg border border-white/10 p-8 sm:p-10 shadow-[0_25px_80px_-30px_rgba(0,0,0,0.75)] transition-all duration-500 bg-gradient-to-br from-slate-950/80 via-gray-950/30 to-slate-900 hover:border-white/20 hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]`}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${edu.accent === "primary" ? "from-primary/10 via-transparent to-accent/5" : "from-accent/10 via-transparent to-primary/5"} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
-                    <div className={`absolute inset-x-0 top-0 h-1 ${edu.accent === "primary" ? "bg-gradient-to-r from-primary via-indigo-400 to-cyan-400" : "bg-gradient-to-r from-accent via-cyan-400 to-primary"}`} />
-                    <div className={`absolute -right-12 -top-12 w-56 h-56 rounded-full blur-3xl opacity-30 transition-all duration-700 ${edu.accent === "primary" ? "bg-primary/20 group-hover:translate-x-2 group-hover:-translate-y-2" : "bg-accent/20 group-hover:translate-x-2 group-hover:-translate-y-2"}`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+                    <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-white/30 via-white/20 to-white/30`} />
+                    <div className={`absolute -right-12 -top-12 w-56 h-56 rounded-full blur-3xl opacity-30 transition-all duration-700 bg-white/10 group-hover:translate-x-2 group-hover:-translate-y-2`} />
 
                     <div className="relative z-10 flex flex-col gap-8">
                       <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-6">
@@ -96,17 +96,17 @@ export default function Education() {
                           <h3 className="text-[clamp(1.5rem,3vw,2.2rem)] font-black leading-tight tracking-tight text-foreground group-hover:text-white transition-colors duration-500">
                             {edu.degree}
                           </h3>
-                          <p className={`mt-2 text-lg font-bold ${edu.accent === "primary" ? "text-primary" : "text-accent"} transition-colors duration-500`}>
+                          <p className={`mt-2 text-lg font-bold text-white/80 transition-colors duration-500`}>
                             {edu.institution}
                           </p>
                         </div>
 
                         <div className="flex flex-col gap-3 shrink-0 self-start xl:self-auto">
-                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
-                            <Calendar className="w-4 h-4 text-primary" /> {edu.duration}
+                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-md border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
+                            <Calendar className="w-4 h-4 text-white/70" /> {edu.duration}
                           </span>
-                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-full border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
-                            <MapPin className="w-4 h-4 text-accent" /> {edu.location}
+                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-md border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
+                            <MapPin className="w-4 h-4 text-white/70" /> {edu.location}
                           </span>
                         </div>
                       </div>
@@ -115,7 +115,7 @@ export default function Education() {
                         {edu.details}
                       </p>
 
-                      <div className={`self-start inline-flex items-center gap-4 px-5 py-2 rounded-xl text-xs font-black uppercase tracking-widest border backdrop-blur-md transition-all duration-500 ${edu.accent === "primary" ? "bg-primary/15 text-primary border-primary/25 group-hover:bg-primary/25 group-hover:border-primary/45" : "bg-accent/15 text-accent border-accent/25 group-hover:bg-accent/25 group-hover:border-accent/45"}`}>
+                      <div className={`self-start inline-flex items-center gap-4 px-5 py-2 rounded-md text-xs font-black uppercase tracking-widest border backdrop-blur-md transition-all duration-500 bg-white/10 text-white border-white/20 group-hover:bg-white/15 group-hover:border-white/30`}>
                         <Award className="w-4 h-4" />
                         {edu.badge}
                       </div>

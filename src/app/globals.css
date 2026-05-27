@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #030712;
-  --foreground: #f9fafb;
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --accent: #06b6d4;
-  --accent-hover: #0891b2;
-  --card-bg: rgba(17, 24, 39, 0.5);
-  --border-color: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --selection-bg: rgba(99, 102, 241, 0.3);
-  --container-max: 1280px;
-  --container-px: 1.5rem;
-  --section-y: clamp(4.75rem, 7vh, 6.75rem);
-  --section-gap: clamp(1.5rem, 3vh, 2.5rem);
-  --nav-offset: clamp(5rem, 7vh, 6rem);
-}
+@layer base {
+  :root {
+    --background: #0A0A0A;
+    --foreground: #FAFAFA;
+    --primary: #FFFFFF;
+    --primary-hover: #EAEAEA;
+    --accent: #888888;
+    --accent-hover: #999999;
+    --card-bg: rgba(20, 20, 20, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --selection-bg: rgba(255, 255, 255, 0.1);
+    --container-max: 1280px;
+    --container-px: 1.5rem;
+    --section-y: clamp(4.75rem, 7vh, 6.75rem);
+    --section-gap: clamp(1.5rem, 3vh, 2.5rem);
+    --nav-offset: clamp(5rem, 7vh, 6rem);
+  }
 
-@media (min-width: 768px) {
-  :root { --container-px: 3rem; }
-}
+  @media (min-width: 768px) {
+    :root { --container-px: 3rem; }
+  }
 
-@media (min-width: 1280px) {
-  :root { --container-px: 4rem; }
+  @media (min-width: 1280px) {
+    :root { --container-px: 4rem; }
+  }
 }
 
 @theme inline {
@@ -115,9 +117,8 @@ body::before {
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-image:
-    radial-gradient(ellipse at 15% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-    radial-gradient(ellipse at 85% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 60%);
+    radial-gradient(ellipse at 15% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 80%, rgba(200, 200, 200, 0.03) 0%, transparent 40%);
   z-index: -2;
   pointer-events: none;
 }
@@ -166,11 +167,11 @@ body::after {
 
 /* ─── Typography ─────────────────────────────────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 50%, #BDBDBD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
-  animation: shine 5s linear infinite;
+  animation: shine 8s linear infinite;
 }
 
 .section-label {
@@ -178,14 +179,13 @@ body::after {
   align-items: center;
   gap: 0.5rem;
   padding: 0.25rem 1rem;
-  border-radius: 9999px;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  color: var(--primary);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
   font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.15ercase;
   margin-bottom: 1.25rem;
 }
 
@@ -209,22 +209,20 @@ body::after {
 
 /* ─── Buttons ────────────────────────────────────────────────────────── */
 .btn-primary {
-  @apply px-8 py-3.5 rounded-full bg-primary text-white font-bold tracking-wider text-sm uppercase
-         shadow-lg shadow-primary/20 transition-all duration-300 inline-flex items-center gap-2;
+  @apply px-8 py-3.5 rounded-md bg-primary text-black font-bold tracking-wider text-sm uppercase shadow-lg shadow-white/10 transition-all duration-300 inline-flex items-center gap-2;
 }
 .btn-primary:hover {
-  @apply bg-primary-hover shadow-primary/40 -translate-y-0.5;
+  @apply bg-primary-hover shadow-white/20 -translate-y-0.5;
 }
 .btn-primary:active {
   @apply scale-95;
 }
 
 .btn-secondary {
-  @apply px-8 py-3.5 rounded-full border border-white/15 text-white font-bold tracking-wider text-sm uppercase
-         transition-all duration-300 inline-flex items-center gap-2;
+  @apply px-8 py-3 rounded-md border border-white/20 text-white font-bold tracking-wider text-sm uppercase transition-all duration-300 inline-flex items-center gap-2;
 }
 .btn-secondary:hover {
-  @apply bg-white/5 border-white/30 -translate-y-0.5;
+  @apply bg-white/10 border-white/30 -translate-y-0.5;
 }
 .btn-secondary:active {
   @apply scale-95;
