@@ -1,130 +1,269 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
-const education = [
+const achievements = [
   {
-    degree: "BICT Hons Degree",
-    institution: "University of Kelaniya",
-    location: "Kelaniya, Sri Lanka",
-    duration: "2023 – Present",
-    details:
-      "Specialising in Cloud Computing and DevOps. Active member of the SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
-    badge: "GPA: 3.5 / 4.0",
-    accent: "primary",
+    tag: "2019 – 2021",
+    title: "G.C.E. Advanced Level",
+    institution: "Bandaranayake College, Gampaha",
+    description:
+      "Technology Stream. Ranked in the top 27th District rank with 2 As 1 B.",
+    badge: "2 As · 1 B · Z-Score 1.9228",
+    bgFrom: "#7a0a0a",
+    bgTo: "#a01515",
+    image: "/BC.png",
+    imagePlaceholder: "BCG",
   },
   {
-    degree: "G.C.E. Advanced Level",
-    institution: "Bandaranayake College",
-    location: "Gampaha, Sri Lanka",
-    duration: "2019 – 2021",
-    details:
-      "Physical Science Stream. Ranked in the top 1% island-wide with 3 As. Received the College Merit Award for Academic Excellence.",
-    badge: "2 As and 1 B · Z-Score 1.9228",
-    accent: "accent",
+    tag: "2023 – Present",
+    title: "BICT Hons Degree",
+    institution: "University of Kelaniya",
+    description:
+      "Specialising in Cloud Computing and DevOps. Active in SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
+    bgFrom: "#68211D",
+    bgTo: "#68211E",
+    image: "/UOK.png",
+    imagePlaceholder: "UoK",
+  },
+  {
+    tag: "Extracurricular",
+    title: "B2B Manager",
+    institution: "AIESEC UOK",
+    description:
+      "Lead local company partnerships to deliver cross-cultural internship programs, managing stakeholder relations, negotiations, and end-to-end project execution.",
+    badge: "B2B Manager",
+    bgFrom: "#0383E8",
+    bgTo: "#037EF3",
+    image: "/AIESEC.png",
+    imagePlaceholder: "AIESEC",
+  },
+  {
+    tag: "Training Program",
+    title: "WSO2 Linux Training & Devops Engineering",
+    institution: "WSO2, Colombo, Sri Lanka",
+    description:
+      "High impact 6 month training program balancing academics and cutting-edge DevOps & Linux Systems skills.",
+    badge: "Linux & DevOps",
+    bgFrom: "#FF6F00",
+    bgTo: "#FF6F00",
+    image: "/WSO2.png",
+    imagePlaceholder: "WSO2",
   },
 ];
 
-export default function Education() {
+/*
+  Fan deck stacking config:
+  ─────────────────────────
+  Cards are sticky — as you scroll, each successive card slides up and stacks
+  on top of the previous one. When fully stacked they form a fanned deck.
+
+  Each card sits at a slightly different top position (STACK_TOP_OFFSET) so the
+  card below "peeks" underneath the one above it.
+
+  The fan rotation/x-offset makes lower cards lean slightly so you can
+  see the deck depth — just like the reference image.
+*/
+const STICKY_TOP = 110;      // px from viewport top for first card
+const STACK_TOP_OFFSET = 30; // px each card peeks below the previous
+const SCROLL_GAP = "28vh";   // scroll distance between each card appearing
+
+// Per-card fan style: bottom cards in the stack get more rotation & x-shift.
+// idx 0 = first card shown (bottom of final pile), idx n-1 = last/top card.
+const FAN_STYLES: { rotate: number; x: number; opacity: number }[] = [
+  { rotate: 0, x: 0, opacity: 0.70 }, // bottom
+  { rotate: 0, x: 0, opacity: 0.78 }, //
+  { rotate: 0, x: 0, opacity: 0.85 }, //
+  { rotate: 0, x: 0, opacity: 0.93 }, // top (front card, nearly opaque)
+];
+
+function EducationCard({
+  item,
+  idx,
+}: {
+  item: (typeof achievements)[number];
+  idx: number;
+}) {
+  const fan = FAN_STYLES[idx] ?? { rotate: 0, x: 0, opacity: 0.9 };
+
   return (
-    <section id="education" className="portfolio-section relative overflow-hidden">
-      {/* Background Decorative Blob */}
-      <br /><br />
-      <div className="absolute top-1/2 -right-48 w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+    <div
+      className="sticky w-full"
+      style={{
+        top: `${STICKY_TOP + idx * STACK_TOP_OFFSET}px`,
+        zIndex: 10 + idx,
+        // Fan transform applied to the sticky wrapper so it bakes into the
+        // stacked position (lower cards tilt away slightly from viewer)
+        transform: `rotate(${fan.rotate}deg) translateX(${fan.x}px)`,
+        transformOrigin: "bottom center",
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.04 }}
+        whileHover={{
+          y: -8,
+          scale: 1.02,
+          rotate: 0,
+          opacity: 1,
+          zIndex: 50,
+          transition: { duration: 0.25 },
+        }}
+        className="w-full rounded-lg border border-white/20 cursor-pointer"
+        style={{
+          background: `linear-gradient(135deg, ${item.bgFrom}, ${item.bgTo})`,
+          boxShadow: "0 18px 50px rgba(0,0,0,0.50)",
+          opacity: fan.opacity,
+          overflow: "hidden",
+        }}
+      >
+        {/* ── Logo Banner — full-width white area, logo fills it ── */}
+        <div className="w-full h-52 bg-white relative flex items-center justify-center p-5">
+          {item.image ? (
+            <img
+              src={item.image}
+              alt={item.institution}
+              className="max-h-full max-w-full object-contain"
+              style={{ maxHeight: "168px" }}
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-3 opacity-25">
+              <GraduationCap className="w-16 h-16 text-gray-500" />
+              <span className="text-gray-500 font-black text-xl tracking-tight">
+                {item.imagePlaceholder}
+              </span>
+            </div>
+          )}
+
+          {/* Institution name overlay at banner bottom */}
+          <div
+            className="absolute bottom-0 left-0 right-0 py-2 px-5 flex items-center"
+            style={{ background: "rgba(0,0,0,0.55)" }}
+          >
+            <span className="text-white text-xs font-bold uppercase tracking-[0.18em] truncate">
+              {item.institution}
+            </span>
+          </div>
+        </div>
+
+        {/* ── Card Body ── */}
+        <div className="px-7 pb-7 pt-5 flex flex-col gap-4">
+
+          {/* Tag + Badge row — safely inside card body, no overflow clipping */}
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/80 bg-white/10 border border-white/15 px-3 py-1.5 rounded-lg">
+              {item.tag}
+            </span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-white bg-white/15 border border-white/20 px-3 py-1.5 rounded-lg">
+              {item.badge}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-black text-white leading-snug tracking-tight">
+            {item.title}
+          </h3>
+
+          {/* Divider */}
+          <div className="h-px bg-white/20" />
+
+          {/* Description */}
+          <p className="text-white/85 text-sm leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+
+      </motion.div>
+    </div>
+  );
+}
+
+export default function Education() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  return (
+    /*
+      NO overflow-hidden — that would break position:sticky.
+      overflow-x: clip clips horizontal overflow without breaking sticky.
+    */
+    <section
+      id="education"
+      ref={sectionRef}
+      className="relative py-24"
+      style={{ overflowX: "clip" }}
+    >
+      {/* Background glow */}
+      <div className="absolute top-1/2 -right-48 w-96 h-96 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="site-container relative z-10">
+        <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-12 xl:gap-35 items-start">
 
-        <div className="grid grid-cols-1 xl:grid-cols-[minmax(320px,380px)_minmax(0,1fr)] gap-16 xl:gap-24 items-start">
-
-          {/* Sticky sidebar */}
+          {/* ── Left Sticky Sidebar ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="xl:sticky xl:top-32 space-y-10"
+            className="xl:sticky xl:top-28 space-y-7"
+            style={{ zIndex: 100 }}
           >
             <span className="section-label">Academic Background</span>
-            <h2 className="section-title">
-              Academic
-              <br />
+
+            <h2 className="section-title leading-tight">
+              Academic<br />
               <span className="text-gradient">Achievements</span>
             </h2>
-            <p className="section-subtitle text-xl mb-12">
-              My educational journey has been defined by a passion for technical excellence
-              and continuous learning in IT and DevOps.
+
+            <p className="text-foreground/60 text-base leading-relaxed max-w-xs">
+              My educational journey has been defined by a passion for technical
+              excellence and continuous learning in IT and DevOps.
             </p>
 
-            <div className="inline-flex items-center gap-6 px-8 py-5 rounded-lg bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
-              <div className="w-16 h-16 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                <GraduationCap className="w-8 h-8 text-white" />
+            {/* Institution badge */}
+            <div className="inline-flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md">
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Institution</span>
-                <span className="text-lg font-black tracking-tight">Kelaniya University</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-foreground/40">
+                  Institution
+                </span>
+                <span className="text-sm font-black tracking-tight">
+                  University of Kelaniya
+                </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Education Cards */}
-          <div className="w-full max-w-4xl xl:ml-auto relative">
-            <div className="absolute -left-4 top-0 h-full w-1 bg-white/5 rounded-full" />
-            <div className="space-y-16 relative z-10">
-              {education.map((edu, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.7, delay: idx * 0.2, ease: "easeOut" }}
-                  className="relative pl-12"
-                >
-                  <div className="absolute -left-6 top-2 w-5 h-5 rounded-full bg-background border-2 border-white" />
-                  <div
-                    className={`group relative overflow-hidden rounded-lg border border-white/10 p-8 sm:p-10 shadow-[0_25px_80px_-30px_rgba(0,0,0,0.75)] transition-all duration-500 bg-gradient-to-br from-slate-950/80 via-gray-950/30 to-slate-900 hover:border-white/20 hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]`}
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
-                    <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-white/30 via-white/20 to-white/30`} />
-                    <div className={`absolute -right-12 -top-12 w-56 h-56 rounded-full blur-3xl opacity-30 transition-all duration-700 bg-white/10 group-hover:translate-x-2 group-hover:-translate-y-2`} />
-
-                    <div className="relative z-10 flex flex-col gap-8">
-                      <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-6">
-                        <div className="max-w-2xl">
-                          <h3 className="text-[clamp(1.5rem,3vw,2.2rem)] font-black leading-tight tracking-tight text-foreground group-hover:text-white transition-colors duration-500">
-                            {edu.degree}
-                          </h3>
-                          <p className={`mt-2 text-lg font-bold text-white/80 transition-colors duration-500`}>
-                            {edu.institution}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-col gap-3 shrink-0 self-start xl:self-auto">
-                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-md border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
-                            <Calendar className="w-4 h-4 text-white/70" /> {edu.duration}
-                          </span>
-                          <span className="inline-flex items-center gap-3 text-[11px] font-black text-foreground/55 font-mono bg-white/5 px-4 py-2 rounded-md border border-white/10 uppercase tracking-widest backdrop-blur-md transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/10">
-                            <MapPin className="w-4 h-4 text-white/70" /> {edu.location}
-                          </span>
-                        </div>
-                      </div>
-
-                      <p className="max-w-3xl text-base leading-7 text-foreground/65 group-hover:text-foreground/80 transition-colors duration-500">
-                        {edu.details}
-                      </p>
-
-                      <div className={`self-start inline-flex items-center gap-4 px-5 py-2 rounded-md text-xs font-black uppercase tracking-widest border backdrop-blur-md transition-all duration-500 bg-white/10 text-white border-white/20 group-hover:bg-white/15 group-hover:border-white/30`}>
-                        <Award className="w-4 h-4" />
-                        {edu.badge}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* ── Right Stacking Cards Column ── */}
+          {/*
+            marginBottom between cards = SCROLL_GAP (28vh each).
+            paddingBottom on the column = (n-1) * SCROLL_GAP so the section
+            is tall enough to scroll through all cards before moving on.
+          */}
+          <div
+            className="max-w-[520px] w-full"
+            style={{
+              paddingBottom: `calc(${achievements.length - 1} * ${SCROLL_GAP})`,
+            }}
+          >
+            {achievements.map((item, idx) => (
+              <div
+                key={idx}
+                style={{
+                  marginBottom:
+                    idx < achievements.length - 1 ? SCROLL_GAP : 0,
+                }}
+              >
+                <EducationCard item={item} idx={idx} />
+              </div>
+            ))}
           </div>
+
         </div>
       </div>
     </section>

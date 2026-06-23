@@ -101,6 +101,8 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+        <br></br>
+        <br></br><br /><br />
       </div>
     </section>
   );
