@@ -3,7 +3,16 @@
 import React from "react";
 import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server } from "lucide-react";
 
-const certifications = [
+type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  location?: string;
+  link: string;
+  icon?: React.ReactNode;
+};
+
+const certifications: Certification[] = [
   {
     title: "Linux Systems Administration and DevOps Engineering Program",
     issuer: "WSO2",
@@ -60,7 +69,7 @@ export default function Achievements() {
           <div className="flex flex-col items-center gap-6">
             <span className="section-label">Achievements</span>
             <h2 className="section-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-              Numbers &amp; <span className="text-gradient">Credentials</span>
+            <span className="text-gradient">Certifications</span>
             </h2>
             <p className="section-subtitle max-w-3xl text-center text-xl md:text-2xl text-foreground/70 leading-relaxed">
               Validated expertise through industry-recognized certification programs and real-world infrastructure engineering.

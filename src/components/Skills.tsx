@@ -6,12 +6,10 @@ import Image from "next/image";
 import { Server, Cloud } from "lucide-react";
 
 const tools = [
-  { name: "Jenkins",    icon: "https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" },
   { name: "Git",        icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
   { name: "Linux",      icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
   { name: "PostgreSQL", icon: "https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" },
   { name: "Python",     icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
-  { name: "Go",         icon: "https://www.vectorlogo.zone/logos/golang/golang-official.svg" },
   { name: "Node.js",    icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
   { name: "AWS",        icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
   { name: "Docker",     icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
@@ -21,9 +19,9 @@ const tools = [
   { name: "Grafana",    icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
   { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
   { name: "MySQL",      icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
-  { name: "Jenkins",    icon: "https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" },
   { name: "ArgoCD",     icon: "https://www.vectorlogo.zone/logos/argoproj/argoproj-icon.svg"},
-  { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg"}
+  { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg"},
+   
 ];
 <br />
 
