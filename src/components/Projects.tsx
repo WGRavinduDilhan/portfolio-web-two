@@ -7,7 +7,7 @@ import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    title: "CloudFlow Infrastructure",
+    title: "Salon Aurora | Microservice Salon booking System from Wso2 Training",
     description:
       "Automated multi-region AWS infrastructure deployment using Terraform and Jenkins CI/CD pipelines with auto-scaling and self-healing capabilities.",
     tech: ["AWS", "Terraform", "Jenkins", "Python"],
@@ -17,7 +17,7 @@ const projects = [
     category: "Infrastructure",
   },
   {
-    title: "K8s Monitoring Stack",
+    title: "Rebuild man | Donation platform from Rikili Organization",
     description:
       "Enterprise-grade observability with Prometheus, Grafana, and Alertmanager for Kubernetes clusters. Custom dashboards for deep cluster insights.",
     tech: ["Kubernetes", "Prometheus", "Grafana", "Go"],
@@ -25,6 +25,36 @@ const projects = [
     link: "#",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
     category: "Observability",
+  },
+  {
+    title: "Serverless Data Pipeline",
+    description:
+      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
+    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
+    github: "#",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    category: "Data Engineering",
+  },
+  {
+    title: "Serverless Data Pipeline",
+    description:
+      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
+    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
+    github: "#",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    category: "Data Engineering",
+  },
+  {
+    title: "Serverless Data Pipeline",
+    description:
+      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
+    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
+    github: "#",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    category: "Data Engineering",
   },
   {
     title: "Serverless Data Pipeline",
@@ -52,10 +82,11 @@ export default function Projects() {
             <h2 className="section-title">
               Featured <span className="text-gradient">Projects</span>
             </h2>
-            <p className="section-subtitle text-xl">
+            <p className="section-subtitle text-xl" >
               A curated selection of infrastructure automation, cloud architecture,
               and reliability engineering work designed for mission-critical availability.
-            </p>
+            </p> 
+            <br />       
           </div>
           
         </div>

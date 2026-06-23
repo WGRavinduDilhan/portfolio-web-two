@@ -33,6 +33,24 @@ const blogs = [
     image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
     tag: "DevOps",
   },
+  {
+    title: "Mastering Kubernetes Observability",
+    excerpt:
+      "A comprehensive implementation guide to setting up Prometheus, Grafana, and Loki for deep insights into your microservices health.",
+    date: "15 Apr 2026",
+    readTime: "12 min",
+    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
+    tag: "DevOps",
+  },
+  {
+    title: "Mastering Kubernetes Observability",
+    excerpt:
+      "A comprehensive implementation guide to setting up Prometheus, Grafana, and Loki for deep insights into your microservices health.",
+    date: "15 Apr 2026",
+    readTime: "12 min",
+    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
+    tag: "DevOps",
+  },
 ];
 
 export default function Blogs() {
@@ -53,6 +71,7 @@ export default function Blogs() {
               Thoughts and deep dives into cloud engineering, infrastructure automation,
               and SRE best practices from real-world deployments.
             </p>
+            <br />
           </div>
           <motion.button 
             whileHover={{ scale: 1.05, y: -5 }}
