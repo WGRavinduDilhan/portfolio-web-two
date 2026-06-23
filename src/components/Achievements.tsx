@@ -5,46 +5,40 @@ import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server } from "
 
 const certifications = [
   {
-    title: "AWS Certified Solutions Architect - Professional",
-    issuer: "Amazon Web Services",
-    date: "Mar 2026",
+    title: "Linux Systems Administration and DevOps Engineering Program",
+    issuer: "WSO2",
+    date: "",
+    location: "Colombo, Sri Lanka",
     link: "#",
-    icon: <Cloud className="w-10 h-10 text-primary" />,
+    //icon: <Award className="w-10 h-10 text-amber-400" />,
   },
   {
-    title: "CKA: Certified Kubernetes Administrator",
-    issuer: "CNCF",
-    date: "Feb 2026",
+    title: "Multicloud Network Associate",
+    issuer: "",
+    date: "",
     link: "#",
-    icon: <ShieldCheck className="w-10 h-10 text-emerald-400" />,
+    //icon: <ShieldCheck className="w-10 h-10 text-emerald-400" />,
   },
   {
-    title: "HashiCorp Certified: Terraform Associate",
-    issuer: "HashiCorp",
-    date: "Jan 2026",
+    title: "Introduction to Linux (LFS101)",
+    issuer: "The Linux Foundation",
+    date: "",
     link: "#",
-    icon: <Database className="w-10 h-10 text-indigo-400" />,
+    //icon: <Database className="w-10 h-10 text-indigo-400" />,
   },
   {
-    title: "CKAD: Certified Kubernetes Developer",
-    issuer: "CNCF",
-    date: "Dec 2025",
+    title: "Introduction to DevOps and Site Reliability Engineering (LFS162)",
+    issuer: "The Linux Foundation",
+    date: "",
     link: "#",
-    icon: <Cpu className="w-10 h-10 text-cyan-400" />,
+    //icon: <Cpu className="w-10 h-10 text-cyan-400" />,
   },
   {
-    title: "AWS Certified DevOps Engineer - Professional",
-    issuer: "Amazon Web Services",
-    date: "Nov 2025",
+    title: "Introduction to GitOps (LFS169)",
+    issuer: "The Linux Foundation",
+    date: "",
     link: "#",
-    icon: <Server className="w-10 h-10 text-violet-400" />,
-  },
-  {
-    title: "Google Cloud Certified Professional Cloud Architect",
-    issuer: "Google Cloud",
-    date: "Oct 2025",
-    link: "#",
-    icon: <Award className="w-10 h-10 text-amber-400" />,
+    //icon: <Server className="w-10 h-10 text-violet-400" />,
   },
 ];
 
@@ -108,16 +102,25 @@ export default function Achievements() {
                   {cert.title}
                 </h3>
 
-                {/* Issuer */}
-                <p className="text-foreground/80 text-sm sm:text-base mb-6 flex items-center gap-3 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-white" />
-                  {cert.issuer}
-                </p>
+                {/* Issuer + optional location */}
+                {(cert.issuer || cert.location) && (
+                  <p className="text-foreground/80 text-sm sm:text-base mb-6 flex items-center gap-3 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-white" />
+                    <span className="flex items-center gap-2">
+                      <span>{cert.issuer}</span>
+                      {cert.location && <span className="text-foreground/60 font-normal">· {cert.location}</span>}
+                    </span>
+                  </p>
+                )}
               </div>
 
               {/* Footer */}
               <div className="mt-auto pt-6 border-t border-white/10 flex items-center justify-between">
-                <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">{cert.date}</span>
+                {cert.date ? (
+                  <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">{cert.date}</span>
+                ) : (
+                  <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">&nbsp;</span>
+                )}
                 <a
                   href={cert.link}
                   target="_blank"
