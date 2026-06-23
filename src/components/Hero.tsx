@@ -37,10 +37,9 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
-              I build{" "}
-              <span className="text-gradient">resilient, scalable</span>
+              W.G.R.Dilhan{" "}
+              <span className="text-gradient">Checkout my portfolio</span>
               <br />
-              infrastructure.
             </h1>
             <br />
 
@@ -48,7 +47,7 @@ export default function Hero() {
               Full Stack Developer &amp; DevOps Engineer crafting modern, scalable
               infrastructure and high-performance web applications with a deep
               focus on{" "}
-              <span className="text-foreground/90 font-medium">SRE practices</span>.
+              <span className="text-foreground/90 font-medium">DevOps & SRE practices</span>.
             </p>
             <br />
             <br />
@@ -73,7 +72,7 @@ export default function Hero() {
             >
               {[
                 { value: "10+", label: "Projects" },
-                { value: "99.9%", label: "Uptime SLA" },
+                //{ value: "99.9%", label: "Uptime SLA" },
                 { value: "5+", label: "CI/CD Pipelines" },
               ].map((s) => (
                 <div key={s.label} className="text-left">
@@ -96,7 +95,7 @@ export default function Hero() {
 
             <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-lg overflow-hidden border border-white/8 shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-700">
               <Image
-                src="/profile.png"
+                src="/profile3.png"
                 alt="Ravindu"
                 fill
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700"

@@ -34,7 +34,7 @@ export default function About() {
             <span className="section-label">Introduction</span>
 
             <h2 className="section-title">
-              Who I Am
+              Who Am I
             </h2>
 
             <div className="space-y-6 text-foreground/65 text-lg md:text-xl leading-relaxed mb-6">
