@@ -76,7 +76,7 @@ export default function Skills() {
           {marqueeTools.map((tool, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 px-6 py-3 bg-white/[0.02] border border-white/[0.06] rounded-lg hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02] transition-all duration-300 shadow-lg group cursor-pointer"
+              className="flex items-center gap-4 px-6 py-3 hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
             >
               <div className="w-8 h-8 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Image 
