@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server } from "lucide-react";
 
 type Certification = {
@@ -10,44 +11,52 @@ type Certification = {
   location?: string;
   link: string;
   icon?: React.ReactNode;
+  badge?: string;
 };
 
 const certifications: Certification[] = [
   {
     title: "Linux Systems Administration and DevOps Engineering Program",
     issuer: "WSO2",
-    date: "",
+    date: "06/03/2025",
     location: "Colombo, Sri Lanka",
     link: "#",
-    //icon: <Award className="w-10 h-10 text-amber-400" />,
+    badge: "/WSO2.png",
   },
   {
     title: "Multicloud Network Associate",
-    issuer: "",
-    date: "",
-    link: "#",
-    //icon: <ShieldCheck className="w-10 h-10 text-emerald-400" />,
+    issuer: "Aviatrix",
+    date: "11/14/2025",
+    link: "https://www.credly.com/badges/aceb0074-0a8c-4c84-bc79-84cae46546c1/public_url",
+    badge: "/badge-aviatrix-mna.png",
   },
   {
     title: "Introduction to Linux (LFS101)",
     issuer: "The Linux Foundation",
-    date: "",
-    link: "#",
-    //icon: <Database className="w-10 h-10 text-indigo-400" />,
+    date: "5/20/2026",
+    link: "https://www.credly.com/badges/562c79f5-726f-40be-b5d5-e6d4985f860e/public_url",
+    badge: "/badge-lfs101-linux.png",
   },
   {
     title: "Introduction to DevOps and Site Reliability Engineering (LFS162)",
     issuer: "The Linux Foundation",
-    date: "",
-    link: "#",
-    //icon: <Cpu className="w-10 h-10 text-cyan-400" />,
+    date: "5/20/2026",
+    link: "https://www.credly.com/badges/dbb0d325-f36c-43bd-9849-486d882438d3/public_url",
+    badge: "/badge-lfs162-devops-sre.png",
   },
   {
     title: "Introduction to GitOps (LFS169)",
     issuer: "The Linux Foundation",
-    date: "",
-    link: "#",
-    //icon: <Server className="w-10 h-10 text-violet-400" />,
+    date: "4/3/2026",
+    link: "https://www.credly.com/badges/965266a7-e1c4-434f-a59e-c7a9facc1199/public_url",
+    badge: "/badge-lfs169-gitops.png",
+  },
+  {
+    title: "Introduction to Kubernetes (LFS158)",
+    issuer: "The Linux Foundation",
+    date: "6/12/2026",
+    link: "https://www.credly.com/badges/ba740e62-1cd9-4780-bea9-a94e1b2eda20/public_url",
+    badge: "/badge-lfs158-kubernetes.png",
   },
 ];
 
@@ -90,55 +99,66 @@ export default function Achievements() {
           {marqueeItems.map((cert, idx) => (
             <div
               key={idx}
-              className="shrink-0 w-[300px] sm:w-[360px] glass rounded-lg p-8 flex flex-col justify-between border border-white/15 hover:border-white/30 hover:bg-white/[0.04] transition-all duration-400 hover:-translate-y-2 hover:scale-[1.01] relative overflow-hidden shadow-2xl min-h-[360px] group cursor-pointer"
+              className="shrink-0 w-[380px] sm:w-[480px] glass flex flex-col border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] relative overflow-hidden shadow-2xl group cursor-pointer"
             >
-              {/* Card background ambient glow */}
-              <div className="absolute -top-16 -right-16 w-44 h-44 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              {/* Top — Badge Panel */}
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-white/[0.06] to-white/[0.01] border-b border-white/10 py-14 px-8 overflow-hidden">
+                {/* Ambient glow behind badge */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white/5 rounded-full blur-3xl" />
 
-              <div>
-                {/* Header: Icon & Verified Badge */}
-                <div className="flex items-center justify-between mb-8">
-                  <div className="p-4 rounded-md bg-white/5 text-white border border-white/10 shadow-inner group-hover:scale-110 group-hover:border-white/20 transition-all duration-400">
-                    {cert.icon}
+                {cert.badge ? (
+                  <div className="relative w-48 h-48 z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_6px_32px_rgba(255,255,255,0.18)]">
+                    <Image
+                      src={cert.badge}
+                      alt={`${cert.title} badge`}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                  <span className="text-[10px] font-black text-white bg-white/10 uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-md border border-white/20">
-                    Verified
-                  </span>
-                </div>
+                ) : (
+                  <div className="w-20 h-20 z-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/30">
+                    <span className="text-3xl">🏅</span>
+                  </div>
+                )}
 
+                {/* Verified pill — top right corner */}
+                <span className="absolute top-3 right-3 text-[10px] font-black text-white bg-white/10 uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-md border border-white/20 z-10">
+                  Verified
+                </span>
+              </div>
+
+              {/* Bottom — Info Panel */}
+              <div className="flex flex-col flex-1 p-7 gap-4">
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-black mb-4 leading-tight group-hover:text-white transition-colors">
+                <h3 className="text-xl font-black leading-snug text-white/90 group-hover:text-white transition-colors line-clamp-2">
                   {cert.title}
                 </h3>
 
-                {/* Issuer + optional location */}
+                {/* Issuer + location */}
                 {(cert.issuer || cert.location) && (
-                  <p className="text-foreground/80 text-sm sm:text-base mb-6 flex items-center gap-3 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-white" />
-                    <span className="flex items-center gap-2">
-                      <span>{cert.issuer}</span>
-                      {cert.location && <span className="text-foreground/60 font-normal">· {cert.location}</span>}
-                    </span>
+                  <p className="flex items-center gap-2.5 text-sm text-foreground/70 font-semibold">
+                    <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                    <span>{cert.issuer}</span>
+                    {cert.location && <span className="text-foreground/45 font-normal">· {cert.location}</span>}
                   </p>
                 )}
-              </div>
 
-              {/* Footer */}
-              <div className="mt-auto pt-6 border-t border-white/10 flex items-center justify-between">
-                {cert.date ? (
-                  <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">{cert.date}</span>
-                ) : (
-                  <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">&nbsp;</span>
-                )}
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs font-black text-white hover:text-white/80 transition-colors group/link"
-                >
-                  Verify Link 
-                  <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                </a>
+                {/* Footer: date + verify */}
+                <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between">
+                  <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">
+                    {cert.date || "\u00a0"}
+                  </span>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-black text-white/70 hover:text-white transition-colors group/link"
+                  >
+                    Verify Link
+                    <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

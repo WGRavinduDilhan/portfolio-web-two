@@ -7,31 +7,64 @@ import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 
 const blogs = [
   {
-    title: "Architecting Resilient Cloud Systems",
+    title: "The 9 DevOps Essentials Every Tech Enthusiastic Should Know",
     excerpt:
-      "Deep dive into the core principles of building high-availability infrastructure on AWS using modern SRE practices and automated failover strategies.",
-    date: "10 May 2026",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800",
-    tag: "Cloud",
-  },
-  {
-    title: "Terraform Best Practices at Scale",
-    excerpt:
-      "How to avoid common IaC pitfalls and optimise your Terraform state management for better collaboration, security, and enterprise scalability.",
-    date: "28 Apr 2026",
+      "Master nine essential DevOps concepts, tools, and practices used in modern cloud environments.",
+    date: "March 24, 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
-    tag: "IaC",
+    image: "/Devops_Blog.png",
+    tag: "DevOps",
+    link: "https://medium.com/@dilhanwgr2002/the-9-devops-essentials-every-tech-enthusiastic-should-know-b4e0750a314e",
   },
   {
-    title: "Mastering Kubernetes Observability",
+    title: "How Does a Switch Learn MAC Addresses and Create the CAM Table?",
     excerpt:
-      "A comprehensive implementation guide to setting up Prometheus, Grafana, and Loki for deep insights into your microservices health.",
-    date: "15 Apr 2026",
-    readTime: "12 min",
-    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
-    tag: "DevOps",
+      "Learn how network switches discover MAC addresses, build CAM tables, and forward traffic efficiently.",
+    date: "March 29, 2026",
+    readTime: "4 min",
+    image: "/Mac_Blog.png",
+    tag: "Networking",
+    link: "https://medium.com/@dilhanwgr2002/how-does-a-switch-learn-mac-addresses-and-create-the-cam-table-b45bf35d3146",
+  },
+  {
+    title: "What is WAZUH",
+    excerpt:
+      "Learn how Wazuh provides SIEM, threat detection, log analysis, and security monitoring.",
+    date: "April 13, 2026",
+    readTime: "7 min",
+    image: "/Wazuh_Blog.png",
+    tag: "Security",
+    link: "https://medium.com/@dilhanwgr2002/what-is-wazuh-9c7c4e728dde",
+  },
+  {
+    title: "From the Classroom to the Control Room: Inside Sri Lanka's Broadcasting Giant",
+    excerpt:
+      "Exploring real-world broadcasting infrastructure, operations, and technology in Sri Lanka.",
+    date: "May 11, 2026",
+    readTime: "5 min",
+    image: "/Rupa_Blog.png",
+    tag: "Live Broadcast",
+    link: "https://medium.com/@dilhanwgr2002/from-the-classroom-to-the-control-room-inside-sri-lankas-broadcasting-giant-0ed8fe7f4040",
+  },
+  {
+    title: "WSO2 HandsOn DevOps Experience",
+    excerpt:
+      "Sharing practical DevOps lessons, tools, workflows, and experiences gained through WSO2 training.",
+    date: "16 May 2026",
+    readTime: "10 min",
+    image: "/Wso2_Blog.png",
+    tag: "DevOps & SRE",
+    link: "https://medium.com/@dilhanwgr2002/wso2-handson-devops-experience-3cc9066c7c3b",
+  },
+  {
+    title: "Building a Production GitOps Pipeline on AWS with ArgoCD and Kubernetes",
+    excerpt:
+      "Build a production-grade GitOps pipeline on AWS using Kubernetes, ArgoCD, and automation best practices.",
+    date: "June 11, 2026",
+    readTime: "14 min",
+    image: "/Gitops_Blog.png",
+    tag: "Gitops ArgoCD",
+    link: "https://medium.com/@dilhanwgr2002/building-a-production-gitops-pipeline-on-aws-with-argocd-and-kubernetes-0ca4d32cc498",
   },
 ];
 
@@ -47,21 +80,29 @@ export default function Blogs() {
           <div className="max-w-3xl">
             <span className="section-label">Writing</span>
             <h2 className="section-title">
-              Latest <span className="text-gradient">Insights</span>
+              Latest <span className="text-gradient">Blogs</span>
             </h2>
             <p className="section-subtitle text-xl">
               Thoughts and deep dives into cloud engineering, infrastructure automation,
               and SRE best practices from real-world deployments.
             </p>
+            <br />
           </div>
-          <motion.button 
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn-secondary shrink-0 self-start md:self-end px-14 py-5 shadow-2xl"
+          <a
+            href="https://medium.com/@dilhanwgr2002"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            All Publications <ArrowUpRight className="w-5 h-5 ml-3" />
-          </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-secondary shrink-0 self-start md:self-end px-14 py-5 shadow-2xl"
+            >
+              All Blogs <ArrowUpRight className="w-5 h-5 ml-3" />
+            </motion.button>
+          </a>
         </div>
+        <br/>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 items-stretch">
           {blogs.map((post, i) => (
@@ -72,6 +113,12 @@ export default function Blogs() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.8 }}
               className="group cursor-pointer flex flex-col h-full"
+            >
+            <a
+              href={post.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col h-full"
             >
               <div className="relative h-72 rounded-lg overflow-hidden mb-10 border border-white/8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
                 <Image
@@ -110,9 +157,10 @@ export default function Blogs() {
 
               <div className="mt-auto pt-8 border-t border-white/8 mx-2">
                 <span className="text-xs font-black text-primary uppercase tracking-[0.3em] group-hover:tracking-[0.4em] transition-all duration-700">
-                  Read Full Publication
+                  Read Full Article →
                 </span>
               </div>
+            </a>
             </motion.article>
           ))}
         </div>

@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Server, Cloud } from "lucide-react";
 
 const tools = [
   { name: "Git",        icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
@@ -24,21 +23,6 @@ const tools = [
    
 ];
 <br />
-
-const specialisms = [
-  {
-    icon: <Server className="w-8 h-8 text-primary" />,
-    color: "primary",
-    title: "SRE & Platform Engineering",
-    body: "Building resilient systems through advanced automation and deep observability. I reduce operational toil using Error Budgets, SLOs, and automated incident response pipelines.",
-  },
-  {
-    icon: <Cloud className="w-8 h-8 text-accent" />,
-    color: "accent",
-    title: "Cloud Infrastructure Architecture",
-    body: "Architecting high-availability multi-cloud and hybrid environments using Infrastructure as Code (IaC), ensuring consistent, reproducible, and elastic scaling across providers.",
-  },
-];
 
 export default function Skills() {
   // Duplicate the list of tools to create a seamless infinite horizontal auto-scrolling marquee
@@ -92,7 +76,7 @@ export default function Skills() {
           {marqueeTools.map((tool, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-4 px-6 py-3 bg-white/[0.02] border border-white/[0.06] rounded-lg hover:bg-white/[0.05] hover:border-white/20 hover:scale-[1.02] transition-all duration-300 shadow-lg group cursor-pointer"
+              className="flex items-center gap-4 px-6 py-3 hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
             >
               <div className="w-8 h-8 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Image 
@@ -107,36 +91,6 @@ export default function Skills() {
                 {tool.name}
               </span>
             </div>
-          ))}
-        </div>
-      </div>
-      <br /><br />
-
-      {/* Specialism Cards with Premium Vertical and Horizontal Gap Spacings */}
-      <div className="site-container relative z-10 mt-36 md:mt-48">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
-          {specialisms.map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.7 }}
-              className="glass rounded-lg p-10 md:p-12 border border-white/[0.08] group relative overflow-hidden shadow-2xl h-full flex flex-col justify-between"
-            >
-              {/* Hover glow background */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[100px] -translate-x-12 -translate-y-12 group-hover:bg-white/10 transition-colors pointer-events-none" />
-              
-              <div>
-                <div className="inline-flex p-4 rounded-lg bg-white/5 mb-8 group-hover:bg-white/10 transition-all duration-500 border border-white/5 shadow-inner">
-                  {s.icon}
-                </div>
-                <h3 className="text-2xl font-black mb-6 group-hover:text-white transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-foreground/75 text-base leading-relaxed relative z-10">{s.body}</p>
-              </div>
-            </motion.div>
           ))}
         </div>
       </div>
