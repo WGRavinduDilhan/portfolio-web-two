@@ -13,7 +13,7 @@ const projects = [
     tech: ["AWS", "Terraform", "Jenkins", "Python"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
     category: "Infrastructure",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     tech: ["Kubernetes", "Prometheus", "Grafana", "Go"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800",
     category: "Observability",
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
     category: "Data Engineering",
   },
   {
@@ -43,7 +43,7 @@ const projects = [
     tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
     category: "Data Engineering",
   },
   {
@@ -53,7 +53,7 @@ const projects = [
     tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
     category: "Data Engineering",
   },
   {
@@ -63,7 +63,7 @@ const projects = [
     tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
     github: "#",
     link: "#",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
     category: "Data Engineering",
   },
 ];
