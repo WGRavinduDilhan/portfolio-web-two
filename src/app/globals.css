@@ -20,11 +20,15 @@
   }
 
   @media (min-width: 768px) {
-    :root { --container-px: 3rem; }
+    :root {
+      --container-px: 3rem;
+    }
   }
 
   @media (min-width: 1280px) {
-    :root { --container-px: 4rem; }
+    :root {
+      --container-px: 4rem;
+    }
   }
 }
 
@@ -65,7 +69,8 @@
   position: relative;
   padding-top: var(--section-y);
   padding-bottom: var(--section-y);
-  scroll-margin-top: calc(var(--nav-offset) - 0.25rem); /* Clear navbar on scroll navigation */
+  scroll-margin-top: calc(var(--nav-offset) - 0.25rem);
+  /* Clear navbar on scroll navigation */
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -96,7 +101,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-offset); /* Account for navbar and proper section spacing */
+  scroll-padding-top: var(--nav-offset);
+  /* Account for navbar and proper section spacing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -114,8 +120,10 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image:
     radial-gradient(ellipse at 15% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
     radial-gradient(ellipse at 85% 80%, rgba(200, 200, 200, 0.03) 0%, transparent 40%);
@@ -126,8 +134,10 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
   opacity: 0.12;
   z-index: -1;
@@ -211,9 +221,11 @@ body::after {
 .btn-primary {
   @apply px-8 py-3.5 rounded-md bg-primary text-black font-bold tracking-wider text-sm uppercase shadow-lg shadow-white/10 transition-all duration-300 inline-flex items-center gap-2;
 }
+
 .btn-primary:hover {
   @apply bg-primary-hover shadow-white/20 -translate-y-0.5;
 }
+
 .btn-primary:active {
   @apply scale-95;
 }
@@ -221,39 +233,66 @@ body::after {
 .btn-secondary {
   @apply px-8 py-3 rounded-md border border-white/20 text-white font-bold tracking-wider text-sm uppercase transition-all duration-300 inline-flex items-center gap-2;
 }
+
 .btn-secondary:hover {
   @apply bg-white/10 border-white/30 -translate-y-0.5;
 }
+
 .btn-secondary:active {
   @apply scale-95;
 }
 
 /* ─── Animations ─────────────────────────────────────────────────────── */
 @keyframes shine {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
 
 /* ─── Scrollbar ──────────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   border: 2px solid var(--background);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
 
 /* ─── Horizontal Scrollbar ───────────────────────────────────────────── */
 .horizontal-scroll {

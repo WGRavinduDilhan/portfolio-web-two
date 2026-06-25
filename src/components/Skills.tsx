@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const tools = [
-  { name: "Git",        icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
-  { name: "Linux",      icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
+  { name: "Git", icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
+  { name: "Linux", icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
   { name: "PostgreSQL", icon: "https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" },
-  { name: "Python",     icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
-  { name: "Node.js",    icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
-  { name: "AWS",        icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
-  { name: "Docker",     icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
+  { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
+  { name: "Node.js", icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
+  { name: "AWS", icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
+  { name: "Docker", icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
   { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
-  { name: "Terraform",  icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
+  { name: "Terraform", icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
   { name: "Prometheus", icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" },
-  { name: "Grafana",    icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
+  { name: "Grafana", icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
   { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
-  { name: "MySQL",      icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
-  { name: "ArgoCD",     icon: "https://www.vectorlogo.zone/logos/argoproj/argoproj-icon.svg"},
-  { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg"},
-   
+  { name: "MySQL", icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
+  { name: "ArgoCD", icon: "https://www.vectorlogo.zone/logos/argoproj/argoproj-icon.svg" },
+  { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg" },
+
 ];
 <br />
 
@@ -35,9 +35,9 @@ export default function Skills() {
 
       <div className="site-container mb-16 relative z-10">
         <div className="text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -46,13 +46,13 @@ export default function Skills() {
               DevOps <span className="text-gradient">Toolset</span>
             </h2>
             <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed">
-              A comprehensive stack of industry-standard tools and technologies I leverage daily 
+              A comprehensive stack of industry-standard tools and technologies I leverage daily
               to build, deploy, and manage large-scale distributed systems.
             </p>
           </motion.div>
         </div>
       </div>
-      <br /> 
+      <br />
 
       {/* Centered Technologies Title (Matches Screenshot) */}
       <div className="text-center mt-20 mb-10 relative z-10">
@@ -79,12 +79,12 @@ export default function Skills() {
               className="flex items-center gap-4 px-6 py-3 hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
             >
               <div className="w-8 h-8 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Image 
-                  src={tool.icon} 
-                  alt={tool.name} 
+                <Image
+                  src={tool.icon}
+                  alt={tool.name}
                   width={32}
                   height={32}
-                  className="w-full h-full object-contain" 
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className="text-sm font-bold tracking-wide text-foreground/80 group-hover:text-white transition-colors">
