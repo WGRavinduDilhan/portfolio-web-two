@@ -7,64 +7,63 @@ import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Salon Aurora | Microservice Salon booking System from Wso2 Training",
+    title: "Salon Aurora | Microservice Salon booking System from Wso2 Linux & Devops Training",
     description:
-      "Automated multi-region AWS infrastructure deployment using Terraform and Jenkins CI/CD pipelines with auto-scaling and self-healing capabilities.",
-    tech: ["AWS", "Terraform", "Jenkins", "Python"],
-    github: "#",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
-    category: "Infrastructure",
+      "Developed and deployed a microservices-based salon booking platform with Kubernetes, AWS, Terraform, ArgoCD, and CI/CD automation.",
+    tech: ["AWS", "Terraform", "ArgoCD", "Python", "Next.js", "Ansible", "Docker", "Kubernetes", "Prometheous", "Grafana", "githubActions"],
+    github: "github",
+    image: "/Aurora.png",
+    category: "FullStack, DevOps",
   },
   {
     title: "Rebuild man | Donation platform from Rikili Organization",
     description:
-      "Enterprise-grade observability with Prometheus, Grafana, and Alertmanager for Kubernetes clusters. Custom dashboards for deep cluster insights.",
-    tech: ["Kubernetes", "Prometheus", "Grafana", "Go"],
-    github: "#",
+      "Full-stack platform for managing organizational needs, donations, users, and resources with automated deployment workflows.",
+    tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "githubActions"],
+    github: "https://github.com/PrabathKuruwita/rebuild_man",
     link: "#",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800",
-    category: "Observability",
+    image: "#",
+    category: "FullStack , DevOps",
   },
   {
-    title: "Serverless Data Pipeline",
+    title: "Flavor POS | Full Stack System for Centralized Restaurant System",
     description:
       "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
-    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
+    tech: ["HTML", "CSS", "Js", "PHP"],
+    github: "https://github.com/dev-dojo-uok/flavour-pos",
+    link: "https://flavour.akaigen.online/",
+    image: "/Flavour.png",
+    category: "FullStack",
+  },
+  {
+    title: "Stock Portfolio Tracker | To track and analyze realtime stocks",
+    description:
+      "Track and analyze your stock portfolio with real-time data, historical charts, and performance metrics.",
+    tech: ["Python", "GoogleColab", "Numpy", "Pandas", "Matplotlib", "Streamlit"],
+    github: "https://github.com/WGRavinduDilhan/stock-portfolio-tracker",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    category: "Data Science,Machine Learning",
+  },
+  {
+    title: "Ecommerce Platform | User Friendly Microservice Based Ecommerce Platform (Ongoing)",
+    description:
+      "Design and develop a full-featured e-commerce platform with user authentication, product management, shopping cart, checkout, order processing, and admin dashboard.",
+    tech: ["Next.js", "Node.js", "GCP", "Mysql", "githubActions", "kubernetes", "GKE", "Docker"],
+    github: "https://github.com/dev-dojo-uok/",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    category: "FullStack, DevOps",
+  },
+  {
+    title: "Job Portal | User friendly Job Application & Managements System (Ongoing)",
+    description:
+      "Develop a comprehensive job portal with user authentication, job listings, application tracking, and admin management.",
+    tech: ["Java", "spring Boot", "postgres", "Docker", "kubernetes", "Aws"],
     github: "#",
     link: "#",
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
-    category: "Data Engineering",
-  },
-  {
-    title: "Serverless Data Pipeline",
-    description:
-      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
-    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
-    github: "#",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
-    category: "Data Engineering",
-  },
-  {
-    title: "Serverless Data Pipeline",
-    description:
-      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
-    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
-    github: "#",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
-    category: "Data Engineering",
-  },
-  {
-    title: "Serverless Data Pipeline",
-    description:
-      "High-throughput real-time data processing pipeline built with AWS Lambda, Kinesis, and DynamoDB for analytics at scale.",
-    tech: ["Lambda", "Node.js", "Kinesis", "Terraform"],
-    github: "#",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
-    category: "Data Engineering",
+    category: "FullStack, DevOps",
   },
 ];
 
@@ -85,10 +84,10 @@ export default function Projects() {
             <p className="section-subtitle text-xl" >
               A curated selection of infrastructure automation, cloud architecture,
               and reliability engineering work designed for mission-critical availability.
-            </p> 
-            <br />       
+            </p>
+            <br />
           </div>
-          
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 items-stretch">
@@ -126,7 +125,7 @@ export default function Projects() {
                   </a>
                 </div>
                 <div className="absolute bottom-6 left-6 z-20">
-                   <span className="text-[11px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-md bg-background/90 backdrop-blur-xl text-white border border-white/20 shadow-2xl">
+                  <span className="text-[11px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-md bg-background/90 backdrop-blur-xl text-white border border-white/20 shadow-2xl">
                     {p.category}
                   </span>
                 </div>
@@ -135,7 +134,7 @@ export default function Projects() {
               {/* Content Container */}
               <div className="p-8 flex flex-col flex-1 relative h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
+
                 <h3 className="text-2xl font-black mb-4 group-hover:text-white transition-colors leading-tight relative z-10">
                   {p.title}
                 </h3>

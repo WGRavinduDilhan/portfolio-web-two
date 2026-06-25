@@ -246,22 +246,20 @@ export default function Education() {
             is tall enough to scroll through all cards before moving on.
           */}
           <div
-            className="max-w-[520px] w-full"
-            style={{
-              paddingBottom: `calc(${achievements.length - 1} * ${SCROLL_GAP})`,
-            }}
+            className="max-w-[520px] w-full pb-0 xl:pb-[calc(3*28vh)]"
           >
-            {achievements.map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  marginBottom:
-                    idx < achievements.length - 1 ? SCROLL_GAP : 0,
-                }}
-              >
-                <EducationCard item={item} idx={idx} />
-              </div>
-            ))}
+            {achievements.map((item, idx) => {
+              const isLast = idx === achievements.length - 1;
+              return (
+                <div
+                  key={idx}
+                  style={{ marginBottom: isLast ? 0 : "10rem" }}
+                  className={!isLast ? "xl:[margin-bottom:28vh]" : ""}
+                >
+                  <EducationCard item={item} idx={idx} />
+                </div>
+              );
+            })}
           </div>
 
         </div>

@@ -69,7 +69,6 @@ export default function Achievements() {
       {/* Background Decorative Blobs */}
       <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none animate-pulse duration-[8s]" />
       <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none animate-pulse duration-[6s]" />
-
       <br />
 
       <div className="site-container relative z-10">
@@ -78,7 +77,7 @@ export default function Achievements() {
           <div className="flex flex-col items-center gap-6">
             <span className="section-label">Achievements</span>
             <h2 className="section-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-            <span className="text-gradient">Certifications</span>
+              <span className="text-gradient">Certifications</span>
             </h2>
             <p className="section-subtitle max-w-3xl text-center text-xl md:text-2xl text-foreground/70 leading-relaxed">
               Validated expertise through industry-recognized certification programs and real-world infrastructure engineering.
