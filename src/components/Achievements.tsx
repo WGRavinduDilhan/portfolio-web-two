@@ -113,6 +113,7 @@ export default function Achievements() {
                       src={cert.badge}
                       alt={`${cert.title} badge`}
                       fill
+                      sizes="192px"
                       className="object-contain"
                     />
                   </div>

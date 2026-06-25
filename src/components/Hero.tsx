@@ -98,6 +98,7 @@ export default function Hero() {
                 src="/profile3.png"
                 alt="Ravindu"
                 fill
+                sizes="(max-width: 768px) 288px, 400px"
                 className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                 priority
               />
