@@ -104,23 +104,24 @@ export default function Blogs() {
         </div>
         <br />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {blogs.map((post, i) => (
             <motion.article
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.8 }}
+              transition={{ delay: i * 0.12, duration: 0.7 }}
               className="group cursor-pointer flex flex-col h-full"
             >
               <a
                 href={post.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col h-full"
+                className="glass rounded-xl overflow-hidden border border-white/[0.08] hover:border-white/20 transition-all duration-500 flex flex-col h-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]"
               >
-                <div className="relative h-72 rounded-lg overflow-hidden mb-10 border border-white/8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden flex-shrink-0">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -128,37 +129,36 @@ export default function Blogs() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-background/90 via-transparent to-transparent opacity-70" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 
-                  <span className="absolute top-6 left-6 text-[11px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-md bg-white/10 text-white border border-white/20 backdrop-blur-xl shadow-2xl">
+                  {/* Tag badge */}
+                  <span className="absolute top-4 left-4 text-xs font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-md bg-background/90 text-white/90 border border-white/20 backdrop-blur-xl shadow-xl">
                     {post.tag}
                   </span>
 
-                  <div className="absolute top-6 right-6 p-3 bg-white/10 backdrop-blur-xl rounded-md text-white opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500 border border-white/10 shadow-2xl">
-                    <ArrowUpRight className="w-5 h-5" />
+                  {/* Arrow icon */}
+                  <div className="absolute top-4 right-4 p-2.5 bg-white/10 backdrop-blur-xl rounded-md text-white opacity-0 group-hover:opacity-100 translate-x-3 group-hover:translate-x-0 transition-all duration-400 border border-white/10 shadow-xl">
+                    <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
 
-                <div className="flex items-center gap-8 text-[11px] font-black text-foreground/40 uppercase tracking-[0.3em] mb-6 px-2">
-                  <span className="flex items-center gap-3 group-hover:text-white transition-colors">
-                    <Calendar className="w-5 h-5 opacity-40" /> {post.date}
-                  </span>
-                  <span className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 opacity-40" /> {post.readTime}
-                  </span>
-                </div>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-center gap-5 text-xs font-semibold text-foreground/40 uppercase tracking-wider mb-4">
+                    <span className="flex items-center gap-2 group-hover:text-white/70 transition-colors">
+                      <Calendar className="w-4 h-4" /> {post.date}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Clock className="w-4 h-4" /> {post.readTime}
+                    </span>
+                  </div>
 
-                <h3 className="text-3xl font-black mb-6 leading-tight group-hover:text-white transition-colors px-2">
-                  {post.title}
-                </h3>
-                <p className="text-foreground/50 text-lg leading-relaxed mb-10 px-2 line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                <div className="mt-auto pt-8 border-t border-white/8 mx-2">
-                  <span className="text-xs font-black text-primary uppercase tracking-[0.3em] group-hover:tracking-[0.4em] transition-all duration-700">
-                    Read Full Article →
-                  </span>
+                  <h3 className="text-xl font-bold mb-3 leading-snug group-hover:text-white transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-foreground/50 text-base leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
                 </div>
               </a>
             </motion.article>
