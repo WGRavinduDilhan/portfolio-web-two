@@ -22,7 +22,7 @@ const projects = [
     tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "githubActions"],
     github: "https://github.com/PrabathKuruwita/rebuild_man",
     link: "#",
-    image: "#",
+    image: "/Rebuild.png",
     category: "FullStack , DevOps",
   },
   {
@@ -42,7 +42,7 @@ const projects = [
     tech: ["Python", "GoogleColab", "Numpy", "Pandas", "Matplotlib", "Streamlit"],
     github: "https://github.com/WGRavinduDilhan/stock-portfolio-tracker",
     link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    image: "/Stock.png",
     category: "Data Science,Machine Learning",
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     description:
       "Design and develop a full-featured e-commerce platform with user authentication, product management, shopping cart, checkout, order processing, and admin dashboard.",
     tech: ["Next.js", "Node.js", "GCP", "Mysql", "githubActions", "kubernetes", "GKE", "Docker"],
-    github: "https://github.com/dev-dojo-uok/",
+    github: "https://github.com/WGRavinduDilhan/ecommerce",
     link: "#",
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
     category: "FullStack, DevOps",
@@ -60,9 +60,9 @@ const projects = [
     description:
       "Develop a comprehensive job portal with user authentication, job listings, application tracking, and admin management.",
     tech: ["Java", "spring Boot", "postgres", "Docker", "kubernetes", "Aws"],
-    github: "#",
+    github: "https://github.com/WGRavinduDilhan/job-portal",
     link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    image: "/Job.png",
     category: "FullStack, DevOps",
   },
 ];
@@ -103,13 +103,19 @@ export default function Projects() {
               {/* Image Container */}
               <div className="relative h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-700 z-10" />
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
-                />
+                {p.image ? (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/[0.02] flex items-center justify-center">
+                    <span className="text-white/10 text-6xl font-black">{p.title.charAt(0)}</span>
+                  </div>
+                )}
                 <div className="absolute top-6 right-6 z-20 flex gap-3">
                   <a
                     href={p.github}
