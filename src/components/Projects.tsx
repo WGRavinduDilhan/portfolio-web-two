@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -20,7 +20,7 @@ const projects = [
     title: "Rebuild Man | Donation Platform",
     description:
       "Full-stack donation management platform for the Rikili Organization — handles donations, users, and resources with automated Kubernetes deployment workflows.",
-    tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "GitHub Actions"],
+      tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "GitHub Actions"],
     github: "https://github.com/PrabathKuruwita/rebuild_man",
     link: "#",
     image: "/Rebuild.png",
@@ -80,7 +80,7 @@ export default function Projects() {
           <div className="max-w-3xl">
             <span className="section-label">Portfolio</span>
             <h2 className="section-title">
-              Featured <span className="text-gradient">Projects</span>
+              <span className="text-gradient">Projects</span>
             </h2>
             <p className="section-subtitle text-xl" >
               A curated selection of infrastructure automation, cloud architecture,
@@ -88,8 +88,21 @@ export default function Projects() {
             </p>
             <br />
           </div>
-
+          <a
+            href="https://github.com/WGRavinduDilhan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-secondary shrink-0 self-start md:self-end px-14 py-5 shadow-2xl"
+            >
+              VIEW GITHUB <ArrowUpRight className="w-5 h-5 ml-3" />
+            </motion.button>
+          </a>
         </div>
+        <br/>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {projects.map((p, i) => (
