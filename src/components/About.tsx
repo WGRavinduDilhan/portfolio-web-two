@@ -61,42 +61,32 @@ export default function About() {
             className="flex-1 w-full flex flex-col gap-4"
           >
             {/* Card 1: University */}
-            <div className="glass p-5 rounded-md border border-white/10 flex items-start gap-5 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default">
-            <br />  
-              <div className="p-2.5 rounded-md text-foreground border border-white/10 group-hover:border-white/20 transition-colors shrink-0 mt-0.5">
-                <GraduationCap size={20} strokeWidth={1.5} />
+            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
+              <GraduationCap size={28} strokeWidth={1.5} />
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">University of Kelaniya</h3>
+                <p className="text-base font-semibold text-foreground/80 leading-snug">BICT (Hons) — 2023–Present</p>
+                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Faculty of Computing and Technology University of Kelaniya</p>
               </div>
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-base md:text-lg font-bold text-foreground leading-none">University of Kelaniya</h3> 
-                <p className="text-sm md:text-base font-semibold text-foreground/80 leading-snug">BICT (Hons) — 2023–Present</p>
-                <p className="text-sm text-foreground/50 leading-snug">Faculty of Computing and Technology University of Kelaniya</p>
-              </div>
-              <br />
             </div>
 
             {/* Card 2: ESOFT */}
-            <div className="glass p-5 rounded-md border border-white/10 flex items-start gap-5 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default">
-              <br />
-              <div className="p-2.5 rounded-md text-foreground border border-white/10 group-hover:border-white/20 transition-colors shrink-0 mt-0.5">
-                <BookOpen size={20} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-base md:text-lg font-bold text-foreground leading-none">ESOFT Metro Campus</h3>
-                <p className="text-sm md:text-base font-semibold text-foreground/80 leading-snug">Diploma in IT (DiTEC)</p>
-                <p className="text-sm text-foreground/50 leading-snug">Foundation in Software Engineering & Networking</p>
+            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
+              <BookOpen size={28} strokeWidth={1.5} />
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">ESOFT Metro Campus</h3>
+                <p className="text-base font-semibold text-foreground/80 leading-snug">Diploma in IT (DiTEC)</p>
+                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Foundation in Software Engineering & Networking</p>
               </div>
             </div>
 
             {/* Card 3: School */}
-            <div className="glass p-5 rounded-md border border-white/10 flex items-start gap-5 hover:border-white/20 hover:bg-white/[0.02] transition-colors group cursor-default">
-              <br />
-              <div className="p-2.5 rounded-md text-foreground border border-white/10 group-hover:border-white/20 transition-colors shrink-0 mt-0.5">
-                <Building size={20} strokeWidth={1.5} />
-              </div> 
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-base md:text-lg font-bold text-foreground leading-none">Bandaranayake College, Gampaha</h3>
-                <p className="text-sm md:text-base font-semibold text-foreground/80 leading-snug">G.C.E. Advanced Level — 2019–2021</p>
-                <p className="text-sm text-foreground/50 leading-snug">Technology Stream</p>
+            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
+              <Building size={28} strokeWidth={1.5} />
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">Bandaranayake College, Gampaha</h3>
+                <p className="text-base font-semibold text-foreground/80 leading-snug">G.C.E. Advanced Level — 2019–2021</p>
+                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Technology Stream</p>
               </div>
             </div>
           </motion.div>
