@@ -5,35 +5,40 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const tools = [
-  { name: "Git", icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
-  { name: "Linux", icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
+  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+  { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+  { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" },
+  { name: "MySQL", icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
   { name: "PostgreSQL", icon: "https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+  { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" },
+  { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
   { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
   { name: "Node.js", icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
+  { name: "Git", icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
+  { name: "Linux", icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
   { name: "AWS", icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
+  { name: "GCP", icon: "https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" },
+  { name: "Azure", icon: "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" }, 
   { name: "Docker", icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
   { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
   { name: "Terraform", icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
   { name: "Prometheus", icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" },
   { name: "Grafana", icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
-  { name: "JavaScript", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
-  { name: "MySQL", icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
-  { name: "ArgoCD", icon: "https://www.vectorlogo.zone/logos/argoproj/argoproj-icon.svg" },
+  { name: "ArgoCD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg" },
   { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg" },
-
+  { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
+  { name: "Cisco", icon: "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"},
+  { name: "Ubuntu", icon: "https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg"},
 ];
 <br />
 
 export default function Skills() {
-  // Duplicate the list of tools to create a seamless infinite horizontal auto-scrolling marquee
-  const marqueeTools = [...tools, ...tools];
 
   return (
-    <section id="skills" className="portfolio-section overflow-hidden relative min-h-screen">
-      {/* Decorative Blur Ambient Blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[140px] pointer-events-none z-0" />
-
-      <div className="site-container mb-16 relative z-10">
+    <section id="skills" className="portfolio-section relative min-h-screen">
+      <div className="site-container mb-16 relative z-10 pt-20">
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,52 +50,47 @@ export default function Skills() {
             <h2 className="section-title mx-auto text-4xl md:text-5xl lg:text-6xl font-black">
               DevOps <span className="text-gradient">Toolset</span>
             </h2>
-            <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed">
+            <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed mt-6">
               A comprehensive stack of industry-standard tools and technologies I leverage daily
               to build, deploy, and manage large-scale distributed systems.
             </p>
           </motion.div>
         </div>
       </div>
-      <br />
 
-      {/* Centered Technologies Title (Matches Screenshot) */}
-      <div className="text-center mt-20 mb-10 relative z-10">
+      {/* Centered Technologies Title */}
+      <div className="text-center mt-12 mb-12 relative z-10">
         <span className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/40">
           Technologies I work with
         </span>
       </div>
       <br />
 
-      {/* Infinite Horizontal Auto-scrolling Tools Marquee */}
-      <div className="relative w-full overflow-hidden py-10 select-none z-10 mb-36 h-36 flex items-center">
-        {/* Subtle horizontal band background border as in the screenshot */}
-        <div className="absolute inset-y-0 left-0 right-0 bg-white/[0.01] border-y border-white/[0.04] pointer-events-none" />
-
-        {/* Ambient fade shadows on left and right edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 md:w-44 bg-gradient-to-r from-background via-background/90 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-24 md:w-44 bg-gradient-to-l from-background via-background/90 to-transparent z-20 pointer-events-none" />
-
-        {/* Marquee Track - Pauses on Hover */}
-        <div className="flex w-max gap-12 animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] py-2">
-          {marqueeTools.map((tool, idx) => (
-            <div
+      {/* Normal Grid Layout for Tools */}
+      <div className="site-container relative z-10 mb-36 flex justify-center">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 max-w-5xl mx-auto px-4">
+          {tools.map((tool, idx) => (
+            <motion.div
               key={idx}
-              className="flex items-center gap-4 px-6 py-3 hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+              className="flex flex-col items-center gap-3 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer"
             >
-              <div className="w-8 h-8 relative flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">
                 <Image
                   src={tool.icon}
                   alt={tool.name}
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-contain"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <span className="text-sm font-bold tracking-wide text-foreground/80 group-hover:text-white transition-colors">
+              <span className="text-sm md:text-base font-semibold tracking-wide text-foreground/70 group-hover:text-white transition-colors">
                 {tool.name}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server } from "lucide-react";
 
@@ -61,44 +61,57 @@ const certifications: Certification[] = [
 ];
 
 export default function Achievements() {
-  // Duplicate the list of certifications to create a seamless infinite horizontal marquee
-  const marqueeItems = [...certifications, ...certifications];
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -400, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 400, behavior: "smooth" });
+    }
+  };
 
   return (
     <section id="achievements" className="portfolio-section relative overflow-hidden">
       {/* Background Decorative Blobs */}
       <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none animate-pulse duration-[8s]" />
       <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none animate-pulse duration-[6s]" />
-      <br />
 
       <div className="site-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex flex-col items-center gap-6">
             <span className="section-label">Achievements</span>
-            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight flex flex-col md:flex-row items-center justify-center gap-4">
               <span className="text-gradient">Certifications</span>
             </h2>
             <p className="section-subtitle max-w-3xl text-center text-xl md:text-2xl text-foreground/70 leading-relaxed">
-              Validated expertise through industry-recognized certification programs and real-world infrastructure engineering.
+              Validated expertise through industry recognized certification programs and real-world infrastructure engineering.
             </p>
           </div>
           <br />
         </div>
       </div>
 
-      {/* Full-width Infinite Auto-scrolling Marquee */}
-      <div className="relative w-full overflow-hidden py-8 select-none">
+      {/* Scrollable Certifications Track */}
+      <div className="relative w-full py-8 group/track">
         {/* Ambient fade shadows on left and right edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-20 pointer-events-none" />
 
-        {/* Marquee Track - Pauses on Hover */}
-        <div className="flex w-max gap-8 animate-[marquee_45s_linear_infinite] hover:[animation-play-state:paused] py-4">
-          {marqueeItems.map((cert, idx) => (
+        {/* Scrollable Track */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex w-full gap-8 overflow-x-auto snap-x snap-mandatory py-4 relative z-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden before:shrink-0 before:w-4 md:before:w-24 after:shrink-0 after:w-4 md:after:w-24"
+        >
+          {certifications.map((cert, idx) => (
             <div
               key={idx}
-              className="shrink-0 w-[380px] sm:w-[480px] glass flex flex-col border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] relative overflow-hidden shadow-2xl group cursor-pointer"
+              className="shrink-0 w-[300px] sm:w-[380px] md:w-[480px] snap-center glass flex flex-col border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden shadow-2xl group cursor-pointer"
             >
               {/* Top — Badge Panel */}
               <div className="relative flex items-center justify-center bg-gradient-to-br from-white/[0.06] to-white/[0.01] border-b border-white/10 py-14 px-8 overflow-hidden">
@@ -164,11 +177,39 @@ export default function Achievements() {
           ))}
         </div>
       </div>
-      <br /><br />
 
-      {/* Elegant Auto-scroll Indicator */}
-      <div className="flex justify-center items-center gap-2 mt-4 text-[10px] font-black uppercase tracking-[0.25em] text-foreground/35 select-none pointer-events-none">
-        <span className="w-2.5 h-1 rounded-full bg-primary opacity-60 animate-pulse" />
+      {/* Footer Controls */}
+      <div className="flex flex-col items-center gap-8 mt-2">
+        {/* Manual scroll Indicator with Buttons */}
+        <br />
+        <div className="flex justify-center items-center gap-4 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/40 select-none">
+          <button 
+            onClick={scrollLeft}
+            className="p-2 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer flex items-center justify-center"
+            aria-label="Scroll left"
+          >
+            <span className="text-lg">←</span>
+          </button>
+          <span>Scroll to Explore</span>
+          <button 
+            onClick={scrollRight}
+            className="p-2 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer flex items-center justify-center"
+            aria-label="Scroll right"
+          >
+            <span className="text-lg">→</span>
+          </button>
+        </div>
+
+        {/* Visit all Certifications Button */}
+        <a
+          href="https://www.linkedin.com/in/ravindu-dilhan/details/certifications/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="btn-secondary px-8 py-4 shadow-xl hover:-translate-y-1 transition-transform flex items-center gap-3 font-semibold text-sm">
+            Visit all Certifications <ExternalLink className="w-4 h-4" />
+          </button>
+        </a>
       </div>
     </section>
   );

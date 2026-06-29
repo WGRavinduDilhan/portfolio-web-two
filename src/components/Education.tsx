@@ -6,12 +6,12 @@ import { GraduationCap } from "lucide-react";
 
 const achievements = [
   {
-    tag: "2019 – 2021",
+    tag: "2019 – 2022",
     title: "G.C.E. Advanced Level",
     institution: "Bandaranayake College, Gampaha",
     description:
-      "Technology Stream. Ranked in the top 27th District rank with 2 As 1 B.",
-    badge: "2 As · 1 B · Z-Score 1.9228",
+      "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B'.",
+    badge: "2 A's 1 B | Z-Score 1.9228",
     bgFrom: "#7a0a0a",
     bgTo: "#a01515",
     image: "/BC.png",
@@ -22,7 +22,7 @@ const achievements = [
     title: "BICT Hons Degree",
     institution: "University of Kelaniya",
     description:
-      "Specialising in Cloud Computing and DevOps. Active in SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
+      "Currrently following B.Sc.Hons with Specialization in Networking Technology. Active in SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
     bgFrom: "#68211D",
     bgTo: "#68211E",
     image: "/UOK.png",
@@ -42,10 +42,10 @@ const achievements = [
   },
   {
     tag: "Training Program",
-    title: "WSO2 Linux Training & Devops Engineering",
+    title: "WSO2 Linux Administration & DevOps Engineering",
     institution: "WSO2, Colombo, Sri Lanka",
     description:
-      "High impact 6 month training program balancing academics and cutting-edge DevOps & Linux Systems skills.",
+      "High impact 6 month training program balancing academics and cutting-edge Linux Administration & Devops engineering skills.",
     badge: "Linux & DevOps",
     bgFrom: "#FF6F00",
     bgTo: "#FF6F00",
@@ -151,28 +151,33 @@ function EducationCard({
         </div>
 
         {/* ── Card Body ── */}
-        <div className="px-7 pb-7 pt-5 flex flex-col gap-4">
+        <div className="px-8 pb-8 pt-10 flex flex-col gap-2">
 
-          {/* Tag + Badge row — safely inside card body, no overflow clipping */}
-          <div className="flex items-center justify-between gap-3 flex-wrap">
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/80 bg-white/10 border border-white/15 px-3 py-1.5 rounded-lg">
-              {item.tag}
-            </span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-white bg-white/15 border border-white/20 px-3 py-1.5 rounded-lg">
-              {item.badge}
-            </span>
+          {/* Tag + Badge row */}
+          <div className="flex items-center justify-between gap-10 flex-wrap mt-4">
+            
+            {item.tag && (
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/90 bg-white/5 border border-white/20 px-4 py-1.5 rounded-full shadow-sm">
+                {item.tag}
+              </span>
+            )}
+            {item.badge && (
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-white bg-white/5 border border-white/20 px-4 py-1.5 rounded-full shadow-sm">
+                {item.badge}
+              </span>
+            )}
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-black text-white leading-snug tracking-tight">
+          <h3 className="text-xl md:text-3xl font-black text-white leading-tight tracking-tight mt-1">
             {item.title}
           </h3>
 
           {/* Divider */}
-          <div className="h-px bg-white/20" />
+          <div className="h-px bg-white/15 w-full my-1" />
 
           {/* Description */}
-          <p className="text-white/85 text-sm leading-relaxed">
+          <p className="text-white/85 text-sm md:text-base font-medium leading-relaxed">
             {item.description}
           </p>
         </div>
@@ -264,6 +269,7 @@ export default function Education() {
 
         </div>
       </div>
+      <br /><br/>
     </section>
   );
 }

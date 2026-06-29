@@ -31,8 +31,8 @@ export default function Home() {
       <footer className="border-t border-white/8 bg-background/50 backdrop-blur-sm text-foreground/45 text-xs font-medium tracking-wider py-16 relative z-10">
         <br />
         <div className="site-container flex justify-between items-center">
-          <p className="font-mono text-sm text-foreground/60">[W.G. Ravindu Dilhan – SRE & DevOps]</p>
-          <p className="text-sm text-foreground/40">© 2026 · Ravindu Dilhan. All rights reserved.</p>
+          <p className="font-mono text-sm text-foreground/60">[Undergraduate]</p>
+          <p className="text-sm text-foreground/40">© 2026 · Created by Ravindu Dilhan. </p>
           <div className="flex items-center gap-4">
             <a href="https://github.com/WgRavinduDilhan" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors">
               <FaGithub size={20} />

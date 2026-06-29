@@ -37,18 +37,16 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
-              W.G.R.Dilhan{" "}
-              <span className="text-gradient">Checkout my portfolio</span>
+              Hi i'm Ravindu Dilhan{" "}
+              <span className="text-gradient" style={{ fontFamily: "poppins", fontSize: "80px", color: "rgb(179, 186, 190)" }}> <br/> Checkout my portfolio</span>
               <br />
             </h1>
             <br />
 
-            <p className="text-foreground/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-12 leading-8">
-              Full Stack Developer &amp; DevOps Engineer crafting modern, scalable
-              infrastructure and high-performance web applications with a deep
-              focus on{" "}
-              <span className="text-foreground/90 font-medium">DevOps & SRE practices</span>.
-            </p>
+            {/*<p className="text-foreground/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-12 leading-8">
+              <span className="text-foreground/90 font-medium"> </span>.
+            </p> */}
+
             <br />
             <br />
 
@@ -56,9 +54,9 @@ export default function Hero() {
               <a href="#contact" className="btn-primary">
                 Work Together <ArrowRight className="w-4 h-4" />
               </a>
-              <button className="btn-secondary">
-                Download CV <Download className="w-4 h-4" />
-              </button>
+              <a href="/W.G.Ravindu Dilhan CV.pdf" download className="btn-secondary">
+                Download My CV <Download className="w-4 h-4" />
+              </a>
             </div>
             <br />
             <br />
@@ -119,7 +117,7 @@ export default function Hero() {
 
             {/* Location badge */}
             <div className="absolute -bottom-5 -right-5 glass px-5 py-2.5 rounded-2xl border border-primary/25 shadow-xl z-10">
-              <span className="text-xs font-black uppercase tracking-widest text-primary">🇱🇰 Sri Lanka</span>
+              <span className="text-xs font-black uppercase tracking-widest text-primary">..Undergraduate in University of Kelaniya</span>
             </div>
           </motion.div>
 

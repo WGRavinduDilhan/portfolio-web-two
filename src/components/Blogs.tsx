@@ -8,8 +8,6 @@ import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 const blogs = [
   {
     title: "The 9 DevOps Essentials Every Tech Enthusiastic Should Know",
-    excerpt:
-      "Master nine essential DevOps concepts, tools, and practices used in modern cloud environments.",
     date: "March 24, 2026",
     readTime: "6 min",
     image: "/Devops_Blog.png",
@@ -18,8 +16,6 @@ const blogs = [
   },
   {
     title: "How Does a Switch Learn MAC Addresses and Create the CAM Table?",
-    excerpt:
-      "Learn how network switches discover MAC addresses, build CAM tables, and forward traffic efficiently.",
     date: "March 29, 2026",
     readTime: "4 min",
     image: "/Mac_Blog.png",
@@ -27,9 +23,7 @@ const blogs = [
     link: "https://medium.com/@dilhanwgr2002/how-does-a-switch-learn-mac-addresses-and-create-the-cam-table-b45bf35d3146",
   },
   {
-    title: "What is WAZUH",
-    excerpt:
-      "Learn how Wazuh provides SIEM, threat detection, log analysis, and security monitoring.",
+    title: "What is WAZUH and What is SIEM",
     date: "April 13, 2026",
     readTime: "7 min",
     image: "/Wazuh_Blog.png",
@@ -38,8 +32,6 @@ const blogs = [
   },
   {
     title: "From the Classroom to the Control Room: Inside Sri Lanka's Broadcasting Giant",
-    excerpt:
-      "Exploring real-world broadcasting infrastructure, operations, and technology in Sri Lanka.",
     date: "May 11, 2026",
     readTime: "5 min",
     image: "/Rupa_Blog.png",
@@ -47,9 +39,7 @@ const blogs = [
     link: "https://medium.com/@dilhanwgr2002/from-the-classroom-to-the-control-room-inside-sri-lankas-broadcasting-giant-0ed8fe7f4040",
   },
   {
-    title: "WSO2 HandsOn DevOps Experience",
-    excerpt:
-      "Sharing practical DevOps lessons, tools, workflows, and experiences gained through WSO2 training.",
+    title: "WSO2 HandsOn DevOps Experience by Wso2 Linux Administration & Devops Training",
     date: "16 May 2026",
     readTime: "10 min",
     image: "/Wso2_Blog.png",
@@ -58,8 +48,6 @@ const blogs = [
   },
   {
     title: "Building a Production GitOps Pipeline on AWS with ArgoCD and Kubernetes",
-    excerpt:
-      "Build a production-grade GitOps pipeline on AWS using Kubernetes, ArgoCD, and automation best practices.",
     date: "June 11, 2026",
     readTime: "14 min",
     image: "/Gitops_Blog.png",
@@ -156,9 +144,6 @@ export default function Blogs() {
                   <h3 className="text-xl font-bold mb-3 leading-snug group-hover:text-white transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-foreground/50 text-base leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
                 </div>
               </a>
             </motion.article>
