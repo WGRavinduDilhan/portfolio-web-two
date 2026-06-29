@@ -7,9 +7,7 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Salon Aurora | Microservice Salon Booking System",
-    description:
-      "Developed and deployed a microservices-based salon booking platform with Kubernetes, AWS, Terraform, ArgoCD, and full CI/CD automation — built during WSO2 Linux & DevOps Training.",
+    title: "Salon Aurora | Microservice Salon Appointment Booking System",
     tech: ["AWS", "Terraform", "ArgoCD", "Python", "Next.js", "Ansible", "Docker", "Kubernetes", "Prometheus", "Grafana", "GitHub Actions"],
     github: "https://github.com",
     link: "#",
@@ -17,9 +15,7 @@ const projects = [
     category: "FullStack · DevOps",
   },
   {
-    title: "Rebuild Man | Donation Platform",
-    description:
-      "Full-stack donation management platform for the Rikili Organization — handles donations, users, and resources with automated Kubernetes deployment workflows.",
+    title: "Rebuild Man | Donation Platform (Ongoing)",
       tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "GitHub Actions"],
     github: "https://github.com/PrabathKuruwita/rebuild_man",
     link: "#",
@@ -27,9 +23,7 @@ const projects = [
     category: "FullStack · DevOps",
   },
   {
-    title: "Flavour POS | Centralized Restaurant System",
-    description:
-      "Full-stack point-of-sale system built for centralized restaurant management, including order tracking, billing, and inventory control.",
+    title: "Flavour POS | Centralized Kitchen & Restaurant Management System",
     tech: ["HTML", "CSS", "JavaScript", "PHP"],
     github: "https://github.com/dev-dojo-uok/flavour-pos",
     link: "https://flavour.akaigen.online/",
@@ -37,9 +31,7 @@ const projects = [
     category: "FullStack",
   },
   {
-    title: "Stock Portfolio Tracker | Real-Time Stock Analytics",
-    description:
-      "Track and analyze a stock portfolio with real-time market data, historical charts, and performance metrics powered by Python data science tools.",
+    title: "Stock Portfolio Tracker | Real-Time Stock Analytics Dashboard",
     tech: ["Python", "Google Colab", "NumPy", "Pandas", "Matplotlib", "Streamlit"],
     github: "https://github.com/WGRavinduDilhan/stock-portfolio-tracker",
     link: "#",
@@ -48,8 +40,6 @@ const projects = [
   },
   {
     title: "Ecommerce Platform | Microservice-Based Store (Ongoing)",
-    description:
-      "Full-featured e-commerce platform with user authentication, product management, shopping cart, checkout, order processing, and an admin dashboard on GCP.",
     tech: ["Next.js", "Node.js", "GCP", "MySQL", "GitHub Actions", "Kubernetes", "GKE", "Docker"],
     github: "https://github.com/WGRavinduDilhan/ecommerce",
     link: "#",
@@ -58,8 +48,6 @@ const projects = [
   },
   {
     title: "Job Portal | Job Application & Management System (Ongoing)",
-    description:
-      "Comprehensive job portal with user authentication, job listings, application tracking, and full admin management, deployed on AWS with Kubernetes.",
     tech: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "AWS"],
     github: "https://github.com/WGRavinduDilhan/job-portal",
     link: "#",
@@ -83,8 +71,6 @@ export default function Projects() {
               <span className="text-gradient">Projects</span>
             </h2>
             <p className="section-subtitle text-xl" >
-              A curated selection of infrastructure automation, cloud architecture,
-              and reliability engineering work designed for mission-critical availability.
             </p>
             <br />
           </div>
@@ -166,9 +152,6 @@ export default function Projects() {
                 <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors leading-snug relative z-10">
                   {p.title}
                 </h3>
-                <p className="text-foreground/60 text-base leading-relaxed mb-5 flex-1 relative z-10">
-                  {p.description}
-                </p>
                 <div className="flex flex-wrap gap-1.5 relative z-10">
                   {p.tech.map((t) => (
                     <span

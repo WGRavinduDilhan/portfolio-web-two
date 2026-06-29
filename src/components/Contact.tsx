@@ -111,7 +111,7 @@ export default function Contact() {
             </h2>
             <p className="text-lg text-foreground/60 max-w-lg mb-12">
               I&apos;m actively seeking <span className="text-white font-semibold">DevOps & SRE internship</span> opportunities.
-              Whether you have a project, role, or just want to connect — my inbox is always open.
+              Whether you have a project, role, or just want to connect with me my inbox is always open.
             </p>
 
             <div className="space-y-6">
