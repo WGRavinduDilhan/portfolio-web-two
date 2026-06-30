@@ -15,7 +15,7 @@ const projects = [
     category: "FullStack · DevOps",
   },
   {
-    title: "Rebuild Man | Donation Platform (Ongoing)",
+    title: "Rebuild Man | Donation Platform (Ongoin)",
       tech: ["Django", "Python", "Next.js", "Docker", "Kubernetes", "Prometheus", "Grafana", "Contabo", "GitHub Actions"],
     github: "https://github.com/PrabathKuruwita/rebuild_man",
     link: "#",
@@ -151,7 +151,7 @@ export default function Projects() {
 
                 <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors leading-snug relative z-10">
                   {p.title}
-                </h3>
+                </h3><br/>
                 <div className="flex flex-wrap gap-1.5 relative z-10">
                   {p.tech.map((t) => (
                     <span

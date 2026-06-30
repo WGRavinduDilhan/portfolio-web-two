@@ -117,7 +117,7 @@ export default function Hero() {
 
             {/* Location badge */}
             <div className="absolute -bottom-5 -right-5 glass px-5 py-2.5 rounded-2xl border border-primary/25 shadow-xl z-10">
-              <span className="text-xs font-black uppercase tracking-widest text-primary">..Undergraduate in University of Kelaniya</span>
+              <span className="text-xs font-black uppercase tracking-widest text-primary">..University of Kelaniya</span>
             </div>
           </motion.div>
 

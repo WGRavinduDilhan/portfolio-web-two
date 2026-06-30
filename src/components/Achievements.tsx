@@ -190,7 +190,7 @@ export default function Achievements() {
           >
             <span className="text-lg">←</span>
           </button>
-          <span>Scroll to Explore</span>
+          <span>Swipe to Explore</span>
           <button 
             onClick={scrollRight}
             className="p-2 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer flex items-center justify-center"
