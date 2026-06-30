@@ -51,8 +51,8 @@ export default function Skills() {
               DevOps <span className="text-gradient">Toolset</span>
             </h2>
             <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed mt-6">
-              A comprehensive stack of industry-standard tools and technologies I leverage daily
-              to build, deploy, and manage large-scale distributed systems.
+              A comprehensive stack of industry standard tools and technologies I leverage daily
+              to build, deploy, and manage distributed systems.
             </p>
           </motion.div>
         </div>
@@ -78,7 +78,7 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               className="flex flex-col items-center gap-3 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">
+              <div className="w-10 h-10 md:w-14 md:h-14 relative flex items-center justify-center">
                 <Image
                   src={tool.icon}
                   alt={tool.name}

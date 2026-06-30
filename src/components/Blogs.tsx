@@ -139,7 +139,7 @@ export default function Blogs() {
                     <span className="flex items-center gap-2">
                       <Clock className="w-4 h-4" /> {post.readTime}
                     </span>
-                  </div>
+                  </div> <br/>
 
                   <h3 className="text-xl font-bold mb-3 leading-snug group-hover:text-white transition-colors">
                     {post.title}
