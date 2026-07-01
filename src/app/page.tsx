@@ -30,7 +30,7 @@ export default function Home() {
       </div>
       <footer className="border-t border-white/8 bg-background/50 backdrop-blur-sm text-foreground/45 text-xs font-medium tracking-wider py-16 relative z-10">
         <br />
-        <div className="site-container flex justify-between items-center">
+        <div className="site-container flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
           <p className="font-mono text-sm text-foreground/60">[Undergraduate]</p>
           <p className="text-sm text-foreground/40">© 2026 · Created by Ravindu Dilhan. </p>
           <div className="flex items-center gap-4">

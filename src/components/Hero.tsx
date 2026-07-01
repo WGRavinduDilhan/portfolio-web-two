@@ -37,8 +37,8 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
-              Hi i'm Ravindu Dilhan{" "}
-              <span className="text-gradient" style={{ fontFamily: "poppins", fontSize: "80px", color: "rgb(179, 186, 190)" }}> <br/> Checkout my portfolio</span>
+              Hi I'm Ravindu Dilhan{" "}
+              <span className="text-gradient text-4xl md:text-[80px]" style={{ fontFamily: "poppins", color: "rgb(179, 186, 190)", lineHeight: "1.2" }}> <br/> Checkout my portfolio</span>
               <br />
             </h1>
             <br />
