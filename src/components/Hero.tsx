@@ -37,8 +37,8 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-8">
-              Hi i'm Ravindu Dilhan{" "}
-              <span className="text-gradient" style={{ fontFamily: "poppins", fontSize: "80px", color: "rgb(179, 186, 190)" }}> <br/> Checkout my portfolio</span>
+              Hi I'm Ravindu Dilhan{" "}
+              <span className="text-gradient text-4xl md:text-[80px]" style={{ fontFamily: "poppins", color: "rgb(179, 186, 190)", lineHeight: "1.2" }}> <br/> Checkout my portfolio</span>
               <br />
             </h1>
             <br />
@@ -117,7 +117,7 @@ export default function Hero() {
 
             {/* Location badge */}
             <div className="absolute -bottom-5 -right-5 glass px-5 py-2.5 rounded-2xl border border-primary/25 shadow-xl z-10">
-              <span className="text-xs font-black uppercase tracking-widest text-primary">..University of Kelaniya</span>
+              <span className="text-xs font-black uppercase tracking-widest text-primary">&nbsp;&nbsp; University of Kelaniya</span>
             </div>
           </motion.div>
 

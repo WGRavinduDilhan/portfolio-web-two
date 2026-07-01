@@ -229,7 +229,7 @@ export default function Education() {
             </p><br></br>
 
             {/* Institution badge */}
-            <div className="inline-flex items-center gap-4 pl-5 pr-10 py-4 rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md">
+            <div className="inline-flex items-center gap-4 pl-5 pr-8 py-4 rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md">
               <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
@@ -238,7 +238,7 @@ export default function Education() {
                   Institution
                 </span>
                 <span className="text-sm font-black tracking-widest">
-                  University of Kelaniya  
+                  University of Kelaniya&nbsp;&nbsp;
                 </span>
               </div>
             </div>
