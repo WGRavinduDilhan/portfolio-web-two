@@ -182,21 +182,21 @@ export default function Achievements() {
       <div className="flex flex-col items-center gap-8 mt-2">
         {/* Manual scroll Indicator with Buttons */}
         <br />
-        <div className="flex justify-center items-center gap-4 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/40 select-none">
+        <div className="flex justify-center items-center gap-4 sm:gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/40 select-none">
           <button 
             onClick={scrollLeft}
-            className="p-2 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer flex items-center justify-center"
+            className="w-12 h-12 sm:w-10 sm:h-10 rounded glass bg-white/10 border border-white/20 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
             aria-label="Scroll left"
           >
-            <span className="text-lg">←</span>
+            <span className="text-xl sm:text-lg font-bold">←</span>
           </button>
-          <span>Swipe to Explore</span>
+          <span>Swipe or press arrows to Explore</span>
           <button 
             onClick={scrollRight}
-            className="p-2 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer flex items-center justify-center"
+            className="w-12 h-12 sm:w-10 sm:h-10 rounded glass bg-white/10 border border-white/10 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
             aria-label="Scroll right"
           >
-            <span className="text-lg">→</span>
+            <span className="text-xl sm:text-lg font-bold">→</span>
           </button>
         </div>
 

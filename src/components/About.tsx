@@ -62,17 +62,21 @@ export default function About() {
           >
             {/* Card 1: University */}
             <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              <GraduationCap size={28} strokeWidth={1.5} />
+              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
+                <GraduationCap size={28} strokeWidth={1.5} />
+              </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">University of Kelaniya</h3>
-                <p className="text-base font-semibold text-foreground/80 leading-snug">BICT (Hons) Degree 2023–Present</p>
-                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Faculty of Computing and Technology University of Kelaniya</p>
+                <p className="text-base font-semibold text-foreground/80 leading-snug">BICT(Hons) Degree 2023 – Present</p>
+                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Faculty of Computing & Technology University of Kelaniya</p>
               </div>
             </div>
 
             {/* Card 2: ESOFT */}
             <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              <BookOpen size={28} strokeWidth={1.5} />
+              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
+                <BookOpen size={28} strokeWidth={1.5} />
+              </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">ESOFT Metro Campus</h3>
                 <p className="text-base font-semibold text-foreground/80 leading-snug">Diploma in IT (DiTEC)</p>
@@ -82,10 +86,12 @@ export default function About() {
 
             {/* Card 3: School */}
             <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              <School size={28} strokeWidth={1.5} />
+              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
+                <School size={28} strokeWidth={1.5} />
+              </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">Bandaranayake College, Gampaha</h3>
-                <p className="text-base font-semibold text-foreground/80 leading-snug">G.C.E. Advanced Level — 2019–2021</p>
+                <p className="text-base font-semibold text-foreground/80 leading-snug">G.C.E. Advanced Level — 2019–2022</p>
                 <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Technology Stream</p>
               </div>
             </div>

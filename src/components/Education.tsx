@@ -10,7 +10,7 @@ const achievements = [
     title: "G.C.E. Advanced Level",
     institution: "Bandaranayake College, Gampaha",
     description:
-      "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B'.",
+      "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B.",
     badge: "2 A's 1 B | Z-Score 1.9228",
     bgFrom: "#7a0a0a",
     bgTo: "#a01515",
