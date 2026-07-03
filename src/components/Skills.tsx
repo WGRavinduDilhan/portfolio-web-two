@@ -65,6 +65,7 @@ export default function Skills() {
           Technologies I work with
         </span>
       </div>
+      <br/>
     
 
       {/* Normal Grid Layout for Tools */}
