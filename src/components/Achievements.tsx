@@ -58,6 +58,20 @@ const certifications: Certification[] = [
     link: "https://www.credly.com/badges/ba740e62-1cd9-4780-bea9-a94e1b2eda20/public_url",
     badge: "/badge-lfs158-kubernetes.png",
   },
+  {
+    title: "Introduction to Cybersecurity",
+    issuer: "Cysco Networking Academy",
+    date: "18/11/2021",
+    link: "https://www.credly.com/badges/b545210d-3137-4c7a-9cf6-ec9e0c6bfaed/public_url",
+    badge: "/badge-cysco.png",
+  },
+  /* {
+    title: "AZ-900 Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "On Going",
+    link: "#",
+    badge: "/Microsoft.png",
+  }, */
 ];
 
 export default function Achievements() {
