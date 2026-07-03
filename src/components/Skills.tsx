@@ -60,11 +60,13 @@ export default function Skills() {
 
       {/* Centered Technologies Title */}
       <div className="text-center mt-12 mb-12 relative z-10">
-        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-foreground/40">
+        <br/>
+        <span className="text-[13px] font-black uppercase tracking-[0.3em] text-foreground/40">
           Technologies I work with
         </span>
       </div>
-      <br />
+      <br/>
+    
 
       {/* Normal Grid Layout for Tools */}
       <div className="site-container relative z-10 mb-36 flex justify-center">

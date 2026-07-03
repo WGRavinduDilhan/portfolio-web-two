@@ -10,7 +10,7 @@ const achievements = [
     title: "G.C.E. Advanced Level",
     institution: "Bandaranayake College, Gampaha",
     description:
-      "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B'.",
+      "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B.",
     badge: "2 A's 1 B | Z-Score 1.9228",
     bgFrom: "#7a0a0a",
     bgTo: "#a01515",
@@ -234,11 +234,11 @@ export default function Education() {
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-widest text-foreground/40">
+                <span className="text-[14px] font-black uppercase tracking-widest text-foreground/40">
                   Institution
                 </span>
-                <span className="text-sm font-black tracking-widest">
-                  University of Kelaniya&nbsp;&nbsp;
+                <span className="text-[13px] text-foreground font-black tracking-widest">
+                  University of Kelaniya&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
               </div>
             </div>

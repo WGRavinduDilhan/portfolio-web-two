@@ -15,7 +15,7 @@ const blogs = [
     link: "https://medium.com/@dilhanwgr2002/the-9-devops-essentials-every-tech-enthusiastic-should-know-b4e0750a314e",
   },
   {
-    title: "How Does a Switch Learn MAC Addresses and Create the CAM Table?",
+    title: "How Does a Switch Learn MAC Addresses and Create CAM Table?",
     date: "March 29, 2026",
     readTime: "4 min",
     image: "/Mac_Blog.png",
