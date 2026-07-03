@@ -22,7 +22,7 @@ const achievements = [
     title: "BICT Hons Degree",
     institution: "University of Kelaniya",
     description:
-      "Currrently following B.Sc.Hons with Specialization in Networking Technology. Active in SRE and Open Source communities. Focused on distributed systems and infrastructure automation.",
+      "Currently following B.Sc.Hons with Specialization in Networking Technology. Active in Open Source communities. Focused on distributed systems and infrastructure automation.",
     bgFrom: "#68211D",
     bgTo: "#68211E",
     image: "/UOK.png",
@@ -33,7 +33,7 @@ const achievements = [
     title: "B2B Manager",
     institution: "AIESEC UOK",
     description:
-      "Lead local company partnerships to deliver cross-cultural internship programs, managing stakeholder relations, negotiations, and end-to-end project execution.",
+      "Led Partnership and Relationship Management, driving Stakeholder Engagement and Supporting Incoming Global Volunteering Projects growth.",
     badge: "B2B Manager",
     bgFrom: "#0383E8",
     bgTo: "#037EF3",
@@ -45,7 +45,7 @@ const achievements = [
     title: "WSO2 Linux Administration & DevOps Engineering",
     institution: "WSO2, Colombo, Sri Lanka",
     description:
-      "High impact 6 month training program balancing academics and cutting-edge Linux Administration & Devops engineering skills.",
+      "Successfully completed High Impact 6 month training program balancing academics and cutting-edge Linux Administration & DevOps Engineering skills and completed real world project.",
     badge: "Linux & DevOps",
     bgFrom: "#FF6F00",
     bgTo: "#FF6F00",
@@ -94,8 +94,6 @@ function EducationCard({
       style={{
         top: `${STICKY_TOP + idx * STACK_TOP_OFFSET}px`,
         zIndex: 10 + idx,
-        // Fan transform applied to the sticky wrapper so it bakes into the
-        // stacked position (lower cards tilt away slightly from viewer)
         transform: `rotate(${fan.rotate}deg) translateX(${fan.x}px)`,
         transformOrigin: "bottom center",
       }}
@@ -122,18 +120,18 @@ function EducationCard({
         }}
       >
         {/* ── Logo Banner — full-width white area, logo fills it ── */}
-        <div className="w-full h-52 bg-white relative flex items-center justify-center p-5">
+        <div className="w-full h-50 bg-white relative flex items-center justify-center p-4">
           {item.image ? (
             <img
               src={item.image}
               alt={item.institution}
               className="max-h-full max-w-full object-contain"
-              style={{ maxHeight: "168px" }}
+              style={{ maxHeight: "160px" }}
             />
           ) : (
-            <div className="flex flex-col items-center gap-3 opacity-25">
+            <div className="flex flex-col items-center gap-4 opacity-25">
               <GraduationCap className="w-16 h-16 text-gray-500" />
-              <span className="text-gray-500 font-black text-xl tracking-tight">
+              <span className="text-gray-500 font-black text-base tracking-tight">
                 {item.imagePlaceholder}
               </span>
             </div>
@@ -144,7 +142,7 @@ function EducationCard({
             className="absolute bottom-0 left-0 right-0 py-2 px-5 flex items-center"
             style={{ background: "rgba(0,0,0,0.55)" }}
           >
-            <span className="text-white text-xs font-bold uppercase tracking-[0.18em] truncate">
+            <span className="text-white text-[13px] font-bold uppercase tracking-[0.18em] truncate">
               {item.institution}
             </span>
           </div>
@@ -154,8 +152,7 @@ function EducationCard({
         <div className="px-8 pb-8 pt-10 flex flex-col gap-2">
 
           {/* Tag + Badge row */}
-          <div className="flex items-center justify-between gap-10 flex-wrap mt-4">
-            
+          <div className="flex items-center justify-between gap-12 flex-wrap">
             {item.tag && (
               <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/90 bg-white/5 border border-white/20 px-4 py-1.5 rounded-full shadow-sm">
                 {item.tag}
@@ -169,7 +166,7 @@ function EducationCard({
           </div>
 
           {/* Title */}
-          <h3 className="text-xl md:text-3xl font-black text-white leading-tight tracking-tight mt-1">
+          <h3 className="text-xl md:text-xl font-black text-white leading-tight tracking-tight mt-1">
             {item.title}
           </h3>
 
@@ -251,7 +248,7 @@ export default function Education() {
             is tall enough to scroll through all cards before moving on.
           */}
           <div
-            className="max-w-[520px] w-full pb-0 xl:pb-[calc(3*28vh)]"
+            className="max-w-[510px] w-full pb-0 xl:pb-[calc(3*28vh)]"
           >
             {achievements.map((item, idx) => {
               const isLast = idx === achievements.length - 1;
