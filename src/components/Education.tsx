@@ -22,7 +22,7 @@ const achievements = [
     title: "IT Diploma",
     institution: "ESOFT Metro Campus Colombo",
     description:
-      "Completed Diploma in Information Technology with Specialization in Networking Technology. Active in Open Source communities. Focused on distributed systems and infrastructure automation.",
+      "Completed Diploma in Information Technology as a Foundation for IT and Software Engineering. Focused on IT skills and Web Development.",
     bgFrom: "#09428dff",
     bgTo: "#516fafff",
     image: "/Esoft.png",
@@ -33,7 +33,7 @@ const achievements = [
     title: "BICT Hons Degree",
     institution: "University of Kelaniya",
     description:
-      "Currently following B.Sc.Hons with Specialization in Networking Technology. Active in Open Source communities. Focused on distributed systems and infrastructure automation.",
+      "Currently following B.Sc.Hons with Specialization in Networking Technology. Active in Open Source communities. Focused on Networking and DevOps and cloud based technologies.",
     bgFrom: "#68211D",
     bgTo: "#68211E",
     image: "/UOK.png",
