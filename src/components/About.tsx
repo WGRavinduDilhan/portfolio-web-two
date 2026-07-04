@@ -52,53 +52,49 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* ── Education Summary Cards ── */}
+          {/* ── Profile Image ── */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-1 w-full flex flex-col gap-4"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0, 0.71, 0.2, 1.01] }}
+            className="flex-shrink-0 relative group"
           >
-            {/* Card 1: University */}
-            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
-                <GraduationCap size={28} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">University of Kelaniya</h3>
-                <p className="text-base font-semibold text-foreground/80 leading-snug">BICT(Hons) Degree 2023 – Present</p>
-                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Faculty of Computing & Technology University of Kelaniya</p>
-              </div>
+            {/* Glow halo */}
+            <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-accent/20 rounded-[3.5rem] blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-1000 animate-pulse" />
+
+            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-lg overflow-hidden border border-white/8 shadow-2xl">
+              <Image
+                src="/profile3.png"
+                alt="Ravindu"
+                fill
+                sizes="(max-width: 768px) 288px, 400px"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>
 
-            {/* Card 2: ESOFT */}
-            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
-                <BookOpen size={28} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">ESOFT Metro Campus</h3>
-                <p className="text-base font-semibold text-foreground/80 leading-snug">Diploma in IT (DiTEC)</p>
-                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Foundation in Software Engineering & Networking</p>
-              </div>
-            </div>
+            {/* Floating corner decorations */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-6 -right-6 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -bottom-6 -left-6 w-20 h-20 border-b-2 border-l-2 border-accent/30 rounded-bl-3xl"
+            />
 
-            {/* Card 3: School */}
-            <div className="glass p-8 sm:p-10 rounded-2xl border border-white/10 flex items-center gap-6 sm:gap-8 hover:border-white/20 hover:bg-white/[0.02] transition-all group cursor-default shadow-xl">
-              {"\u00A0"}<div className="p-4 bg-white/5 rounded-xl border border-white/10 shrink-0">
-                <School size={28} strokeWidth={1.5} />
-              </div>
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">Bandaranayake College, Gampaha</h3>
-                <p className="text-base font-semibold text-foreground/80 leading-snug">G.C.E. Advanced Level — 2019–2022</p>
-                <p className="text-sm md:text-base text-foreground/50 leading-relaxed">Technology Stream</p>
-              </div>
-            </div>
+            {/* Location badge */}
+            {/* <div className="absolute -bottom-5 -right-5 glass px-5 py-2.5 rounded-2xl border border-primary/25 shadow-xl z-10">
+                        <span className="text-xs font-black uppercase tracking-widest text-primary">&nbsp;&nbsp; University of Kelaniya</span>
+                      </div> */}
           </motion.div>
+
         </div>
-        <br></br>
-        <br></br><br /><br />
+        <br></br><br/>
+        <br></br><br /><br /><br />
       </div>
     </section>
   );

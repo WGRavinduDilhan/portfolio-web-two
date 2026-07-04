@@ -43,7 +43,7 @@ const projects = [
     tech: ["Next.js", "Node.js", "GCP", "MySQL", "GitHub Actions", "Kubernetes", "GKE", "Docker"],
     github: "https://github.com/WGRavinduDilhan/ecommerce",
     link: "#",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800",
+    image: "/Ecom.png",
     category: "FullStack · DevOps",
   },
   {
@@ -71,6 +71,7 @@ export default function Projects() {
               <span className="text-gradient">Projects</span>
             </h2>
             <p className="section-subtitle text-xl" >
+              Project that i have Contributed and worked on. Some projects are industry based, some are client based and some are still in progress.  
             </p>
             <br />
           </div>

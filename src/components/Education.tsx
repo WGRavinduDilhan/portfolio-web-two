@@ -18,6 +18,17 @@ const achievements = [
     imagePlaceholder: "BCG",
   },
   {
+    tag: "2022 – 2024",
+    title: "IT Diploma",
+    institution: "ESOFT Metro Campus Colombo",
+    description:
+      "Completed Diploma in Information Technology with Specialization in Networking Technology. Active in Open Source communities. Focused on distributed systems and infrastructure automation.",
+    bgFrom: "#09428dff",
+    bgTo: "#516fafff",
+    image: "/Esoft.png",
+    imagePlaceholder: "ESOFT",
+  },
+  {
     tag: "2023 – Present",
     title: "BICT Hons Degree",
     institution: "University of Kelaniya",
