@@ -42,10 +42,7 @@ export default function Navbar() {
     const header = document.querySelector("header");
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
 
-    // Give Achievements an extra upward offset so its content is fully visible
-    const extraOffset = href === "#achievements" ? 64 : 0;
-
-    const top = window.scrollY + el.getBoundingClientRect().top - headerHeight - extraOffset;
+    const top = window.scrollY + el.getBoundingClientRect().top - headerHeight - 24;
     window.scrollTo({ top, behavior: "smooth" });
 
     // update URL hash without jump
