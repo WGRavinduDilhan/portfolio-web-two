@@ -20,17 +20,19 @@ const tools = [
   { name: "Linux", icon: "https://www.vectorlogo.zone/logos/linux/linux-icon.svg" },
   { name: "AWS", icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
   { name: "GCP", icon: "https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" },
-  { name: "Azure", icon: "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" }, 
+  { name: "Azure", icon: "https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" },
   { name: "Docker", icon: "https://www.vectorlogo.zone/logos/docker/docker-icon.svg" },
   { name: "Kubernetes", icon: "https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" },
   { name: "Terraform", icon: "https://www.vectorlogo.zone/logos/terraformio/terraformio-icon.svg" },
   { name: "Prometheus", icon: "https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" },
   { name: "Grafana", icon: "https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" },
   { name: "ArgoCD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg" },
+  { name: "OpenSearch", icon: "/OpenS.png" },
+  { name: "Wazuh", icon: "/Wazuh.png" },
   { name: "SpringBoot", icon: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg" },
   { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" },
-  { name: "Cisco", icon: "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"},
-  { name: "Ubuntu", icon: "https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg"},
+  { name: "Cisco", icon: "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg" },
+  { name: "Ubuntu", icon: "https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg" },
 ];
 <br />
 
@@ -60,13 +62,13 @@ export default function Skills() {
 
       {/* Centered Technologies Title */}
       <div className="text-center mt-12 mb-12 relative z-10">
-        <br/>
+        <br />
         <span className="text-[13px] font-black uppercase tracking-[0.3em] text-foreground/40">
           Technologies I work with
         </span>
       </div>
-      <br/>
-    
+      <br />
+
 
       {/* Normal Grid Layout for Tools */}
       <div className="site-container relative z-10 mb-36 flex justify-center">
@@ -80,12 +82,20 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               className="flex flex-col items-center gap-3 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer"
             >
-              <div className="w-10 h-10 md:w-14 md:h-14 relative flex items-center justify-center">
+              <div
+                className="w-10 h-10 md:w-14 md:h-14 relative flex items-center justify-center"
+                style={{
+                  background: tool.name === "OpenSearch" ? "white" : "transparent",
+                  padding: tool.name === "OpenSearch" ? "10px" : "0",
+                  borderRadius: tool.name === "OpenSearch" ? "90px" : "0",
+                }}
+              >
                 <Image
                   src={tool.icon}
                   alt={tool.name}
                   width={64}
                   height={64}
+                  unoptimized
                   className="w-full h-full object-contain filter drop-shadow-md group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
