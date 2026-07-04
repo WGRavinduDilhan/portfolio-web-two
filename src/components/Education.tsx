@@ -19,7 +19,7 @@ const achievements = [
   },
   {
     tag: "2022 – 2024",
-    title: "IT Diploma",
+    title: "Diploma in Information Technology",
     institution: "ESOFT Metro Campus Colombo",
     description:
       "Completed Diploma in Information Technology as a Foundation for IT and Software Engineering. Focused on IT skills and Web Development.",

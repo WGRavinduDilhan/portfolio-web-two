@@ -1,34 +1,51 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 
-const ROLE_TEXT = "Developer & DevOps Enthusiast";
-const TYPE_DELAY_MS = 900; // ms after mount before typing starts
-const CHAR_INTERVAL_MS = 60; // ms per character
+// Typewriter config
+const ROLE_PREFIX = "Developer & ";
+const ROLE_SUFFIX = " Enthusiast";
+const CYCLE_WORDS = ["DevOps", "SRE", "DevOps", "SRE"]; // pattern to cycle
+const TYPE_DELAY_MS = 900;  // delay before typing starts
+const CHAR_INTERVAL = 60;   // ms per character
+const CYCLE_INTERVAL = 1800; // ms each word stays visible
 
 export default function Hero() {
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(false);
+  const [typeDone, setTypeDone] = useState(false);
+  const [wordIdx, setWordIdx] = useState(0);
 
+  // Typewriter effect — types the full initial text once
   useEffect(() => {
-    // Start typing after the name animation has finished
+    const fullText = ROLE_PREFIX + CYCLE_WORDS[0] + ROLE_SUFFIX;
     const startTimer = setTimeout(() => {
       setTyping(true);
       let i = 0;
       const interval = setInterval(() => {
         i++;
-        setDisplayed(ROLE_TEXT.slice(0, i));
-        if (i >= ROLE_TEXT.length) {
+        setDisplayed(fullText.slice(0, i));
+        if (i >= fullText.length) {
           clearInterval(interval);
           setTyping(false);
+          setTypeDone(true);
         }
-      }, CHAR_INTERVAL_MS);
+      }, CHAR_INTERVAL);
       return () => clearInterval(interval);
     }, TYPE_DELAY_MS);
     return () => clearTimeout(startTimer);
   }, []);
+
+  // Cycling effect — kicks in after typewriter is done
+  useEffect(() => {
+    if (!typeDone) return;
+    const cycle = setInterval(() => {
+      setWordIdx((prev) => (prev + 1) % CYCLE_WORDS.length);
+    }, CYCLE_INTERVAL);
+    return () => clearInterval(cycle);
+  }, [typeDone]);
 
   return (
     <section
@@ -93,7 +110,7 @@ export default function Hero() {
             Ravindu Dilhan
           </motion.h1>
 
-          {/* ── Role line with typewriter ── */}
+          {/* ── Role line: typewriter → cycling DevOps/SRE ── */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,31 +124,87 @@ export default function Hero() {
               marginBottom: "2rem",
               lineHeight: 1.4,
               minHeight: "2em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: "0 0.3em",
             }}
           >
-            I&apos;m a{" "}
-            <span
-              style={{
-                fontWeight: 700,
-                color: "rgba(255,255,255,0.9)",
-              }}
-            >
-              {displayed}
-              {/* Blinking cursor — only shows while typing */}
-              <span
-                style={{
-                  display: "inline-block",
-                  width: "2px",
-                  height: "1.1em",
-                  background: "rgba(255,255,255,0.8)",
-                  marginLeft: "2px",
-                  verticalAlign: "text-bottom",
-                  borderRadius: "1px",
-                  animation: typing ? "blink 0.7s step-end infinite" : "none",
-                  opacity: typing ? 1 : 0,
-                }}
-              />
-            </span>
+            {!typeDone ? (
+              /* Typewriter phase */
+              <span>
+                I&apos;m a{" "}
+                <span style={{ fontWeight: 700, color: "rgba(255,255,255,0.9)" }}>
+                  {displayed}
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: "2px",
+                      height: "1.1em",
+                      background: "rgba(255,255,255,0.8)",
+                      marginLeft: "2px",
+                      verticalAlign: "text-bottom",
+                      borderRadius: "1px",
+                      animation: typing ? "blink 0.7s step-end infinite" : "none",
+                      opacity: typing ? 1 : 0,
+                    }}
+                  />
+                </span>
+              </span>
+            ) : (
+              /* Cycling phase — per-character vertical stagger */
+              <span style={{ color: "rgba(255,255,255,0.45)" }}>
+                I&apos;m a&nbsp;
+                <span style={{ fontWeight: 700, color: "rgba(255,255,255,0.9)" }}>
+                  Developer &amp;&nbsp;
+
+                  {/* Each letter slides in vertically with stagger */}
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={CYCLE_WORDS[wordIdx]}
+                      style={{
+                        display: "inline-flex",
+                        overflow: "hidden",
+                        fontWeight: 800,
+                        color: "#ffffff",
+                        whiteSpace: "nowrap",
+                      }}
+                      variants={{
+                        enter: { transition: { staggerChildren: 0.045 } },
+                        exit:  { transition: { staggerChildren: 0.03, staggerDirection: -1 } },
+                      }}
+                      initial="enter"
+                      animate="enter"
+                      exit="exit"
+                    >
+                      {CYCLE_WORDS[wordIdx].split("").map((char, i) => (
+                        <motion.span
+                          key={i}
+                          variants={{
+                            enter: {
+                              opacity: [0, 1],
+                              y: [20, 0],
+                              transition: { duration: 0.35, ease: "easeOut" },
+                            },
+                            exit: {
+                              opacity: [1, 0],
+                              y: [0, -20],
+                              transition: { duration: 0.25, ease: "easeIn" },
+                            },
+                          }}
+                          style={{ display: "inline-block" }}
+                        >
+                          {char}
+                        </motion.span>
+                      ))}
+                    </motion.span>
+                  </AnimatePresence>
+
+                  &nbsp;Enthusiast
+                </span>
+              </span>
+            )}
           </motion.p>
 
           {/* ── Status badge ── */}
@@ -164,7 +237,7 @@ export default function Hero() {
               Available for new opportunities
             </span>
           </motion.div>
-          <br/><br/>
+          <br /><br />
 
           {/* ── CTA Buttons ── */}
           <motion.div
@@ -173,7 +246,7 @@ export default function Hero() {
             transition={{ delay: 0.58, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
           >
-            
+
             <a href="#contact" className="btn-secondary" style={{ borderRadius: "8px" }}>
               Let&apos;s Talk <ArrowRight className="w-4 h-4" />
             </a>
@@ -182,7 +255,7 @@ export default function Hero() {
               Download My CV <Download className="w-4 h-4" />
             </a>
           </motion.div>
-          <br/><br/>
+          <br /><br />
 
           {/* ── Stats row ── */}
           <motion.div
