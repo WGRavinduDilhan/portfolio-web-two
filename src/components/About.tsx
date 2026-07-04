@@ -78,12 +78,12 @@ export default function About() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-6 -right-6 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl hidden md:block"
+              className="absolute -top-6 -right-6 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl"
             />
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-6 -left-6 w-20 h-20 border-b-2 border-l-2 border-accent/30 rounded-bl-3xl hidden md:block"
+              className="absolute -bottom-6 -left-6 w-20 h-20 border-b-2 border-l-2 border-accent/30 rounded-bl-3xl"
             />
 
             {/* Location badge */}
