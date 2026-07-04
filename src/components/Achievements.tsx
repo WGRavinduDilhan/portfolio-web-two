@@ -20,7 +20,7 @@ const certifications: Certification[] = [
     issuer: "WSO2",
     date: "06/03/2025",
     location: "Colombo, Sri Lanka",
-    link: "#",
+    link: "https://www.linkedin.com/posts/ravindu-dilhan_devops-linux-aws-activity-7437181154992222208-HByG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFEMaPIBad6qphiRaijIHy1qM9V4s9TXjPs",
     badge: "/WSO2.png",
   },
   {
