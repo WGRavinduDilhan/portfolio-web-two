@@ -48,7 +48,7 @@ export default function Skills() {
           >
             <span className="section-label">Toolchain</span>
             <h2 className="section-title mx-auto text-4xl md:text-5xl lg:text-6xl font-black">
-              DevOps <span className="text-gradient">Toolset</span>
+              Technical <span className="text-gradient">Skills</span>
             </h2>
             <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-3xl leading-relaxed mt-6">
               A comprehensive stack of industry standard tools and technologies I leverage daily
