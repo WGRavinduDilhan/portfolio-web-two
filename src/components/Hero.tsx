@@ -266,7 +266,7 @@ export default function Hero() {
           >
             {[
               { value: "10+", label: "Projects" },
-              { value: "5+", label: "CI/CD Pipelines" },
+              { value: "3+", label: "CI/CD Pipelines" },
             ].map((s, i) => (
               <div key={s.label} className="flex flex-col items-center">
                 <div
