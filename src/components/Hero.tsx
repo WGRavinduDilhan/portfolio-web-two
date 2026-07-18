@@ -251,7 +251,7 @@ export default function Hero() {
               Let&apos;s Talk <ArrowRight className="w-4 h-4" />
             </a>
 
-            <a href="/W.G.R.Dilhan-CV.pdf" download className="btn-primary" style={{ borderRadius: "8px" }}>
+            <a href="/W.G.Ravindu Dilhan CV.pdf" download className="btn-primary" style={{ borderRadius: "8px" }}>
               Download My CV <Download className="w-4 h-4" />
             </a>
           </motion.div>
