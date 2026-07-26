@@ -95,6 +95,13 @@
   margin: 0;
 }
 
+/* Hide default cursor on desktop devices so only CustomCursor shows */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 ::selection {
   background: var(--selection-bg);
   color: var(--foreground);
