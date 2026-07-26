@@ -6,15 +6,15 @@
     --foreground: #FAFAFA;
     --primary: #FFFFFF;
     --primary-hover: #EAEAEA;
-    --accent: #888888;
-    --accent-hover: #999999;
+    --accent: #FFD300;
+    --accent-hover: #E6BE00;
     --card-bg: rgba(20, 20, 20, 0.5);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --selection-bg: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(100, 116, 139, 0.2);
+    --glass-border: rgba(100, 116, 139, 0.25);
+    --selection-bg: rgba(100, 116, 139, 0.3);
     --container-max: 1280px;
     --container-px: 1.5rem;
-    --section-y: clamp(4.75rem, 7vh, 6.75rem);
+    --section-y: clamp(4rem, 10vh, 6rem);
     --section-gap: clamp(1.5rem, 3vh, 2.5rem);
     --nav-offset: clamp(5rem, 7vh, 6rem);
   }
@@ -42,6 +42,7 @@
   --color-card-bg: var(--card-bg);
   --color-border-color: var(--border-color);
   --animate-marquee: marquee 35s linear infinite;
+  --animate-scroll-logs: scroll-logs 100s linear infinite;
 }
 
 /* ─── Site-wide Container ──────────────────────────────────────────── */
@@ -110,7 +111,7 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   position: relative;
   line-height: 1.6;
@@ -124,9 +125,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-    radial-gradient(ellipse at 15% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-    radial-gradient(ellipse at 85% 80%, rgba(200, 200, 200, 0.03) 0%, transparent 40%);
+  background: radial-gradient(circle at center, rgba(255, 211, 0, 0.04) 0%, transparent 60%);
   z-index: -2;
   pointer-events: none;
 }
@@ -170,8 +169,8 @@ body::after {
 
 .glass-hover:hover {
   background: rgba(31, 41, 55, 0.65);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.12);
+  border-color: rgba(255, 211, 0, 0.3);
+  box-shadow: 0 0 40px rgba(255, 211, 0, 0.12);
   transform: translateY(-4px);
 }
 
@@ -180,8 +179,6 @@ body::after {
   background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 50%, #BDBDBD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200% auto;
-  animation: shine 8s linear infinite;
 }
 
 .section-label {
@@ -190,9 +187,10 @@ body::after {
   gap: 0.5rem;
   padding: 0.5rem 1.25rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--foreground);
+  background: rgba(250, 204, 21, 0.05);
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  color: #facc15;
+  font-family: var(--font-jetbrains), monospace;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -201,6 +199,7 @@ body::after {
 }
 
 .section-title {
+  font-family: var(--font-space), sans-serif;
   font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.25;
@@ -323,4 +322,9 @@ body::after {
 
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+@keyframes scroll-logs {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }

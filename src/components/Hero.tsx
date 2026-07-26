@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Download, ArrowDown } from "lucide-react";
 
 // Typewriter config
 const ROLE_PREFIX = "Developer & ";
 const ROLE_SUFFIX = " Enthusiast";
-const CYCLE_WORDS = ["DevOps", "SRE", "DevOps", "SRE"]; // pattern to cycle
+const CYCLE_WORDS = ["DevOps", "SRE", "Cloud"]; // Cleaned array
 const TYPE_DELAY_MS = 900;  // delay before typing starts
 const CHAR_INTERVAL = 60;   // ms per character
 const CYCLE_INTERVAL = 1800; // ms each word stays visible
@@ -89,25 +90,38 @@ export default function Hero() {
 
           {/* ── Big bold name ── */}
           <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.06, y: -6 }}
-            transition={{ delay: 0.25, duration: 0.65 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } }
+            }}
             style={{
               fontFamily: "var(--font-poppins), sans-serif",
-              fontSize: "clamp(2.8rem, 6vw, 4.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.05,
-              letterSpacing: "-0.03em",
+              fontSize: "clamp(2rem, 9vw, 7.5rem)",
+              fontWeight: 900,
+              lineHeight: 1,
+              letterSpacing: "-0.04em",
               color: "#ffffff",
-              marginBottom: "1rem",
+              marginBottom: "1.5rem",
               whiteSpace: "nowrap",
               cursor: "default",
-              display: "inline-block",
-              transformOrigin: "center",
+              display: "flex",
+              justifyContent: "center",
             }}
           >
-            Ravindu Dilhan
+            {"Ravindu Dilhan".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+                style={{ display: "inline-block" }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
           </motion.h1>
 
           {/* ── Role line: typewriter → cycling DevOps/SRE ── */}
@@ -135,14 +149,14 @@ export default function Hero() {
               /* Typewriter phase */
               <span>
                 I&apos;m a{" "}
-                <span style={{ fontWeight: 700, color: "rgba(255,255,255,0.9)" }}>
+                <span style={{ fontWeight: 700, color: "#facc15" }}>
                   {displayed}
                   <span
                     style={{
                       display: "inline-block",
                       width: "2px",
                       height: "1.1em",
-                      background: "rgba(255,255,255,0.8)",
+                      background: "#facc15",
                       marginLeft: "2px",
                       verticalAlign: "text-bottom",
                       borderRadius: "1px",
@@ -156,7 +170,7 @@ export default function Hero() {
               /* Cycling phase — per-character vertical stagger */
               <span style={{ color: "rgba(255,255,255,0.45)" }}>
                 I&apos;m a&nbsp;
-                <span style={{ fontWeight: 700, color: "rgba(255,255,255,0.9)" }}>
+                <span style={{ fontWeight: 700, color: "#facc15" }}>
                   Developer &amp;&nbsp;
 
                   {/* Each letter slides in vertically with stagger */}
@@ -167,7 +181,7 @@ export default function Hero() {
                         display: "inline-flex",
                         overflow: "hidden",
                         fontWeight: 800,
-                        color: "#ffffff",
+                        color: "#facc15",
                         whiteSpace: "nowrap",
                       }}
                       variants={{
@@ -208,6 +222,7 @@ export default function Hero() {
           </motion.p>
 
           {/* ── Status badge ── */}
+          {/* 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -237,6 +252,7 @@ export default function Hero() {
               Available for new opportunities
             </span>
           </motion.div>
+          */}
           <br /><br />
 
           {/* ── CTA Buttons ── */}
@@ -247,9 +263,9 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
           >
 
-            <a href="#contact" className="btn-secondary" style={{ borderRadius: "8px" }}>
+            <Link href="/contact" className="btn-secondary" style={{ borderRadius: "8px" }}>
               Let&apos;s Talk <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
 
             <a href="/W.G.Ravindu Dilhan CV.pdf" download className="btn-primary" style={{ borderRadius: "8px" }}>
               Download My CV <Download className="w-4 h-4" />
@@ -258,6 +274,7 @@ export default function Hero() {
           <br /><br />
 
           {/* ── Stats row ── */}
+          {/*
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -296,22 +313,30 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
+          */}
 
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - Left side floating */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-4 md:bottom-12 left-4 md:left-12 flex flex-col items-center gap-3"
       >
+        <span 
+          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+          className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-2"
+        >
+          Scroll to see more
+        </span>
         <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-white/25 to-transparent"
-        />
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowDown className="w-25 h-30 text-yellow-400 opacity-90" />
+        </motion.div>
       </motion.div>
     </section>
   );

@@ -18,7 +18,7 @@ export default function About() {
   return (
     <section id="about" className="portfolio-section relative overflow-hidden">
       {/* Background Decorative Blob */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="site-container relative z-10">
         <div className="flex flex-col lg:flex-row items-center lg:gap-20 gap-10">
@@ -74,17 +74,6 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>
 
-            {/* Floating corner decorations */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-6 -right-6 w-20 h-20 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-6 -left-6 w-20 h-20 border-b-2 border-l-2 border-accent/30 rounded-bl-3xl"
-            />
 
             {/* Location badge */}
             {/* <div className="absolute -bottom-5 -right-5 glass px-5 py-2.5 rounded-2xl border border-primary/25 shadow-xl z-10">

@@ -95,20 +95,24 @@ export default function Contact() {
     <section id="contact" className="portfolio-section relative overflow-hidden py-24 md:py-32">
       <br /><br />
        {/* Background Decorative Blob */}
-      <div className="absolute -bottom-32 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-32 -left-24 w-96 h-96 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column: Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <span className="section-label text-sm">contact</span>
-            <h2 className="section-title text-4xl md:text-5xl mt-4 mb-6">
+            <motion.h2 
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              animate={{ clipPath: "inset(0% 0 0 0)" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "anticipate" }}
+              className="section-title text-4xl md:text-5xl mt-4 mb-6"
+            >
               Let&apos;s Work Together
-            </h2>
+            </motion.h2>
             <p className="text-lg text-foreground/60 max-w-lg mb-12">
               I&apos;m actively seeking <span className="text-white font-semibold">DevOps & SRE internship</span> opportunities.
               Whether you have a project, role, or just want to connect with me my inbox is always open.
@@ -116,21 +120,21 @@ export default function Contact() {
 
             <div className="space-y-6">
               <br />
-              <a href="mailto:dilhanwgr2002@gmail.com" className="flex items-center gap-4 text-foreground/80 hover:text-white transition-colors">
+              <a href="mailto:dilhanwgr2002@gmail.com" className="flex items-center gap-4 text-foreground/80 hover:text-yellow-400 transition-colors">
                 <Mail className="w-5 h-5 text-white/50"/>
                 <span>dilhanwgr2002@gmail.com</span>
               </a>
               <hr className="border-white/10" />
               <br />
               
-              <a href="https://github.com/WgRavinduDilhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-white transition-colors">
+              <a href="https://github.com/WgRavinduDilhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-yellow-400 transition-colors">
                 <FaGithub className="w-5 h-5 text-white/50"/>
                 <span>github.com/WgRavinduDilhan</span>
               </a>
               <hr className="border-white/10" />
               <br />
               
-              <a href="https://linkedin.com/in/ravindu-dilhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-white transition-colors">
+              <a href="https://linkedin.com/in/ravindu-dilhan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-yellow-400 transition-colors">
                 <FaLinkedin className="w-5 h-5 text-white/50"/>
                 <span>linkedin.com/in/ravindu-dilhan</span>
               </a>
@@ -151,45 +155,45 @@ export default function Contact() {
             <br /><br /><br /><br />
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="fullName" className="text-sm font-medium text-foreground/80 uppercase tracking-wider mb-2 block">Name</label>
+                <label htmlFor="fullName" className="text-sm font-medium text-gray-300 mb-2 block">Name</label>
                 <input
                   type="text"
                   name="fullName"
                   id="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="Your full name"
-                  className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 focus:border-white/30 focus:bg-white/10 outline-none transition-all placeholder:text-foreground/40"
+                  placeholder=""
+                  className="w-full px-4 py-3 rounded-none bg-[#111111] border border-white/10 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-white"
                   disabled={isLoading}
                 />
               </div>
               <br />
 
               <div>
-                <label htmlFor="email" className="text-sm font-medium text-foreground/80 uppercase tracking-wider mb-2 block">Email</label>
+                <label htmlFor="email" className="text-sm font-medium text-gray-300 mb-2 block">Email</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 focus:border-white/30 focus:bg-white/10 outline-none transition-all placeholder:text-foreground/40"
+                  placeholder=""
+                  className="w-full px-4 py-3 rounded-none bg-[#111111] border border-white/10 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all text-white"
                   disabled={isLoading}
                 />
               </div>
               <br />
 
               <div>
-                <label htmlFor="details" className="text-sm font-medium text-foreground/80 uppercase tracking-wider mb-2 block">Message</label>
+                <label htmlFor="details" className="text-sm font-medium text-gray-300 mb-2 block">Message</label>
                 <textarea
                   name="details"
                   id="details"
                   value={formData.details}
                   onChange={handleChange}
                   rows={5}
-                  placeholder="Tell me about your project or opportunity..."
-                  className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/10 focus:border-white/30 focus:bg-white/10 outline-none transition-all resize-none placeholder:text-foreground/40"
+                  placeholder=""
+                  className="w-full px-4 py-3 rounded-none bg-[#111111] border border-white/10 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 outline-none transition-all resize-none text-white"
                   disabled={isLoading}
                 />
               </div>
@@ -221,7 +225,7 @@ export default function Contact() {
                 whileTap={{ scale: isLoading ? 1 : 0.98 }}
                 type="submit"
                 disabled={isLoading || isSubmitted}
-                className="w-full btn-primary bg-cyan-500 hover:bg-cyan-600 text-black justify-center py-4 text-sm font-bold tracking-wide shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all rounded-lg"
+                className="w-full btn-yellow bg-yellow-500 hover:bg-yellow-400 text-black flex items-center justify-center h-13 text-lg font-extrabold tracking-widest shadow-2xl shadow-yellow-500/20 hover:shadow-yellow-500/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all rounded-none uppercase"
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center">

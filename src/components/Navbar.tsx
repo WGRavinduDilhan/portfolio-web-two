@@ -3,87 +3,27 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Education", href: "#education" },
-  { name: "Achievements", href: "#achievements" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Blogs", href: "#blogs" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Achievements", href: "/achievements" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("Home");
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const handleNavClick = (
-    e: React.MouseEvent,
-    href: string,
-    name: string,
-    closeMobile = false
-  ) => {
-    e.preventDefault();
-    setActive(name);
-    if (closeMobile) setMobileOpen(false);
-
-    const el = document.querySelector(href) as HTMLElement | null;
-    if (!el) {
-      // fallback: update hash
-      history.replaceState(null, "", href);
-      return;
-    }
-
-    const header = document.querySelector("header");
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
-
-    const top = window.scrollY + el.getBoundingClientRect().top - headerHeight - 24;
-    window.scrollTo({ top, behavior: "smooth" });
-
-    // update URL hash without jump
-    history.replaceState(null, "", href);
-  };
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
-
-    // Dynamic Intersection Observer to highlight active navbar links automatically on scroll
-    const sections = navLinks.map((link) => document.querySelector(link.href));
-    const observerOptions = {
-      root: null,
-      rootMargin: "-30% 0px -50% 0px", // Triggers active highlight when section occupies viewport center
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          const matchingLink = navLinks.find((link) => link.href === `#${id}`);
-          if (matchingLink) {
-            setActive(matchingLink.name);
-          }
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach((sec) => {
-      if (sec) observer.observe(sec);
-    });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      sections.forEach((sec) => {
-        if (sec) observer.unobserve(sec);
-      });
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -93,18 +33,18 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+          "fixed top-0 left-0 w-full z-50 transition-all duration-500 flex items-center",
           scrolled
-            ? "py-5 bg-background/85 backdrop-blur-xl border-b border-white/[0.06]"
-            : "py-8 bg-transparent"
+            ? "h-[64px] md:h-[80px] bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/[0.06] shadow-2xl"
+            : "h-[72px] md:h-[90px] bg-transparent border border-transparent"
         )}
+        style={{ paddingLeft: "max(1.5rem, 5vw)", paddingRight: "max(1.5rem, 5vw)" }}
       >
-        <div className="site-container flex items-center justify-between">
+        <div className="flex items-center justify-between w-full max-w-7xl mx-auto gap-8">
           {/* Logo */}
           <Link
-            href="#home"
-            onClick={() => setActive("Home")}
-            className="text-2xl md:text-3xl font-black tracking-tight group shrink-0"
+            href="/"
+            className="text-[28px] md:text-[32px] font-black tracking-tight group shrink-0"
           >
             RAVINDU
             <span className="text-primary transition-opacity group-hover:opacity-70">.</span>
@@ -116,19 +56,20 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href, link.name)}
+                onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "relative text-xs font-bold uppercase tracking-wider py-2 transition-colors duration-200",
-                  active === link.name
-                    ? "text-white"
-                    : "text-foreground/60 hover:text-foreground/90"
+                  "relative text-[15px] font-semibold uppercase tracking-wider transition-colors duration-200",
+                  pathname === link.href
+                    ? "text-black"
+                    : "text-foreground/60 hover:text-yellow-400"
                 )}
+                style={{ padding: "10px 32px" }}
               >
                 {link.name}
-                {active === link.name && (
+                {pathname === link.href && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full bg-white"
+                    className="absolute inset-0 w-full h-full bg-white -z-10"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -165,12 +106,12 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href, link.name, true)}
+                    onClick={() => setMobileOpen(false)}
                     className={cn(
                       "text-base font-bold uppercase tracking-widest py-3 px-4 rounded-lg transition-all duration-200",
-                      active === link.name
-                        ? "text-primary bg-primary/10"
-                        : "text-foreground/60 hover:text-foreground hover:bg-white/5"
+                      pathname === link.href
+                        ? "text-yellow-400 bg-yellow-400/10"
+                        : "text-foreground/60 hover:text-yellow-400 hover:bg-yellow-400/5"
                     )}
                   >
                     {link.name}

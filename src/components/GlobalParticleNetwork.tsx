@@ -74,7 +74,7 @@ export default function GlobalParticleNetwork() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(99, 102, 241, 0.65)"; // Vibrant Indigo base
+        ctx.fillStyle = "rgba(255, 255, 255, 0.65)"; // Pure white base
         ctx.fill();
       });
 
@@ -93,7 +93,7 @@ export default function GlobalParticleNetwork() {
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
             const alpha = (1 - dist / 125) * 0.22; // Vibrant global connection alpha
-            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
