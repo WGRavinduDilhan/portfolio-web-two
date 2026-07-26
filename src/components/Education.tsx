@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, Variants } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
 const achievements = [
@@ -12,8 +12,8 @@ const achievements = [
     description:
       "Passed G.C.E. A/L's in Technology Stream. Ranked in the top 27th District rank with 2 A's 1 B.",
     badge: "2 A's 1 B | Z-Score 1.9228",
-    bgFrom: "#7a0a0a",
-    bgTo: "#a01515",
+    bgFrom: "#0f172a",
+    bgTo: "#082f49",
     image: "/BC.png",
     imagePlaceholder: "BCG",
   },
@@ -23,8 +23,9 @@ const achievements = [
     institution: "ESOFT Metro Campus Colombo",
     description:
       "Completed Diploma in Information Technology as a Foundation for IT and Software Engineering. Focused on IT skills and Web Development.",
-    bgFrom: "#09428dff",
-    bgTo: "#516fafff",
+    badge: "Information Technology",
+    bgFrom: "#082f49",
+    bgTo: "#164e63",
     image: "/Esoft.png",
     imagePlaceholder: "ESOFT",
   },
@@ -34,21 +35,22 @@ const achievements = [
     institution: "University of Kelaniya",
     description:
       "Currently following B.Sc.Hons with Specialization in Networking Technology. Active in Open Source communities. Focused on Networking and DevOps and cloud based technologies.",
-    bgFrom: "#68211D",
-    bgTo: "#68211E",
+    badge: "Networking Technology",
+    bgFrom: "#164e63",
+    bgTo: "#0e7490",
     image: "/UOK.png",
     imagePlaceholder: "UoK",
   },
   {
     tag: "Extracurricular",
     title: "B2B Manager",
-    institution: "AIESEC UOK",
+    institution: "AIESEC Colombo North",
     description:
       "Led Partnership and Relationship Management, driving Stakeholder Engagement and Supporting Incoming Global Volunteering Projects growth.",
     badge: "B2B Manager",
-    bgFrom: "#0383E8",
-    bgTo: "#037EF3",
-    image: "/AIESEC.png",
+    bgFrom: "#0e7490",
+    bgTo: "#0891b2",
+    image: "/AIESEC2.png",
     imagePlaceholder: "AIESEC",
   },
   {
@@ -58,138 +60,98 @@ const achievements = [
     description:
       "Successfully completed High Impact 6 month training program balancing academics and cutting-edge Linux Administration & DevOps Engineering skills and completed real world project.",
     badge: "Linux & DevOps",
-    bgFrom: "#FF6F00",
-    bgTo: "#FF6F00",
-    image: "/WSO2.png",
+    bgFrom: "#0891b2",
+    bgTo: "#06b6d4",
+    image: "/WSO2-1.png",
     imagePlaceholder: "WSO2",
   },
 ];
 
-/*
-  Fan deck stacking config:
-  ─────────────────────────
-  Cards are sticky — as you scroll, each successive card slides up and stacks
-  on top of the previous one. When fully stacked they form a fanned deck.
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
 
-  Each card sits at a slightly different top position (STACK_TOP_OFFSET) so the
-  card below "peeks" underneath the one above it.
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
-  The fan rotation/x-offset makes lower cards lean slightly so you can
-  see the deck depth — just like the reference image.
-*/
-const STICKY_TOP = 110;      // px from viewport top for first card
-const STACK_TOP_OFFSET = 30; // px each card peeks below the previous
-const SCROLL_GAP = "28vh";   // scroll distance between each card appearing
-
-// Per-card fan style: bottom cards in the stack get more rotation & x-shift.
-// idx 0 = first card shown (bottom of final pile), idx n-1 = last/top card.
-const FAN_STYLES: { rotate: number; x: number; opacity: number }[] = [
-  { rotate: 0, x: 0, opacity: 0.70 }, // bottom
-  { rotate: 0, x: 0, opacity: 0.78 }, //
-  { rotate: 0, x: 0, opacity: 0.85 }, //
-  { rotate: 0, x: 0, opacity: 0.93 }, // top (front card, nearly opaque)
-];
-
-function EducationCard({
+function TimelineNode({
   item,
   idx,
+  isLast,
 }: {
   item: (typeof achievements)[number];
   idx: number;
+  isLast: boolean;
 }) {
-  const fan = FAN_STYLES[idx] ?? { rotate: 0, x: 0, opacity: 0.9 };
+  const isActive = item.tag?.includes("Present");
 
   return (
-    <div
-      className="sticky w-full"
-      style={{
-        top: `${STICKY_TOP + idx * STACK_TOP_OFFSET}px`,
-        zIndex: 10 + idx,
-        transform: `rotate(${fan.rotate}deg) translateX(${fan.x}px)`,
-        transformOrigin: "bottom center",
-      }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.04 }}
-        whileHover={{
-          y: -8,
-          scale: 1.02,
-          rotate: 0,
-          opacity: 1,
-          zIndex: 50,
-          transition: { duration: 0.25 },
-        }}
-        className="w-full rounded-lg border border-white/20 cursor-pointer"
-        style={{
-          background: `linear-gradient(135deg, ${item.bgFrom}, ${item.bgTo})`,
-          boxShadow: "0 18px 50px rgba(0,0,0,0.50)",
-          opacity: fan.opacity,
-          overflow: "hidden",
-        }}
-      >
-        {/* ── Logo Banner — full-width white area, logo fills it ── */}
-        <div className="w-full h-50 bg-white relative flex items-center justify-center p-4">
+    <div className="relative flex flex-row items-start w-full gap-8 md:gap-12" style={{ marginBottom: isLast ? 0 : 96 }}>
+      {/* Icon Column - fixed 64px */}
+      <div className="w-[64px] shrink-0 flex justify-center z-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+          className={`w-[64px] h-[64px] rounded-full flex items-center justify-center border-2 overflow-hidden bg-[#F3F4F6] ${isActive ? "border-white " : "border-slate-600"
+            }`}
+        >
           {item.image ? (
             <img
               src={item.image}
               alt={item.institution}
-              className="max-h-full max-w-full object-contain"
-              style={{ maxHeight: "160px" }}
+              className={`w-12 h-12 object-contain ${isActive ? "" : "opacity-90"}`}
             />
           ) : (
-            <div className="flex flex-col items-center gap-4 opacity-25">
-              <GraduationCap className="w-16 h-16 text-gray-500" />
-              <span className="text-gray-500 font-black text-base tracking-tight">
-                {item.imagePlaceholder}
+            <GraduationCap className={`w-8 h-8 ${isActive ? "text-black" : "text-gray-500"}`} />
+          )}
+        </motion.div>
+      </div>
+
+      {/* Text Column - Staggered Animations */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="flex flex-col w-full mt-1"
+      >
+        {item.tag && (
+          <motion.span variants={itemVariants} className="text-[15px] uppercase font-medium text-[#9CA3AF] mb-[4px] tracking-wider">
+            {item.tag}
+          </motion.span>
+        )}
+
+        <motion.span variants={itemVariants} className="text-[16px] uppercase font-semibold text-gray-300 tracking-wide mb-[8px]">
+          {item.institution}
+        </motion.span>
+
+        <motion.h3 variants={itemVariants} className="text-[26px] md:text-[30px] font-bold leading-tight mb-[12px] text-white">
+          {item.title}
+        </motion.h3>
+
+        <motion.div variants={itemVariants} className="w-full">
+          <p className="text-white/80 text-[17px] md:text-[18px] leading-relaxed">
+            {item.description}
+          </p>
+          {item.badge && (
+            <div className="mt-[12px]">
+              <span className="text-[14px] font-extrabold uppercase tracking-[0.12em] text-yellow-400 block">
+                {item.badge}
               </span>
             </div>
           )}
-
-          {/* Institution name overlay at banner bottom */}
-          <div
-            className="absolute bottom-0 left-0 right-0 py-2 px-5 flex items-center"
-            style={{ background: "rgba(0,0,0,0.55)" }}
-          >
-            <span className="text-white text-[13px] font-bold uppercase tracking-[0.18em] truncate">
-              {item.institution}
-            </span>
-          </div>
-        </div>
-
-        {/* ── Card Body ── */}
-        <div className="px-8 pb-8 pt-10 flex flex-col gap-2">
-
-          {/* Tag + Badge row */}
-          <div className="flex items-center justify-between gap-12 flex-wrap">
-            {item.tag && (
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/90 bg-white/5 border border-white/20 px-4 py-1.5 rounded-full shadow-sm">
-                {item.tag}
-              </span>
-            )}
-            {item.badge && (
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-white bg-white/5 border border-white/20 px-4 py-1.5 rounded-full shadow-sm">
-                {item.badge}
-              </span>
-            )}
-          </div>
-
-          {/* Title */}
-          <h3 className="text-xl md:text-xl font-black text-white leading-tight tracking-tight mt-1">
-            {item.title}
-          </h3>
-
-          {/* Divider */}
-          <div className="h-px bg-white/15 w-full my-1" />
-
-          {/* Description */}
-          <p className="text-white/85 text-sm md:text-base font-medium leading-relaxed">
-            {item.description}
-          </p>
-        </div>
-
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -197,6 +159,14 @@ function EducationCard({
 
 export default function Education() {
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     /*
@@ -210,7 +180,7 @@ export default function Education() {
       style={{ overflowX: "clip" }}
     >
       {/* Background glow */}
-      <div className="absolute top-1/2 -right-48 w-96 h-96 bg-white/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-48 w-96 h-96 bg-yellow-400/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="site-container relative z-10">
         <div className="grid grid-cols-1 xl:grid-cols-[420px_1fr] gap-12 xl:gap-35 items-start">
@@ -234,50 +204,33 @@ export default function Education() {
             <p className="text-foreground/60 text-base leading-relaxed max-w-xs">
               My educational journey has been defined by a passion for technical
               excellence and continuous learning in IT and DevOps.
-            </p><br></br>
-
-            {/* Institution badge */}
-            <div className="inline-flex items-center gap-4 pl-5 pr-8 py-4 rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[14px] font-black uppercase tracking-widest text-foreground/40">
-                  Institution
-                </span>
-                <span className="text-[13px] text-foreground font-black tracking-widest">
-                  University of Kelaniya&nbsp;&nbsp;&nbsp;&nbsp;
-                </span>
-              </div>
-            </div>
+            </p>
           </motion.div>
 
-          {/* ── Right Stacking Cards Column ── */}
-          {/*
-            marginBottom between cards = SCROLL_GAP (28vh each).
-            paddingBottom on the column = (n-1) * SCROLL_GAP so the section
-            is tall enough to scroll through all cards before moving on.
-          */}
-          <div
-            className="max-w-[510px] w-full pb-0 xl:pb-[calc(3*28vh)]"
-          >
-            {achievements.map((item, idx) => {
-              const isLast = idx === achievements.length - 1;
-              return (
-                <div
-                  key={idx}
-                  style={{ marginBottom: isLast ? 0 : "10rem" }}
-                  className={!isLast ? "xl:[margin-bottom:28vh]" : ""}
-                >
-                  <EducationCard item={item} idx={idx} />
-                </div>
-              );
-            })}
+          {/* ── Right Timeline Column ── */}
+          <div className="relative pt-2 w-full" ref={containerRef}>
+            {/* The Continuous Animated Vertical Line with Glowing Dot */}
+            <div className="absolute top-[64px] bottom-0 left-[31px] w-[2px]">
+              <motion.div
+                style={{ height: lineHeight }}
+                className="relative w-full bg-yellow-400"
+              >
+                {/* Glowing Dot at the bottom of the active line */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[10px] h-[10px] rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,1)]" />
+              </motion.div>
+            </div>
+            {achievements.map((item, idx) => (
+              <TimelineNode
+                key={idx}
+                item={item}
+                idx={idx}
+                isLast={idx === achievements.length - 1}
+              />
+            ))}
           </div>
 
         </div>
       </div>
-      <br /><br/>
     </section>
   );
 }

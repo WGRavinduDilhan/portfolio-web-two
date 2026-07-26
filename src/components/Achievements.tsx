@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server } from "lucide-react";
+import { Award, ExternalLink, ShieldCheck, Database, Cloud, Cpu, Server, CheckCircle2 } from "lucide-react";
 
 type Certification = {
   title: string;
@@ -21,7 +22,7 @@ const certifications: Certification[] = [
     date: "06/03/2025",
     location: "Colombo, Sri Lanka",
     link: "https://www.linkedin.com/posts/ravindu-dilhan_devops-linux-aws-activity-7437181154992222208-HByG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFEMaPIBad6qphiRaijIHy1qM9V4s9TXjPs",
-    badge: "/WSO2.png",
+    badge: "/WSO2-1.png",
   },
   {
     title: "Multicloud Network Associate",
@@ -92,76 +93,73 @@ export default function Achievements() {
   return (
     <section id="achievements" className="portfolio-section relative overflow-hidden">
       {/* Background Decorative Blobs */}
-      <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none animate-pulse duration-[8s]" />
-      <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none animate-pulse duration-[6s]" />
+      <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-[160px] pointer-events-none animate-pulse duration-[8s]" />
+      <div className="absolute -top-48 -right-48 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none animate-pulse duration-[6s]" />
 
       <div className="site-container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="flex flex-col items-center gap-6">
-            <span className="section-label">Achievements</span>
-            <h2 className="section-title text-4xl md:text-5xl lg:text-6xl font-black tracking-tight flex flex-col md:flex-row items-center justify-center gap-4">
-              <span className="text-gradient">Certifications</span>
-            </h2>
-            <p className="section-subtitle max-w-3xl text-center text-xl md:text-2xl text-foreground/70 leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="section-label">Certifications</span>
+            <motion.h2 
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              animate={{ clipPath: "inset(0% 0 0 0)" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "anticipate" }}
+              className="section-title mx-auto text-4xl md:text-5xl lg:text-6xl font-black"
+            >
+              Verified <span className="text-gradient">Achievements</span>
+            </motion.h2>
+            <p className="section-subtitle mx-auto text-center text-xl md:text-2xl text-foreground/70 max-w-2xl leading-relaxed mt-6">
               Validated expertise through industry recognized certification programs and real-world infrastructure engineering.
             </p>
-          </div>
+          </motion.div>
           <br />
         </div>
       </div>
 
       {/* Scrollable Certifications Track */}
       <div className="relative w-full py-8 group/track">
-        {/* Ambient fade shadows on left and right edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-12 md:w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-12 md:w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-20 pointer-events-none" />
-
         {/* Scrollable Track */}
         <div 
           ref={scrollContainerRef}
-          className="flex w-full gap-8 overflow-x-auto snap-x snap-mandatory py-4 relative z-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden before:shrink-0 before:w-4 md:before:w-24 after:shrink-0 after:w-4 md:after:w-24"
+          className="flex w-full gap-8 overflow-x-auto snap-x snap-mandatory py-4 relative z-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] before:shrink-0 before:w-4 md:before:w-24 after:shrink-0 after:w-4 md:after:w-32"
         >
           {certifications.map((cert, idx) => (
-            <div
-              key={idx}
-              className="shrink-0 w-[300px] sm:w-[380px] md:w-[480px] snap-center glass flex flex-col border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden shadow-2xl group cursor-pointer"
-            >
+              <div
+                key={idx}
+              className="shrink-0 w-[300px] sm:w-[380px] md:w-[480px] snap-center glass flex flex-col border border-slate-700/30 hover:border-yellow-500/30 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(255,211,0,0.15)] relative overflow-hidden shadow-2xl group cursor-pointer bg-white/[0.01]"
+              >
               {/* Top — Badge Panel */}
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-white/[0.06] to-white/[0.01] border-b border-white/10 py-14 px-8 overflow-hidden">
-                {/* Ambient glow behind badge */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white/5 rounded-full blur-3xl" />
-
+              <div className="relative flex items-center justify-center bg-[#F8F8F8] border-b border-black/10 h-[200px] w-full p-8 overflow-hidden">
                 {cert.badge ? (
-                  <div className="relative w-48 h-48 z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_6px_32px_rgba(255,255,255,0.18)]">
+                  <div className="relative w-full h-full z-10 drop-shadow-sm">
                     <Image
                       src={cert.badge}
                       alt={`${cert.title} badge`}
                       fill
-                      sizes="192px"
+                      sizes="250px"
                       className="object-contain"
                     />
                   </div>
                 ) : (
-                  <div className="w-20 h-20 z-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/30">
+                  <div className="w-20 h-20 z-10 rounded-full bg-black/5 flex items-center justify-center text-black/30">
                     <span className="text-3xl">🏅</span>
                   </div>
                 )}
 
-                {/* Verified pill — top right corner */}
-                <span className="absolute top-3 right-3 text-[10px] font-black text-white bg-white/10 uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-md border border-white/20 z-10">
+                {/* Verified indicator — top right corner */}
+                <span className="absolute top-4 right-4 text-[10px] font-black text-black uppercase tracking-[0.18em] flex items-center gap-1 z-10">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   Verified
                 </span>
               </div>
 
               {/* Bottom — Info Panel */}
               <div className="flex flex-col flex-1 p-7 gap-4">
-                {/* Title */}
-                <h3 className="text-xl font-black leading-snug text-white/90 group-hover:text-white transition-colors line-clamp-2">
-                  {cert.title}
-                </h3>
-
                 {/* Issuer + location */}
                 {(cert.issuer || cert.location) && (
                   <p className="flex items-center gap-2.5 text-sm text-foreground/70 font-semibold">
@@ -171,8 +169,16 @@ export default function Achievements() {
                   </p>
                 )}
 
+                {/* Title */}
+                <h3 className="text-lg md:text-xl font-black leading-snug text-white/90 group-hover:text-white transition-colors line-clamp-2">
+                  {cert.title}
+                </h3>
+
+                {/* Divider */}
+                <div className="border-b border-white/[0.08] my-2" />
+
                 {/* Footer: date + verify */}
-                <div className="mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between">
+                <div className="mt-auto flex items-center justify-between">
                   <span className="text-foreground/50 font-mono text-xs uppercase tracking-wider">
                     {cert.date || "\u00a0"}
                   </span>
@@ -180,7 +186,7 @@ export default function Achievements() {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-black text-white/70 hover:text-white transition-colors group/link"
+                    className="flex items-center gap-2 text-sm font-black text-yellow-400 hover:text-yellow-300 transition-colors group/link"
                   >
                     Verify Link
                     <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

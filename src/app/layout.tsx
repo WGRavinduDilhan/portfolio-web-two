@@ -1,22 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800", "900"],
+  weight: ["400", "500", "700"],
 });
+
+import Navbar from "@/components/Navbar";
+import DevOpsBackground from "@/components/DevOpsBackground";
+import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
+import CustomCursor from "@/components/CustomCursor";
+import SocialRail from "@/components/SocialRail";
 
 export const metadata: Metadata = {
   title: "Ravindu Dilhan",
@@ -32,9 +41,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} min-h-screen antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} min-h-screen antialiased`}
     >
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col bg-background text-foreground relative">
+        <CustomCursor />
+        <DevOpsBackground />
+        <SocialRail />
+        <Navbar />
+        <PageTransition>
+          <main className="portfolio-page flex-1 flex flex-col relative w-full pt-20">
+            {children}
+          </main>
+        </PageTransition>
+        <Footer />
+      </body>
     </html>
   );
 }
