@@ -88,7 +88,7 @@ const projects = [
     title: "Ecommerce Platform",
     subtitle: "Microservice-Based Store (Ongoing)",
     tech: ["Next.js", "Node.js", "GCP", "MySQL", "GitHub Actions", "Kubernetes", "Docker", "Terraform"],
-    github: "https://github.com/WGRavinduDilhan/ecommerce",
+    github: "https://github.com/WGRavinduDilhan/ecommerce-platform",
     link: "#",
     image: "/Ecom.png",
     category: "FullStack · DevOps",
@@ -223,6 +223,7 @@ export default function Projects() {
                             href={p.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
                             className="w-8 h-8 flex items-center justify-center bg-background/80 backdrop-blur-md rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-300 border border-white/10 hover:border-yellow-400 shadow-xl group/btn"
                           >
                             <ExternalLink className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
