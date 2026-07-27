@@ -95,7 +95,7 @@ const projects = [
   },
   {
     title: "Job Portal",
-    subtitle: "Job Application & Management System (Ongoing)",
+    subtitle: "Job Application & Management System",
     tech: ["Java", "Spring Boot", "MySQL", "Docker","Terraform", "Kubernetes", "AWS","Netdata", "GitHub Actions"],
     github: "https://github.com/WGRavinduDilhan/job-portal",
     link: "#",
