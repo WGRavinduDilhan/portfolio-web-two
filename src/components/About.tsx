@@ -64,7 +64,7 @@ export default function About() {
 
             <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-lg overflow-hidden border border-white/8 shadow-2xl">
               <Image
-                src="/profile3.png"
+                src="/Profile4.png"
                 alt="Ravindu"
                 fill
                 sizes="(max-width: 768px) 288px, 400px"

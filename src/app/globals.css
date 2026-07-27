@@ -230,7 +230,7 @@ body::after {
 }
 
 .btn-primary:hover {
-  @apply bg-primary-hover shadow-white/20 -translate-y-0.5;
+  @apply bg-accent shadow-accent/20 -translate-y-0.5;
 }
 
 .btn-primary:active {

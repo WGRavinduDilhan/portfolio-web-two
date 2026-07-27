@@ -37,7 +37,14 @@ const techIcons: Record<string, string> = {
   "Contabo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
   "Slack": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg",
   "Netdata": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netdata/netdata-original.svg",  
-  "istio": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/istio/istio-plain.svg",  
+  "istio": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/istio/istio-plain.svg",
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  "Gemini API": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+  "MQTT": "https://www.vectorlogo.zone/logos/eclipse/eclipse-icon.svg",
+  "ESP32": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg",
 };
 
 const projects = [
@@ -94,6 +101,24 @@ const projects = [
     link: "#",
     image: "/Job.png",
     category: "FullStack · DevOps",
+  },
+  {
+    title: "Smart Building Management System",
+    subtitle: "IoT Energy Optimization & Automation",
+    tech: ["React", "FastAPI", "MQTT", "ESP32", "Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/dev-dojo-uok/bms-ui",
+    link: "#",
+    image: "/Bms-UI.png",
+    category: "IoT · Embedded Systems",
+  },
+  {
+    title: "ChatBot Service",
+    subtitle: "User Friendly Simple Personal Chat Bot Service",
+    tech: ["Python", "JavaScript", "HTML", "CSS", "Docker","Gemini API"],
+    github: "https://github.com/WGRavinduDilhan/Chatbot-Service",
+    link: "#",
+    image: "/ChatBot.png",
+    category: "FullStack",
   },
 ];
 
