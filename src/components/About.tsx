@@ -62,7 +62,7 @@ export default function About() {
             {/* Glow halo */}
             <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-accent/20 rounded-[3.5rem] blur-2xl opacity-60 group-hover:opacity-90 transition-all duration-1000 animate-pulse" />
 
-            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-lg overflow-hidden border border-white/8 shadow-2xl">
+            <div className="relative w-72 h-72 md:w-[400px] md:h-[400px] rounded-none overflow-hidden border border-white/8 shadow-2xl">
               <Image
                 src="/Profile4.png"
                 alt="Ravindu"
