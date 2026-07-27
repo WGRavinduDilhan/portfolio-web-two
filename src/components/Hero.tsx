@@ -263,11 +263,11 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
           >
 
-            <Link href="/contact" className="btn-secondary" style={{ borderRadius: "8px" }}>
+            <Link href="/contact" className="btn-secondary" style={{ borderRadius: "0px" }}>
               Let&apos;s Talk <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <a href="/W.G.Ravindu Dilhan CV.pdf" download className="btn-primary" style={{ borderRadius: "8px" }}>
+            <a href="/W.G.Ravindu Dilhan CV.pdf" download className="btn-primary" style={{ borderRadius: "0px" }}>
               Download My CV <Download className="w-4 h-4" />
             </a>
           </motion.div>

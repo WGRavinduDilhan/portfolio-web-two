@@ -42,6 +42,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} min-h-screen antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground relative">
         <CustomCursor />
