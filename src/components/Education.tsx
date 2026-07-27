@@ -54,7 +54,7 @@ const achievements = [
     imagePlaceholder: "AIESEC",
   },
   {
-    tag: "Training Program",
+    tag: "Training Program 2025",
     title: "WSO2 Linux Administration & DevOps Engineering",
     institution: "WSO2, Colombo, Sri Lanka",
     description:
@@ -64,6 +64,18 @@ const achievements = [
     bgTo: "#06b6d4",
     image: "/WSO2-1.png",
     imagePlaceholder: "WSO2",
+  },
+  {
+    tag: "Training Program 2025 - Present",
+    title: "KodeKloud Certifications & Practical Labs",
+    institution: "KodeKloud Platform",
+    description:
+      "Completed Linux, Docker, Kubernetes, Git level 1 practical labs and Following 100 Day Devops, AWS & Azure labs and several certifications in DevOps and Cloud Computing.",
+    badge: "Linux & DevOps",
+    bgFrom: "#0891b2",
+    bgTo: "#06b6d4",
+    image: "/Kodekloud.png",
+    imagePlaceholder: "KodeKloud",
   },
 ];
 
