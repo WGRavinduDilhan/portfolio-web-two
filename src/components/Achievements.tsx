@@ -205,7 +205,7 @@ export default function Achievements() {
         <div className="flex justify-center items-center gap-4 sm:gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-foreground/40 select-none">
           <button 
             onClick={scrollLeft}
-            className="w-12 h-12 sm:w-10 sm:h-10 rounded glass bg-white/10 border border-white/20 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
+            className="w-12 h-12 sm:w-10 sm:h-10 glass bg-white/10 border border-white/20 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
             aria-label="Scroll left"
           >
             <span className="text-xl sm:text-lg font-bold">←</span>
@@ -213,7 +213,7 @@ export default function Achievements() {
           <span>Swipe or press to Explore</span>
           <button 
             onClick={scrollRight}
-            className="w-12 h-12 sm:w-10 sm:h-10 rounded glass bg-white/10 border border-white/10 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
+            className="w-12 h-12 sm:w-10 sm:h-10 glass bg-white/10 border border-white/10 hover:border-white/30 hover:bg-white/20 active:scale-90 active:bg-white/30 transition-all cursor-pointer flex items-center justify-center text-white shadow-xl"
             aria-label="Scroll right"
           >
             <span className="text-xl sm:text-lg font-bold">→</span>
