@@ -49,7 +49,7 @@ const techIcons: Record<string, string> = {
 
 const projects = [
   {
-    title: "Salon Aurora",
+    title: "Salon Aurora by WSO2",
     subtitle: "Microservice Salon Appointment Booking System",
     tech: ["AWS", "Terraform", "ArgoCD", "Python", "Next.js", "Ansible", "Docker", "Kubernetes", "Prometheus", "Grafana", "GitHub Actions","istio"],
     github: "https://github.com/WSO2-G02",
