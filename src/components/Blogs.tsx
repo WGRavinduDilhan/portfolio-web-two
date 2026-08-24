@@ -46,6 +46,16 @@ const blogs = [
     link: "https://medium.com/@dilhanwgr2002/full-stack-devops-roadmap-f2cf47e96660",
   },
   {
+    title: "Hands-On Identity & Access Management with WSO2 Asgardeo",
+    excerpt: "Step-by-step guide to implementing secure authentication, authorization, and user management using WSO2’s leading Identity as a Service (IDaaS) platform.",
+    date: "August 24, 2026",
+    readTime: "10 min",
+    image: "/Asgaradio.png",
+    category: "Security",
+    tags: ["Security","Authentication","Authorization"],
+    link: "https://medium.com/@dilhanwgr2002/hands-on-identity-access-management-with-wso2-asgardeo-6cab4bff33b1",
+  },
+  {
     title: "The 9 DevOps Essentials Every Tech Enthusiastic Should Know",
     excerpt: "A comprehensive guide to the foundational concepts and tools required to master modern DevOps and streamline your software delivery.",
     date: "March 24, 2026",
