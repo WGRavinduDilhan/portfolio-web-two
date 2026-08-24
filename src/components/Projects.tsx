@@ -120,6 +120,15 @@ const projects = [
     image: "/ChatBot.png",
     category: "FullStack",
   },
+  {
+    title: "Smart Energy Monitor",
+    subtitle: "Mini IoT Based Smart Energy Monitoring System",
+    tech: ["HTML", "CSS", "JavaScript", "Chart.js", "Supabase", "ESP32", "MQTT"],
+    github: "https://github.com/WGRavinduDilhan/energy-monitor",
+    link: "#",
+    image: "/energyMonitor.png",
+    category: "IoT · Embedded Systems",
+  },
 ];
 
 export default function Projects() {
